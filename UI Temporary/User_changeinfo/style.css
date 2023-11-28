@@ -1,0 +1,6 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  width: 80%;
+  background-color: aqua;
+}
