@@ -10,20 +10,22 @@
     <link rel="stylesheet" href="font-awesome\css\font-awesome.min.css">
 
 </head>
-
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <script>
         $("document").ready(function () {
             $.get("modules/header.html", function (data) {
-                $("body").append(data);
+                $("body").prepend(data);
             });
             $.get("modules/footer.html", function (data) {
-                $("body").prepend(data);
+                $("body").append(data);
             });
         })
     </script>
+    <br>
+    <br>
+    <br>
 </body>
 
 </html>
