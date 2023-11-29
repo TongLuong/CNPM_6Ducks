@@ -52,3 +52,7 @@ input:-khtml-autofill {
   -khtml-text-fill-color: black;
   -khtml-box-shadow: 0 0 0px 1000px white inset;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

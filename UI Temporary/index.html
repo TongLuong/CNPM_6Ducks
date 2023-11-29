@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="header-footer.css" />
-    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="/UI Temporary/src/header-footer.css" />
+    <link rel="stylesheet" href="/UI Temporary/src/global.css" />
     <link rel="stylesheet" href="/UI Temporary/src/main-user.css" />
-    <link rel="stylesheet" href="font-awesome\css\font-awesome.min.css" />
+    <link rel="stylesheet" href="/UI Temporary/font-awesome\css\font-awesome.min.css" />
   </head>
   <body>
     <div class="content">
@@ -61,15 +61,6 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/UI Temporary/context/main-user.js"></script>
-    <script>
-      $("document").ready(function () {
-        $.get("modules/header.html", function (data) {
-          $("body").prepend(data);
-        });
-        $.get("modules/footer.html", function (data) {
-          $("body").append(data);
-        });
-      });
-    </script>
+    <script src="/UI Temporary/context/header-footer.js"></script>
   </body>
 </html>
