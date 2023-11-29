@@ -1,11 +1,4 @@
 $("document").ready(function () {
-  $.get("../modules/header.html", function (data) {
-    $("body").prepend(data);
-  });
-  $.get("../modules/footer.html", function (data) {
-    $("body").append(data);
-  });
-
   $(".hideedit").css("display", "none"); // Initially set the 'hideedit' section to display: none
   $("input, select").prop("readonly", true);
 
