@@ -1,31 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="header-footer.css">
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="font-awesome\css\font-awesome.min.css">
-
-</head>
-<body>
+    <link rel="stylesheet" href="header-footer.css" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="/UI Temporary/src/main-user.css" />
+    <link rel="stylesheet" href="font-awesome\css\font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="information wrapper">
+        <div class="user-info">
+          <div>
+            <img 
+                src="https://images.unsplash.com/photo-1701161594822-3b7af54a14d3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                alt="" 
+                class="avatar"
+            />
+            <div>
+              <p class="username">Bùi Phước Ban</p>
+              <p class="department">Khoa Khoa học và Kĩ thuật Máy tính</p>
+            </div>
+          </div>
+          <span class="page-number">Số trang còn lại: 150/300</span>
+          <div class="bar">
+            <span></span>
+          </div>
+        </div>
+        <div class="group-btn">
+            <button type="button" class="edit-info">Chỉnh sửa thông tin cá nhân</button>
+            <button type="button" class="buy-page">Mua thêm trang</button>
+        </div>
+      </div>
+      <div class="action-bar wrapper">
+        <div class="btn edit-info">
+            <p>Thông tin cá nhân</p>
+        </div>
+        <div class="btn print-history">
+            <p>Lịch sử in ấn</p>
+        </div>
+        <div class="btn printing">
+            <p>In ấn tài liệu</p>
+        </div>
+        <div class="btn buy-page">
+            <p>Mua thêm trang</p>
+        </div>
+        <div class="btn notification">
+            <p>Thông báo</p>
+        </div>
+      </div>
+      <div class="main-image wrapper">
+        <img 
+            src="img/ssps.png"
+            alt=""
+            class="main-img"
+        />
+      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="/UI Temporary/context/main-user.js"></script>
     <script>
-        $("document").ready(function () {
-            $.get("modules/header.html", function (data) {
-                $("body").prepend(data);
-            });
-            $.get("modules/footer.html", function (data) {
-                $("body").append(data);
-            });
-        })
+      $("document").ready(function () {
+        $.get("modules/header.html", function (data) {
+          $("body").prepend(data);
+        });
+        $.get("modules/footer.html", function (data) {
+          $("body").append(data);
+        });
+      });
     </script>
-    <br>
-    <br>
-    <br>
-</body>
-
+  </body>
 </html>
