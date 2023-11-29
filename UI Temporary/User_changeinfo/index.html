@@ -8,12 +8,13 @@
     <!-- Link -->
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="/UI Temporary/User_changeinfo/script.js"></script>
     <link rel="stylesheet" href="/UI Temporary/global.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styleguide.css">
     <link rel="stylesheet" href="/UI Temporary/header-footer.css">
     <link rel="stylesheet" href="/UI Temporary/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -22,10 +23,82 @@
         <div class="wrapper">
             <div class="form">
                 <b style="font-size: 20px;">Thông tin người dùng</b>
-            </div>
+                <div class="table">
+                    <div class="table-left">
+                        <form action="">
+                            <label for="fullname">Họ và tên</label>
+                            <input type="text" id="fullname" name="fullname">
 
+                            <label for="mssv">MSSV</label>
+                            <input type="text" id="mssv" name="mssv">
+
+                            <label for="bdate">Ngày sinh</label>
+                            <input type="date" id="bdate" name="bdate" style=" background-color: #e9e9e9;">
+
+                            <label for="sex">Giới tính</label>
+                            <select id="sex" name="sex" style=" background-color: #e9e9e9;">
+                                <option value="male">Nam</option>
+                                <option value="female">Nữ</option>
+                            </select>
+
+                            <label for="hometown">Quê quán</label>
+                            <input type="text" id="hometown" name="hometown" style=" background-color: #e9e9e9;">
+
+                            <label for="living_place">Nơi ở hiện tại</label>
+                            <input type="text" id="living_place" name="living_place"
+                                style=" background-color: #e9e9e9;">
+
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email">
+
+                            <label for="phone_number">Số điện thoại liên lạc</label>
+                            <input type="text" id="phone_number" name="phone_number"
+                                style=" background-color: #e9e9e9;">
+                        </form>
+                    </div>
+                    <div class="table-right">
+                        <form action="">
+                            <label for="password">Mật khẩu</label>
+                            <input type="password" id="password" name="password" style=" background-color: #e9e9e9;">
+
+                            <label for="deparment">Khoa</label>
+                            <input type="text" id="deparment" name="deparment">
+
+                            <label for="major">Ngành</label>
+                            <input type="text" id="major" name="major">
+
+                            <label for="start-year">Khóa</label>
+                            <input type="text" id="start-year" name="start-year">
+
+                            <label for="end-year">Năm tốt nghiệp (dự kiến)</label>
+                            <input type="text" id="end-year" name="end-year">
+
+                            <label for="state">Tình trạng</label>
+                            <select id="state" name="state" style="color: #0e8704;">
+                                <option value="studying" style="color: black;">Đang học</option>
+                                <option value="state-2" style="color: black;">Tình trạng</option>
+                                <option value="state-3" style="color: black;">Tình trạng</option>
+                            </select>
+
+                            <label for="bank">Ngân hàng liên kết</label>
+                            <select id="bank" name="bank" style=" background-color: #e9e9e9;">
+                                <option value="ocb">Ngân hàng TMCP Phương Đông (OCB)</option>
+                                <option value="bank-2">Ngân hàng 2</option>
+                                <option value="bank-3">Ngân hàng 3</option>
+                            </select>
+
+                            <label for="bank-number">STK ngân hàng</label>
+                            <input type="text" id="bank-number" name="bank-number" style=" background-color: #e9e9e9;">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    </div>
 </body>
+<script>
+
+</script>
 
 </html>
