@@ -14,10 +14,8 @@ $(document).ready(function () {
     $(".page-number").text($(".page-number").text().split(": ")[0] + ": " + y);
     setPerOfBar();
   });
-<<<<<<< Updated upstream
 
   $('.btn.notification p').append(' (2)');
-=======
   //action bar href
   $(".action-bar .edit-info").click(function() {
     $.ajax({
@@ -39,5 +37,4 @@ $(document).ready(function () {
       }
     });
   });
->>>>>>> Stashed changes
 });
