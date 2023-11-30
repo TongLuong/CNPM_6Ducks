@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $(".hideedit").css("display", "none"); // Initially set the 'hideedit' section to display: none
   $("input, select").prop("readonly", true);
+  $("select").attr("disabled", "");
 
   $(".edit").click(function () {
     $(".showedit").css("display", "none");
