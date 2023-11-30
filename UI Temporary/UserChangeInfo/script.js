@@ -1,4 +1,8 @@
 $("document").ready(function () {
+  $(document).ready(function () {
+    $(".edit-info").css("background-color", "#9d9d9d7d");
+  });
+
   $(".hideedit").css("display", "none"); // Initially set the 'hideedit' section to display: none
   $("input, select").prop("readonly", true);
 

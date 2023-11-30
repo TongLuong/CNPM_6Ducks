@@ -9,7 +9,6 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 17px;
-
   margin-bottom: 30px;
 }
 
@@ -44,7 +43,7 @@
   border-radius: 5px;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  background: rgba(45, 165, 243, 0.31);
+  background: rgba(45, 165, 243, 1);
 }
 
 .print-log .log-table .name {
