@@ -14,4 +14,6 @@ $(document).ready(function () {
     $(".page-number").text($(".page-number").text().split(": ")[0] + ": " + y);
     setPerOfBar();
   });
+
+  $('.btn.notification p').append(' (2)');
 });
