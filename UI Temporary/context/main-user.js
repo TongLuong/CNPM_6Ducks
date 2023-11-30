@@ -14,6 +14,30 @@ $(document).ready(function () {
     $(".page-number").text($(".page-number").text().split(": ")[0] + ": " + y);
     setPerOfBar();
   });
+<<<<<<< Updated upstream
 
   $('.btn.notification p').append(' (2)');
+=======
+  //action bar href
+  $(".action-bar .edit-info").click(function() {
+    $.ajax({
+      url: "/UI Temporary/UserChangeInfo/index.html",
+      success: function (response) {
+        $.getScript("/UI Temporary/UserChangeInfo/script.js", function () {
+          $(".action").html(response);
+        });
+      }
+    });
+  });
+  $(".action-bar .print-history").click(function() {
+    $.ajax({
+      url: "/UI Temporary/UserPrintingHistory/index.html",
+      success: function (response) {
+        $.getScript("/UI Temporary/context/printer-log.js", function () {
+          $(".action").html(response);
+        });
+      }
+    });
+  });
+>>>>>>> Stashed changes
 });
