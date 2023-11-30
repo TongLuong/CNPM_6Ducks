@@ -1,5 +1,4 @@
 .print-log {
-  margin-top: 20px;
   display: block;
 }
 
@@ -54,4 +53,12 @@
 
 .print-log .log-table .status {
   padding-right: 10px;
+}
+
+.status.wait {
+  color: #f98131;
+}
+
+.status.done {
+  color: #0c8c01;
 }
