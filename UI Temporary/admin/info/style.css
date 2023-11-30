@@ -79,7 +79,7 @@ label {
   margin-top: 3px;
 }
 
-.button-section .done {
+.done {
   background-color: #1488db33;
   border-radius: 2px;
   border: 2px solid;
@@ -88,7 +88,7 @@ label {
   cursor: pointer;
 }
 
-.button-section .cancel {
+.cancel {
   background-color: #ff000033;
   border-radius: 2px;
   border: 2px solid;
@@ -131,8 +131,4 @@ label {
   width: 42%;
   height: 121px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adjust as needed */
-}
-
-input[type="password" i] {
-  font-family: "Josefin Sans";
 }

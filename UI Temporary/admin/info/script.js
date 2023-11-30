@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$("document").ready(function () {
   $(".hideedit").css("display", "none"); // Initially set the 'hideedit' section to display: none
   $("input, select").prop("readonly", true);
 
@@ -23,18 +23,5 @@ $(document).ready(function () {
     $(".hideedit").css("display", "none");
     $(".showedit").css("display", "block");
     $("input, select").prop("readonly", true);
-  });
-
-  $(".toggle-password").click(function () {
-    var passwordInput = document.getElementById("password");
-    var toggleButton = document.querySelector(".toggle-password");
-
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-      toggleButton.textContent = "Hide";
-    } else {
-      passwordInput.type = "password";
-      toggleButton.textContent = "Show";
-    }
   });
 });
