@@ -32,7 +32,12 @@
 
 .print-table .right {
   flex: 1;
-  background-color: antiquewhite;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid;
+  border-color: #00000033;
+  height: fit-content;
 }
 
 .left .up {
@@ -59,10 +64,12 @@
 }
 
 .down-box {
-  border: 1px solid;
+  border: 2px solid;
   border-color: #000000;
   margin: 10px;
   height: 88%;
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .upload {
@@ -71,3 +78,70 @@
   padding: 10px;
   border-radius: 3px;
 }
+
+.building {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  & img {
+    text-align: center;
+    width: 50%;
+  }
+
+  & span {
+    display: block;
+    text-align: center;
+  }
+}
+
+select,
+option {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 5px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid;
+  border-color: var(--gray-100);
+  font-weight: 600;
+}
+
+label {
+  font-weight: 600;
+  margin: 50px 0;
+}
+
+.input-container {
+  position: relative;
+  width: 100%; /* Adjust as needed */
+}
+
+.sum-page {
+  margin-top: 10px;
+  text-align: right;
+
+  & .print {
+    background-color: #1488db33;
+    border-radius: 2px;
+    border: 2px solid;
+    border-color: var(--secondary-500);
+    color: #2ca4f3;
+    margin: 0 6px;
+  }
+  & .cancel {
+    background-color: #ff000033;
+    border-radius: 2px;
+    border: 2px solid;
+    border-color: #ff000085;
+    color: #ff3636;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
