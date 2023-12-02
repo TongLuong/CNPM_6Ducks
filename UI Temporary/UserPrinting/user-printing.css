@@ -37,7 +37,7 @@
   border-radius: 5px;
   border: 2px solid;
   border-color: #00000033;
-  height: fit-content;
+  height: max-content;
 }
 
 .left .up {
@@ -68,8 +68,13 @@
   border-color: #000000;
   margin: 10px;
   height: 88%;
+}
+
+.down-box .building-wrapper {
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .upload {
@@ -107,17 +112,10 @@ option {
   border-radius: 2px;
   border: 1px solid;
   border-color: var(--gray-100);
-  font-weight: 600;
 }
 
 label {
-  font-weight: 600;
-  margin: 50px 0;
-}
-
-.input-container {
-  position: relative;
-  width: 100%; /* Adjust as needed */
+  font-size: 15px;
 }
 
 .sum-page {
@@ -145,3 +143,66 @@ button {
   cursor: pointer;
 }
 
+select {
+  height: 35px;
+}
+
+select:focus {
+  outline-color: rgba(20, 136, 219, 0.7);
+}
+
+.down-box .printer-list {
+  height: 88%;
+}
+.printer-list {
+  overflow: scroll;
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 25px;
+}
+
+.printer-list {
+  overflow: scroll;
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 25px;
+}
+
+.printer-list .item {
+  width: 75px;
+  height: max-content;
+  margin: 25px auto 0 auto;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  & span,
+  & img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.printer-list .item:hover {
+  border: 1px solid rgba(0, 0, 0, 0.9);
+}
+
+.cant-choose {
+  color: rgb(204, 201, 201);
+  user-select: none;
+}
+
+.printer-pick {
+  margin: 78px 20px;
+  height: calc(100% - 78px - 78px);
+  display: none;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.printer-info {
+  margin: auto 0;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 500;
+}
