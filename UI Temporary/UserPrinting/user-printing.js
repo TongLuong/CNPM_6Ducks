@@ -79,7 +79,7 @@ $(document).ready(function () {
         // Nếu có, không thực hiện hàm và thoát
         return;
       }
-      
+
       $(".printer-list").css("display", "none");
       $(".printer-pick").css("display", "flex");
 
@@ -90,5 +90,12 @@ $(document).ready(function () {
 
       $("#choose").text(text);
     });
+  });
+
+  $(".print").click(function () {
+    $(".modal").css("display", "block");
+  });
+  $("#btn-done").click(function () {
+    $(".modal").css("display", "none");
   });
 });

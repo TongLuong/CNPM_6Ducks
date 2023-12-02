@@ -58,9 +58,12 @@
       <h1 class="header">In ấn tài liệu</h1>
       <div class="print-table">
         <div class="left">
-          <div class="up">
-            <button class="upload"> <i class="fa fa-upload" aria-hidden="true"></i>
-              Tải file</button>
+          <div class="up" id="show-name">
+            <input type="file" id="file" style="display:none;" onchange="updateFileName(this)" />
+            <button class="upload" id="uploadButton" value="Upload" onclick="thisFileUpload();">
+              <i class="fa fa-upload" aria-hidden="true"></i>
+              Tải file
+            </button>
           </div>
           <div class="down">
             Chọn máy in
@@ -133,7 +136,7 @@
                   <p>
                     Số trang của máy: <span style="color: #0c8c01;">1500</span>
                   </p>
-                  <p>Mực máy: <span style="color: #f98131;">84%</span></p> 
+                  <p>Mực máy: <span style="color: #f98131;">84%</span></p>
                 </div>
               </div>
             </div>
@@ -191,11 +194,35 @@
             </select>
             <div class="sum-page">
               Tổng số trang: 8/160
-              <button class="print">In tài liệu</button>
+              <button form="" class="print">In tài liệu</button>
               <button class="cancel">Hủy</button>
             </div>
           </form>
         </div>
+      </div>
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span style="
+            font-weight: 600;
+            color: #1488db;
+            font-size: 16px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+          ">
+          Thông báo
+        </span>
+        <span style="
+            font-weight: 500;
+            color: #000000;
+            font-size: 16px;
+            margin-bottom: 20px;
+          ">
+          Đã gửi yêu cầu in ấn. Xin chờ tới khi tài liệu được in xong.
+        </span>
+        <button id="btn-done" style="width: 56px; height: 29px">
+          Xong
+        </button>
       </div>
     </div>
   </div>
@@ -203,8 +230,16 @@
   <script src="/UI Temporary/context/main-user.js"></script>
   <script src="/UI Temporary/context/header-footer.js"></script>
   <script src="user-printing.js"></script>
+  <script>
+    function thisFileUpload() {
+      document.getElementById("file").click();
+    };
 
-
+    function updateFileName(inputElement) {
+      var fileName = inputElement.files[0].name;
+      document.getElementById("show-name").textContent = fileName;
+    };
+  </script>
 </body>
 
 </html>
