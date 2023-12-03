@@ -58,6 +58,13 @@ body {
   line-height: 17px;
 }
 
+.nav .right .login {
+  color: #001aa0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 17px;
+}
+
 .nav .right div {
   cursor: pointer;
 }
