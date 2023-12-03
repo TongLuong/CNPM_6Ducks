@@ -97,5 +97,14 @@ $(document).ready(function () {
   });
   $("#btn-done").click(function () {
     $(".modal").css("display", "none");
+    $(".printer-pick").css("display", "none");
+    $(".down-box .building-wrapper").css("display", "grid");
+    // Reset the "show-name" div to its initial state
+    document.getElementById("show-name").innerHTML = `
+          <input type="file" id="file" style="display:none;" onchange="updateFileName(this)" />
+          <button class="upload" id="uploadButton" value="Upload" onclick="thisFileUpload();">
+              <i class="fa fa-upload" aria-hidden="true"></i>
+              Tải file
+          </button>`;
   });
 });
