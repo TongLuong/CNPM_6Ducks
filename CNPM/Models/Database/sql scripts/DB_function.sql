@@ -34,14 +34,14 @@ begin
 	insert into [Notification] values(@user_id,default,N'Tài liệu '+@file_name+N' của bạn đang được in')
 end
 go
-
+--drop function check_login
 create function check_login(
 @username varchar(100),
 @pwd varchar(1000)
 )
 returns bit as
 begin
-	if not exists (select * from [User] where  email = @username + '@hcmut.edu.vn' and pwd = @pwd)
+	if not exists (select * from [User] where  email = @username + '@hcmut.edu.vn' and pwd = @pwd and [status] = 'Actived')
 		return 'False'
 	return 'True'
 end
