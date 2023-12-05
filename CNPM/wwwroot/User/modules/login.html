@@ -1,0 +1,275 @@
+<style>
+    .login-modal {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    input[type=password]::-ms-reveal,
+    input[type=password]::-ms-clear {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .login-box {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-box h2 {
+        margin: 0 0 15px;
+        padding: 0;
+        color: #333;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .user-box {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .user-box input {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 2px solid #333;
+        outline: none;
+        background: transparent;
+    }
+
+    .user-box label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #333;
+        pointer-events: none;
+        transition: 0.5s;
+    }
+
+    .user-box input:focus~label,
+    .user-box input:valid~label {
+        transform: translateY(-20px);
+        font-size: 14px;
+        color: #333;
+    }
+
+    .login-box a {
+        display: inline-block;
+        background-color: #333;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        transition: 0.5s;
+        letter-spacing: 2px;
+        border-radius: 5px;
+    }
+
+    .login-box a:hover {
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #333;
+    }
+
+    .login-box a span {
+        position: absolute;
+        display: block;
+    }
+
+    .login-box a span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        animation: animate1 1s linear infinite;
+    }
+
+    @keyframes animate1 {
+        0% {
+            left: -100%;
+        }
+
+        50%,
+        100% {
+            left: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background-color: #333;
+        animation: animate2 1s linear infinite;
+        animation-delay: 0.25s;
+    }
+
+    @keyframes animate2 {
+        0% {
+            top: -100%;
+        }
+
+        50%,
+        100% {
+            top: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        animation: animate3 1s linear infinite;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes animate3 {
+        0% {
+            right: -100%;
+        }
+
+        50%,
+        100% {
+            right: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background-color: #333;
+        animation: animate4 1s linear infinite;
+        animation-delay: 0.75s;
+    }
+
+    @keyframes animate4 {
+        0% {
+            bottom: -100%;
+        }
+
+        50%,
+        100% {
+            bottom: 100%;
+        }
+    }
+
+    .password-toggle-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .password-toggle-icon i {
+        font-size: 18px;
+        line-height: 1;
+        color: #333;
+        transition: color 0.3s ease-in-out;
+        margin-bottom: 20px;
+    }
+
+    .password-toggle-icon i:hover {
+        color: #000;
+    }
+
+
+    .button-section {
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    #in {
+        background-color: #1488db33;
+    }
+
+    #cancel {
+        background-color: #ff000033;
+    }
+</style>
+
+<div class="login-modal">
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form action="" method="post">
+                <div class="user-box">
+                    <input type="text" name="" required="" />
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="" id="password" required="" />
+                    <label>Password</label>
+                    <span class="password-toggle-icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                </div>
+                <p style="text-align: center; color: red;">Tài khoản của bạn đã bị cấm. <br /> Xin hãy đăng nhập bằng
+                    tài khoản khác.</p>
+                <div class="button-section">
+                    <a href="#" id="in">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Đăng nhập
+                    </a>
+                    <a href="#" id="cancel">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Hủy
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    const passwordField = document.getElementById("password");
+    const togglePassword = document.querySelector(".password-toggle-icon i");
+
+    togglePassword.addEventListener("click", function () {
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            togglePassword.classList.remove("fa-eye");
+            togglePassword.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            togglePassword.classList.remove("fa-eye-slash");
+            togglePassword.classList.add("fa-eye");
+        }
+    }); 
+</script>

@@ -24,9 +24,9 @@ $(document).ready(function () {
   //action bar href
   $(".action-bar .edit-info, .information .edit-info").click(function () {
     $.ajax({
-      url: "/UI Temporary/UserChangeInfo/index.html",
+      url: "~/User/UserChangeInfo/index.html",
       success: function (response) {
-        $.getScript("/UI Temporary/UserChangeInfo/user-change-info.js", function () {
+        $.getScript("~/User/UserChangeInfo/user-change-info.js", function () {
           $(".action").html(response);
         });
       },
@@ -34,9 +34,9 @@ $(document).ready(function () {
   });
   $(".action-bar .print-history").click(function () {
     $.ajax({
-      url: "/UI Temporary/UserPrintingHistory/index.html",
+      url: "~/User/UserPrintingHistory/index.html",
       success: function (response) {
-        $.getScript("/UI Temporary/context/printer-log.js", function () {
+        $.getScript("~/User/context/printer-log.js", function () {
           $(".action").html(response);
         });
       },
@@ -44,9 +44,9 @@ $(document).ready(function () {
   });
   $(".action-bar .printing").click(function () {
     $.ajax({
-      url: "/UI Temporary/UserPrinting/index.html",
+      url: "~/User/UserPrinting/index.html",
       success: function (response) {
-        $.getScript("/UI Temporary/context/user-printing.js", function () {
+        $.getScript("~/User/context/user-printing.js", function () {
           $(".action").html(response);
         });
       },
@@ -54,7 +54,7 @@ $(document).ready(function () {
   });
   $(".action-bar .notification").click(function () {
     $.ajax({
-      url: "/UI Temporary/UserNotification/index.html",
+      url: "~/User/UserNotification/index.html",
       success: function (response) {
         $(".action").html(response);
       },
@@ -62,7 +62,7 @@ $(document).ready(function () {
   });
   $(".action-bar .buy-page, .information .buy-page").click(function () {
     $.ajax({
-      url: "/UI Temporary/UserBuyPage/index.html",
+      url: "~/User/UserBuyPage/index.html",
       success: function (response) {
         $(".action").html(response);
       },

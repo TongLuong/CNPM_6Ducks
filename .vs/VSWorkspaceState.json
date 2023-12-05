@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CNPM",
+    "\\CNPM\\Views",
+    "\\CNPM\\Views\\User",
+    "\\CNPM\\Views\\User\\HomepageNoUser",
+    "\\CNPM\\wwwroot",
+    "\\CNPM\\wwwroot\\User",
+    "\\CNPM\\wwwroot\\User\\context",
+    "\\CNPM\\wwwroot\\User\\modules",
+    "\\CNPM\\wwwroot\\User\\src"
   ],
-  "SelectedNode": "\\CNPM.sln",
+  "SelectedNode": "\\CNPM\\wwwroot\\User\\src\\user-printing.css",
   "PreviewInSolutionExplorer": false
 }
