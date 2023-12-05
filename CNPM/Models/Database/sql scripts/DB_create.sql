@@ -94,5 +94,3 @@ create table page_setting(
 )
 
 alter table [User] add constraint FK_user_transID foreign key (transaction_id) references Transaction_info(transaction_id)
-alter table [User] alter column enrolled_year drop not null
-alter table [User] alter column graduate_year drop not null
