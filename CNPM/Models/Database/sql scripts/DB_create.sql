@@ -12,9 +12,9 @@ create table [User] (
 	email varchar(100) not null check(email like '%@hcmut.edu.vn') unique,
 	phone_number varchar(10) not null check(phone_number not like '%[^0-9]' and len(phone_number) = 10) unique,
 	faculty nvarchar(1000) not null,
-	major nvarchar(1000) not null,
-	enrolled_year int not null check(enrolled_year between 1957 and cast(year(getdate()) as int)),
-	graduate_year int not null ,
+	--major nvarchar(1000) not null,
+	enrolled_year int check(enrolled_year between 1957 and cast(year(getdate()) as int)),
+	graduate_year int ,
 	pwd varchar(1000) not null,
 	[status] varchar(1000) not null default 'Actived' check([status] = 'Actived' or [status] = 'Banned'),
 	transaction_id  varchar(16) not null,
@@ -94,3 +94,5 @@ create table page_setting(
 )
 
 alter table [User] add constraint FK_user_transID foreign key (transaction_id) references Transaction_info(transaction_id)
+alter table [User] alter column enrolled_year drop not null
+alter table [User] alter column graduate_year drop not null
