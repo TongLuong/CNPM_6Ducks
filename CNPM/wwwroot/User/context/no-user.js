@@ -13,8 +13,9 @@ $("document").ready(function () {
     $("#cancel").click(function () {
       $(".login-modal").css("display", "none");
     });
-    $("#in").click(function () {
-      location.href = "HomePage";
+      $("#in").click(function () {
+          document.getElementById("loginForm").submit();
+        //location.href = "HomePage";
     });
   });
 });
