@@ -1,188 +1,139 @@
-@{
+﻿@{
     Layout = null;
 }
 
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage</title>
-    <link rel="stylesheet" href="/User/src/header-footer.css" />
-    <link rel="stylesheet" href="/User/src/global.css" />
-    <link rel="stylesheet" href="/User/src/main-user.css" />
-    <link rel="stylesheet" href="/User/src/user-buypage.css" />
-    <link rel="stylesheet" href="/User/font-awesome/css/font-awesome.min.css" />
-</head>
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
 
-<body>
-    <div class="content">
-        <div class="information wrapper">
-            <div class="~/User-info">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1701161594822-3b7af54a14d3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                         alt="" class="avatar" />
-                    <div>
-                        <p class="~/Username">Bùi Phước Ban</p>
-                        <p class="department">Khoa Khoa học và Kĩ thuật Máy tính</p>
-                    </div>
-                </div>
-                <span class="page-number">Số trang còn lại: 150/300</span>
-                <div class="bar">
-                    <span></span>
-                </div>
-            </div>
-            <div class="group-btn">
-                <button type="button" class="edit-info">
-                    Chỉnh sửa thông tin cá nhân
-                </button>
-                <button type="button" class="buy-page">Mua thêm trang</button>
-            </div>
+    .buy-table .left {
+        position: relative;
+    }
+
+    .buy-table .left span {
+        position: absolute;
+        right: 25px;
+        bottom: 35px;
+    }
+</style>
+
+<div class="user-buypage wrapper">
+    <h1 class="header">Mua thêm trang</h1>
+    <div class="buy-table">
+        <div class="left">
+            <h1 class="header">Chọn số trang</h1>
+            <label for="page-number">Số trang</label>
+            <input type="number" name="page-number" id="page-number" placeholder="Nhập số trang">
+            <span>Đơn giá 500đ/trang</span>
         </div>
-        <div class="action-bar wrapper">
-            <div class="btn edit-info">
-                <p>Thông tin cá nhân</p>
+        <div class="right">
+            <h1 class="header">Phương thức thanh toán</h1>
+            <span style="font-size: 15px; font-weight: 500;">
+                Thanh toán qua BKPay
+            </span>
+            <div class="choose-bank">
+                <span style="font-weight: 500;">Chọn tài khoản thanh toán</span>
+                <select id="account" name="account">
+                    <option selected disabled>Tài khoản thanh toán</option>
+                    <option value="acc-1" style="color: black">OCB - 0004100029187372 - 15.000đ</option>
+                    <option value="acc-2" style="color: black">OCB - 098788273 - 1.238.000đ</option>
+                </select>
+
+                <div class="line"></div>
             </div>
-            <div class="btn print-history">
-                <p>Lịch sử in ấn</p>
-            </div>
-            <div class="btn printing">
-                <p>In ấn tài liệu</p>
-            </div>
-            <div class="btn buy-page">
-                <p>Mua thêm trang</p>
-            </div>
-            <div class="btn notification">
-                <p>Thông báo</p>
+            <div class="sum-page">
+                <span>Tổng số tiền thanh toán:</span>
+                <span class="sum"></span>
+                <button onclick="resetSelect()" form="" class="pay">Thanh toán</button>
+                <button onclick="resetSelect()" class="cancel">Hủy</button>
             </div>
         </div>
     </div>
-    <div class="content action">
-        <div class="user-buypage wrapper">
-            <h1 class="header">Mua thêm trang</h1>
-            <div class="buy-table">
-                <div class="left">
-                    <h1 class="header">Chọn số trang</h1>
-                    <label for="page-number">Số trang</label>
-                    <input type="text" name="page-number" id="page-number"
-                           placeholder="Nhập số trang                                                  Đơn giá 500đ/trang">
-
-                    <h1 class="header">Các combo trang in tiết kiệm</h1>
-                    <form action="">
-
-                        <label>
-                            <input class="check" style="width: 18px; height: 18px;" type="checkbox" name="silver" value="on" id="silver">
-                            Combo Bạc (200 trang in + tặng thêm 20 trang in)
-                        </label>
-                        <div class="combo-save">
-                            <div class="save">Tiết kiệm 10.000đ</div>
-                            <div class="save-money">100.000đ</div>
-                        </div>
-
-                        <label>
-                            <input class="check" style="width: 18px; height: 18px;" type="checkbox" name="gold" value="on" id="gold">
-                            Combo Vàng (300 trang in + tặng thêm 40 trang in)
-                        </label>
-                        <div class="combo-save">
-                            <div class="save">Tiết kiệm 20.000đ</div>
-                            <div class="save-money">150.000đ</div>
-                        </div>
-                        <label>
-                            <input class="check" style="width: 18px; height: 18px;" type="checkbox" name="plantinum" value="on"
-                                   id="plantinum">
-                            Combo Bạch Kim (500 trang in + tặng thêm 80 trang in)
-                        </label>
-                        <div class="combo-save">
-                            <div class="save">Tiết kiệm 40.000đ</div>
-                            <div class="save-money">250.000đ</div>
-                        </div>
-                        <label>
-                            <input class="check" style="width: 18px; height: 18px;" type="checkbox" name="silver" value="on" id="silver">
-                            Combo Kim Cương (1000 trang in + tặng thêm 200 trang in)
-                        </label>
-                        <div class="combo-save">
-                            <div class="save">Tiết kiệm 100.000đ</div>
-                            <div class="save-money">500.000đ</div>
-                        </div>
-                    </form>
-                </div>
-                <div class="right">
-                    <h1 class="header">Phương thức thanh toán</h1>
-                    <span style="font-size: 15px; font-weight: 500;">
-                        Thanh toán qua BKPay
-                    </span>
-                    <div class="choose-bank">
-                        <span style="font-weight: 500;">Chọn tài khoản thanh toán</span>
-                        <select id="account" name="account">
-                            <option selected disabled>Tài khoản thanh toán</option>
-                            <option value="acc-1" style="color: black">OCB - 0004100029187372 - 15.000đ</option>
-                            <option value="acc-2" style="color: black">OCB - 098788273 - 1.238.000đ</option>
-                        </select>
-
-                        <div class="line"></div>
-                    </div>
-                    <div class="sum-page">
-                        Tổng số tiền thanh toán: 250.000đ
-                        <button onclick="resetSelect()" form="" class="pay">Thanh toán</button>
-                        <button onclick="resetSelect()" class="cancel">Hủy</button>
-                    </div>
-                </div>
-            </div>
+    <div class="btn-group">
+        <button type="button" id="view-buying-log">Xem lịch sử mua hàng</button>
+    </div>
+</div>
+<div class="user-buying-log wrapper">
+    <h1>Lịch sử giao dịch</h1>
+    <div class="main">
+        <div class="field">
+            <p>Mã giao dịch</p>
+            <p>Thời gian</p>
+            <p>Số trang</p>
+            <p>Tổng tiền</p>
         </div>
-        <div class="modal" id="modal">
-            <div class="modal-content">
-                <span style="
+        <div class="result">
+            <p>1GDS23</p>
+            <p>10:42 - 1/11/2023</p>
+            <p>20</p>
+            <p>10.000đ</p>
+
+            <p>1GDS23</p>
+            <p>10:42 - 1/11/2023</p>
+            <p>20</p>
+            <p>10.000đ</p>
+
+            <p>1GDS23</p>
+            <p>10:42 - 1/11/2023</p>
+            <p>20</p>
+            <p>10.000đ</p>
+
+            <p>1GDS23</p>
+            <p>10:42 - 1/11/2023</p>
+            <p>20</p>
+            <p>10.000đ</p>
+
+            <p>1GDS23</p>
+            <p>10:42 - 1/11/2023</p>
+            <p>20</p>
+            <p>10.000đ</p>
+
+            <p>1GDS23</p>
+            <p>10:42 - 1/11/2023</p>
+            <p>20</p>
+            <p>10.000đ</p>
+
+            <p>1GDS23</p>
+            <p>10:42 - 1/11/2023</p>
+            <p>20</p>
+            <p>10.000đ</p>
+
+            <p>1GDS23</p>
+            <p>10:42 - 1/11/2023</p>
+            <p>20</p>
+            <p>10.000đ</p>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span style="
             font-weight: 600;
             color: #1488db;
             font-size: 16px;
             margin-bottom: 20px;
             margin-top: 10px;
           ">
-                    Thông báo
-                </span>
-                <span style="
+            Thông báo
+        </span>
+        <span style="
             font-weight: 500;
             color: #000000;
             font-size: 16px;
             margin-bottom: 20px;
           ">
-                    Thanh toán thành công
-                </span>
-                <button id="btn-done" style="width: 56px; height: 29px">
-                    Xong
-                </button>
-            </div>
-        </div>
+            Thanh toán thành công
+        </span>
+        <button id="btn-done" style="width: 56px; height: 29px">
+            Xong
+        </button>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="/User/context/main-user.js"></script>
-    <script src="/User/context/header-footer.js"></script>
-    <script>
-        $(".pay").click(function () {
-            $(".modal").css("display", "block");
-        });
-        $("#btn-done").click(function () {
-            $(".modal").css("display", "none");
-            $('input[type="checkbox"]').prop('checked', false);
-        });
-        $(".cancel").click(function () {
-            $('input[type="checkbox"]').prop('checked', false);
-            $('select').prop('checked', false);
-        });
-
-        let checkboxes = document.querySelectorAll('.check');
-        checkboxes.forEach(function (checkbox) {
-            checkbox.addEventListener('change', function () {
-                checkboxes.forEach(function (c) {
-                    if (c !== checkbox) c.checked = false;
-                });
-            });
-        });
-        function resetSelect() {
-            document.getElementById('account').selectedIndex = 0;
-        }
-    </script>
-</body>
-
-</html>
+</div>

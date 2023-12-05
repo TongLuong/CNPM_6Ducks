@@ -3,173 +3,173 @@
 }
 
 <div class="user-printing wrapper">
-  <h1 class="header">In ấn tài liệu</h1>
-  <div class="print-table">
-    <div class="left">
-      <div class="up" id="show-name">
-        <input type="file" id="file" style="display:none;" onchange="updateFileName(this)" />
-        <button class="upload" id="uploadButton" value="Upload" onclick="thisFileUpload();">
-          <i class="fa fa-upload" aria-hidden="true"></i>
-          Tải file
-        </button>
-      </div>
-      <div class="down">
-        Chọn máy in
-        <div class="down-box">
-          <div class="building-wrapper">
-            <div class="building" id="1">
-              <img draggable="false" src="/User/img/building.png" alt="">
-              <span>H1</span>
+    <h1 class="header">In ấn tài liệu</h1>
+    <div class="print-table">
+        <div class="left">
+            <div class="up" id="show-name">
+                <input type="file" id="file" style="display:none;" onchange="updateFileName(this)" />
+                <button class="upload" id="uploadButton" value="Upload" onclick="thisFileUpload();">
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                    Tải file
+                </button>
             </div>
-            <div class="building" id="2">
-              <img draggable="false" src="/User/img/building.png" alt="">
-              <span id="2">H2</span>
+            <div class="down">
+                Chọn máy in
+                <div class="down-box">
+                    <div class="building-wrapper">
+                        <div class="building" id="1">
+                            <img draggable="false" src="/User/img/building.png" alt="">
+                            <span>H1</span>
+                        </div>
+                        <div class="building" id="2">
+                            <img draggable="false" src="/User/img/building.png" alt="">
+                            <span id="2">H2</span>
+                        </div>
+                        <div class="building" id="3">
+                            <img draggable="false" src="/User/img/building.png" alt="">
+                            <span id="">H3</span>
+                        </div>
+                        <div class="building" id="6">
+                            <img draggable="false" src="/User/img/building.png" alt="">
+                            <span id="">H6</span>
+                        </div>
+                    </div>
+                    <div class="printer-list">
+                        <div class="left-col">
+                            <div class="item cant-choose">
+                                <img src="/User/img/printer.png" alt="" />
+                                <span>H6 - 107</span>
+                            </div>
+                            <div class="item">
+                                <img src="/User/img/printer.png" alt="" />
+                                <span>H6 - 107</span>
+                            </div>
+                            <div class="item">
+                                <img src="/User/img/printer.png" alt="" />
+                                <span>H6 - 107</span>
+                            </div>
+                            <div class="item">
+                                <img src="/User/img/printer.png" alt="" />
+                                <span>H6 - 107</span>
+                            </div>
+                        </div>
+                        <div class="right-col">
+                            <div class="item">
+                                <img src="/User/img/printer.png" alt="" />
+                                <span>H6 - 107</span>
+                            </div>
+                            <div class="item">
+                                <img src="/User/img/printer.png" alt="" />
+                                <span>H6 - 107</span>
+                            </div>
+                            <div class="item">
+                                <img src="/User/img/printer.png" alt="" />
+                                <span>H6 - 107</span>
+                            </div>
+                            <div class="item">
+                                <img src="/User/img/printer.png" alt="" />
+                                <span>H6 - 107</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="printer-pick">
+                        <div class="item" style="margin: auto 0;">
+                            <img style="width: 80%;" src="/User/admin/img/printer.svg" alt="" />
+                            <span id="choose">H6 - 107</span>
+                        </div>
+                        <div class="printer-info">
+                            <p>
+                                Tình trạng máy: <span style="color: #0c8c01;">Sẵn sàng</span>
+                            </p>
+                            <p>
+                                Số trang của máy: <span style="color: #0c8c01;">1500</span>
+                            </p>
+                            <p>Mực máy: <span style="color: #f98131;">84%</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="building" id="3">
-              <img draggable="false" src="/User/img/building.png" alt="">
-              <span id="">H3</span>
-            </div>
-            <div class="building" id="6">
-              <img draggable="false" src="/User/img/building.png" alt="">
-              <span id="">H6</span>
-            </div>
-          </div>
-          <div class="printer-list">
-            <div class="left-col">
-              <div class="item cant-choose">
-                <img src="/User/img/printer.png" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/User/img/printer.png" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/User/img/printer.png" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/User/img/printer.png" alt="" />
-                <span>H6 - 107</span>
-              </div>
-            </div>
-            <div class="right-col">
-              <div class="item">
-                <img src="/User/img/printer.png" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/User/img/printer.png" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/User/img/printer.png" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/User/img/printer.png" alt="" />
-                <span>H6 - 107</span>
-              </div>
-            </div>
-          </div>
-          <div class="printer-pick">
-            <div class="item" style="margin: auto 0;">
-              <img style="width: 80%;" src="/User/admin/img/printer.svg" alt="" />
-              <span id="choose">H6 - 107</span>
-            </div>
-            <div class="printer-info">
-              <p>
-                Tình trạng máy: <span style="color: #0c8c01;">Sẵn sàng</span>
-              </p>
-              <p>
-                Số trang của máy: <span style="color: #0c8c01;">1500</span>
-              </p>
-              <p>Mực máy: <span style="color: #f98131;">84%</span></p>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="right">
-      <header style="font-size: 25px; margin: 10px 0;">Định dạng in</header>
-      <form style="text-align: left; padding: 10px;" action="">
+        <div class="right">
+            <header style="font-size: 25px; margin: 10px 0;">Định dạng in</header>
+            <form style="text-align: left; padding: 10px;" action="">
 
-        <label for="print-method">Số mặt in</label>
-        <select id="print-method" name="print-method">
-          <option value="1">1 mặt</option>
-          <option value="2">2 mặt</option>
-        </select>
+                <label for="print-method">Số mặt in</label>
+                <select id="print-method" name="print-method">
+                    <option value="1">1 mặt</option>
+                    <option value="2">2 mặt</option>
+                </select>
 
-        <label for="ver-hor">Hướng in</label>
-        <select id="ver-hor" name="ver-hor">
-          <option value="Ver">Dọc</option>
-          <option value="Hor">Ngang</option>
-        </select>
+                <label for="ver-hor">Hướng in</label>
+                <select id="ver-hor" name="ver-hor">
+                    <option value="Ver">Dọc</option>
+                    <option value="Hor">Ngang</option>
+                </select>
 
-        <label for="size">Cỡ giấy</label>
-        <select id="size" name="size">
-          <option value="a1">A1</option>
-          <option value="a2">A2</option>
-          <option value="a3">A3</option>
-          <option value="a4">A4</option>
-          <option value="a5">A5</option>
-        </select>
+                <label for="size">Cỡ giấy</label>
+                <select id="size" name="size">
+                    <option value="a1">A1</option>
+                    <option value="a2">A2</option>
+                    <option value="a3">A3</option>
+                    <option value="a4">A4</option>
+                    <option value="a5">A5</option>
+                </select>
 
-        <label for="page-select">Trang cần in</label>
-        <select id="page-select" name="page-select">
-          <option value="all">Toàn bộ</option>
-        </select>
+                <label for="page-select">Trang cần in</label>
+                <select id="page-select" name="page-select">
+                    <option value="all">Toàn bộ</option>
+                </select>
 
-        <label for="color">In màu</label>
-        <select id="color" name="color">
-          <option value="yes">Có</option>
-          <option value="no">Không</option>
-        </select>
+                <label for="color">In màu</label>
+                <select id="color" name="color">
+                    <option value="yes">Có</option>
+                    <option value="no">Không</option>
+                </select>
 
-        <label for="pages-in-one">Số trang trên 1 mặt</label>
-        <select id="pages-in-one" name="pages-in-one">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="4">4</option>
-          <option value="8">8</option>
-        </select>
+                <label for="pages-in-one">Số trang trên 1 mặt</label>
+                <select id="pages-in-one" name="pages-in-one">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                </select>
 
-        <label for="margin">Căn lề</label>
-        <select id="margin" name="margin">
-          <option value="default">Mặc định</option>
-          <option value="narrow">Hẹp</option>
-          <option value="wide">Rộng</option>
-        </select>
-        <div class="sum-page">
-          Tổng số trang: 8/160
-          <button form="" class="print">In tài liệu</button>
-          <button class="cancel">Hủy</button>
+                <label for="margin">Căn lề</label>
+                <select id="margin" name="margin">
+                    <option value="default">Mặc định</option>
+                    <option value="narrow">Hẹp</option>
+                    <option value="wide">Rộng</option>
+                </select>
+                <div class="sum-page">
+                    Tổng số trang: 8/160
+                    <button form="" class="print">In tài liệu</button>
+                    <button class="cancel">Hủy</button>
+                </div>
+            </form>
         </div>
-      </form>
     </div>
-  </div>
 </div>
 <div class="modal" id="modal">
-  <div class="modal-content">
-    <span style="
+    <div class="modal-content">
+        <span style="
             font-weight: 600;
             color: #1488db;
             font-size: 16px;
             margin-bottom: 20px;
             margin-top: 10px;
           ">
-      Thông báo
-    </span>
-    <span style="
+            Thông báo
+        </span>
+        <span style="
             font-weight: 500;
             color: #000000;
             font-size: 16px;
             margin-bottom: 20px;
           ">
-      Đã gửi yêu cầu in ấn. Xin chờ tới khi tài liệu được in xong.
-    </span>
-    <button id="btn-done" style="width: 56px; height: 29px">
-      Xong
-    </button>
-  </div>
+            Đã gửi yêu cầu in ấn. Xin chờ tới khi tài liệu được in xong.
+        </span>
+        <button id="btn-done" style="width: 56px; height: 29px">
+            Xong
+        </button>
+    </div>
 </div>
