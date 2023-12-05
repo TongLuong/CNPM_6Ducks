@@ -99,7 +99,7 @@ select {
   font-size: 14px;
 }
 
-label {
+label .page-number {
   font-weight: 600;
   display: flex;
   align-items: center;

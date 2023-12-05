@@ -1,3 +1,12 @@
+function thisFileUpload() {
+  document.getElementById("file").click();
+}
+
+function updateFileName(inputElement) {
+  var fileName = inputElement.files[0].name;
+  document.getElementById("show-name").textContent = fileName;
+}
+
 $(document).ready(function () {
   // Danh sách giá trị cho mỗi id
   var values_1 = [

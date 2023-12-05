@@ -1,71 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./src/header-footer.css" />
-    <link rel="stylesheet" href="./src/global.css" />
-    <link rel="stylesheet" href="./src/main-user.css" />
-    <link rel="stylesheet" href="./UserChangeInfo/style.css" />
-    <link rel="stylesheet" href="./src/print-log.css">
-    <link
-      rel="stylesheet"
-      href="/UI Temporary/font-awesome\css\font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <div class="content">
-      <div class="information wrapper">
-        <div class="user-info">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/header-footer.css" />
+  <link rel="stylesheet" href="./src/global.css" />
+  <link rel="stylesheet" href="./src/main-user.css" />
+  <link rel="stylesheet" href="./UserChangeInfo/style.css" />
+  <link rel="stylesheet" href="./src/print-log.css">
+  <link rel="stylesheet" href="./UserNotification/user-noti.css" />
+  <link rel="stylesheet" href="./UserPrinting/user-printing.css" />
+  <link rel="stylesheet" href="./UserBuyPage/user-buypage.css" />
+
+  <link rel="stylesheet" href="/UI Temporary/font-awesome\css\font-awesome.min.css" />
+</head>
+
+<body>
+  <div class="content">
+    <div class="information wrapper">
+      <div class="user-info">
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1701161594822-3b7af54a14d3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="" class="avatar" />
           <div>
-            <img
-              src="https://images.unsplash.com/photo-1701161594822-3b7af54a14d3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              class="avatar"
-            />
-            <div>
-              <p class="username">Bùi Phước Ban</p>
-              <p class="department">Khoa Khoa học và Kĩ thuật Máy tính</p>
-            </div>
-          </div>
-          <span class="page-number">Số trang còn lại: 150/300</span>
-          <div class="bar">
-            <span></span>
+            <p class="username">Bùi Phước Ban</p>
+            <p class="department">Khoa Khoa học và Kĩ thuật Máy tính</p>
           </div>
         </div>
-        <div class="group-btn">
-          <button type="button" class="edit-info">
-            Chỉnh sửa thông tin cá nhân
-          </button>
-          <button type="button" class="buy-page">Mua thêm trang</button>
+        <span class="page-number">Số trang còn lại: 150/300</span>
+        <div class="bar">
+          <span></span>
         </div>
       </div>
-      <div class="action-bar wrapper">
-        <div class="btn edit-info">
-          <p>Thông tin cá nhân</p>
-        </div>
-        <div class="btn print-history">
-          <p>Lịch sử in ấn</p>
-        </div>
-        <div class="btn printing">
-          <p>In ấn tài liệu</p>
-        </div>
-        <div class="btn buy-page">
-          <p>Mua thêm trang</p>
-        </div>
-        <div class="btn notification">
-          <p>Thông báo</p>
-        </div>
+      <div class="group-btn">
+        <button type="button" class="edit-info">
+          Chỉnh sửa thông tin cá nhân
+        </button>
+        <button type="button" class="buy-page">Mua thêm trang</button>
       </div>
     </div>
-    <div class="content action">
-      <div class="main-image wrapper">
-        <img src="img/ssps.png" alt="" class="main-img" />
+    <div class="action-bar wrapper">
+      <div class="btn edit-info">
+        <p>Thông tin cá nhân</p>
+      </div>
+      <div class="btn print-history">
+        <p>Lịch sử in ấn</p>
+      </div>
+      <div class="btn printing">
+        <p>In ấn tài liệu</p>
+      </div>
+      <div class="btn buy-page">
+        <p>Mua thêm trang</p>
+      </div>
+      <div class="btn notification">
+        <p>Thông báo</p>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="./context/main-user.js"></script>
-    <script src="./context/header-footer.js"></script>
-  </body>
+  </div>
+  <div class="content action">
+    <div class="main-image wrapper">
+      <img src="img/ssps.png" alt="" class="main-img" />
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./context/main-user.js"></script>
+  <script src="./context/header-footer.js"></script>
+  <script src="/UI Temporary/UserPrinting/user-printing.js"></script>
+</body>
+
 </html>

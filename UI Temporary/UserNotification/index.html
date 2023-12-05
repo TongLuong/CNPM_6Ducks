@@ -1,127 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="/UI Temporary/src/header-footer.css" />
-  <link rel="stylesheet" href="/UI Temporary/src/global.css" />
-  <link rel="stylesheet" href="/UI Temporary/src/main-user.css" />
-  <link rel="stylesheet" href="user-noti.css" />
-  <link rel="stylesheet" href="/UI Temporary/font-awesome\css\font-awesome.min.css" />
-</head>
-
-<body>
-  <div class="content">
-    <div class="information wrapper">
-      <div class="user-info">
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1701161594822-3b7af54a14d3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="" class="avatar" />
-          <div>
-            <p class="username">Bùi Phước Ban</p>
-            <p class="department">Khoa Khoa học và Kĩ thuật Máy tính</p>
-          </div>
-        </div>
-        <span class="page-number">Số trang còn lại: 150/300</span>
-        <div class="bar">
-          <span></span>
-        </div>
-      </div>
-      <div class="group-btn">
-        <button type="button" class="edit-info">
-          Chỉnh sửa thông tin cá nhân
-        </button>
-        <button type="button" class="buy-page">Mua thêm trang</button>
-      </div>
+<div class="user-noti wrapper">
+  <h1 class="header">Thông báo</h1>
+  <div class="log-table">
+    <div class="item title">
+      <p class="notification">Nội dung thông báo</p>
+      <p class="time">Thời gian</p>
     </div>
-    <div class="action-bar wrapper">
-      <div class="btn edit-info">
-        <p>Thông tin cá nhân</p>
-      </div>
-      <div class="btn print-history">
-        <p>Lịch sử in ấn</p>
-      </div>
-      <div class="btn printing">
-        <p>In ấn tài liệu</p>
-      </div>
-      <div class="btn buy-page">
-        <p>Mua thêm trang</p>
-      </div>
-      <div class="btn notification">
-        <p>Thông báo</p>
-      </div>
+    <div class="item log-item wait">
+      <p class="notification">Bạn đã nạp thành công combo Bạch Kim (500 + 80 trang) - Phí 250.000đ</p>
+      <p class="time">10:42 - 1/11/2023 (0 phút trước)</p>
     </div>
-    <div class="user-noti wrapper">
-      <h1 class="header">Thông báo</h1>
-      <div class="log-table">
-        <div class="item title">
-          <p class="notification">Nội dung thông báo</p>
-          <p class="time">Thời gian</p>
-        </div>
-        <div class="item log-item wait">
-          <p class="notification">Bạn đã nạp thành công combo Bạch Kim (500 + 80 trang) - Phí 250.000đ</p>
-          <p class="time">10:42 - 1/11/2023 (0 phút trước)</p>
-        </div>
-        <div class="item log-item wait">
-          <p class="notification">“Lab_7_Wireshark_802.11_v8.0.pdf” đã được in xong (H6 - 107)</p>
-          <p class="time">10:40 - 1/11/2023 (2 phút trước)</p>
-        </div>
-        <div class="item log-item">
-          <p class="notification">“DSA231_Assignment_1” đã được in xong (H6 - 107)</p>
-          <p class="time">9:24 - 31/10/2023 (1 ngày trước)</p>
-        </div>
-        <div class="item log-item">
-          <p class="notification">“Lab_4b_Wireshark_DHCP_v8.0” đã được in xong (H3 - 101)</p>
-          <p class="time">8:23 - 30/10/2023 (2 ngày trước)</p>
-        </div>
-        <div class="item log-item">
-          <p class="notification">“Van kien Dai hoi XIII tap 1” đã được in xong (H6 - 107)</p>
-          <p class="time">7:12 - 30/10/2023 (2 ngày trước)</p>
-        </div>
-        <div class="item log-item">
-          <p class="notification">“2021_MT_KHM_CNPM” đã được in xong (H3 - 101)</p>
-          <p class="time">8:13 - 28/10/2023 (4 ngày trước)</p>
-        </div>
-        <div class="item log-item">
-          <p class="notification">“C.Mác và Ăngghen toàn tập (tập 33)” đã được in xong (H6 - 107)</p>
-          <p class="time">9:41 - 26/10/2023 (6 ngày trước)</p>
-        </div>
-      </div>
-      <div style="text-align: right;">
-        <button class="mark-done" id="mark-done">Đánh dấu tất cả là đã đọc</button>
-      </div>
+    <div class="item log-item wait">
+      <p class="notification">“Lab_7_Wireshark_802.11_v8.0.pdf” đã được in xong (H6 - 107)</p>
+      <p class="time">10:40 - 1/11/2023 (2 phút trước)</p>
+    </div>
+    <div class="item log-item">
+      <p class="notification">“DSA231_Assignment_1” đã được in xong (H6 - 107)</p>
+      <p class="time">9:24 - 31/10/2023 (1 ngày trước)</p>
+    </div>
+    <div class="item log-item">
+      <p class="notification">“Lab_4b_Wireshark_DHCP_v8.0” đã được in xong (H3 - 101)</p>
+      <p class="time">8:23 - 30/10/2023 (2 ngày trước)</p>
+    </div>
+    <div class="item log-item">
+      <p class="notification">“Van kien Dai hoi XIII tap 1” đã được in xong (H6 - 107)</p>
+      <p class="time">7:12 - 30/10/2023 (2 ngày trước)</p>
+    </div>
+    <div class="item log-item">
+      <p class="notification">“2021_MT_KHM_CNPM” đã được in xong (H3 - 101)</p>
+      <p class="time">8:13 - 28/10/2023 (4 ngày trước)</p>
+    </div>
+    <div class="item log-item">
+      <p class="notification">“C.Mác và Ăngghen toàn tập (tập 33)” đã được in xong (H6 - 107)</p>
+      <p class="time">9:41 - 26/10/2023 (6 ngày trước)</p>
     </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="/UI Temporary/context/main-user.js"></script>
-  <script src="/UI Temporary/context/header-footer.js"></script>
-  <script src="user-noti.js"></script>
+  <div style="text-align: right;">
+    <button class="mark-done" id="mark-done">Đánh dấu tất cả là đã đọc</button>
+  </div>
+</div>
 
-  <script>
-    $(document).ready(function () {
-      $('.btn.notification').css('background-color', '#9d9d9d7d');
+<script>
+  $(document).ready(function () {
+    $(".log-table").height(10 * $(".item").height() + 80 + "px");
+  });
+  $(document).ready(function () {
+  //   $('.btn.notification').css('background-color', '#9d9d9d7d');
 
-      var done = document.getElementsByClassName('log-item');
-      var mark_done = document.getElementById("mark-done")
-      for (var i = 0; i < done.length; i++) {
-        done[i].style.color = '#191c1e99';
-      }
+    var done = document.getElementsByClassName('log-item');
+    var mark_done = document.getElementById("mark-done")
+    for (var i = 0; i < done.length; i++) {
+      done[i].style.color = '#191c1e99';
+    }
 
-      var wait = document.getElementsByClassName('wait');
+    var wait = document.getElementsByClassName('wait');
+    for (var i = 0; i < wait.length; i++) {
+      wait[i].style.color = 'black';
+    }
+
+    mark_done.onclick = function () {
       for (var i = 0; i < wait.length; i++) {
-        wait[i].style.color = 'black';
+        wait[i].style.color = '#191c1e99';
       }
-
-      mark_done.onclick = function () {
-        for (var i = 0; i < wait.length; i++) {
-          wait[i].style.color = '#191c1e99';
-        }
-      }
-    });
-  </script>
+    }
+  });
+</script>
 </body>
 
 </html>

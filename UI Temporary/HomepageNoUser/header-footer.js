@@ -8,13 +8,13 @@ $("document").ready(function () {
   $.get("login.html", function (data) {
     $("body").prepend(data);
     $(".login").click(function () {
-      $(".login-modal").css("display", "flex")
+      $(".login-modal").css("display", "flex");
     });
     $("#cancel").click(function () {
-      $(".login-modal").css("display", "none")
-    })
+      $(".login-modal").css("display", "none");
+    });
     $("#in").click(function () {
-      location.href = "/UI Temporary/UserHomepage/index.html"
-    })
+      location.href = "/UI Temporary/index.html";
+    });
   });
 });
