@@ -1,0 +1,128 @@
+body {
+  text-align: left;
+}
+
+.managesystem {
+  display: block;
+  height: max-content;
+  padding-top: 0;
+}
+
+h1 {
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 17px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 35px;
+}
+
+.main > div {
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.detail form {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.detail form > div {
+  position: relative;
+}
+
+.detail form span {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  color: #001aa0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 0 10px;
+  margin: 5px 0;
+  height: 35px;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid;
+  border-color: var(--gray-100);
+  font-weight: 500;
+}
+
+.detail form label {
+  left: 0;
+  top: -14px;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.chart {
+  display: grid;
+  grid-template-rows: max-content max-content 1fr;
+  gap: 30px;
+}
+
+.chart h2 {
+  color: #000;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.chart span {
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.btn-group {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.btn-group button {
+  border-radius: 2px;
+  padding: 5px 10px;
+  margin-block: 20px 0;
+}
+
+#done {
+  border: 2px solid var(--secondary-500, #2da5f3);
+  background: rgba(20, 136, 219, 0.2);
+  color: var(--secondary-500, #2da5f3);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px; /* 107.143% */
+  letter-spacing: 0.168px;
+}
+#cancel {
+  border: 2px solid #f00;
+  background: rgba(255, 0, 0, 0.31);
+  color: #f32d2d;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px; /* 107.143% */
+  letter-spacing: 0.168px;
+}

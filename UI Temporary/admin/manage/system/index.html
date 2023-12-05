@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="/UI Temporary/font-awesome/css/font-awesome.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
@@ -55,64 +56,82 @@
       </div>
     </div>
     <div class="content action">
-      <div class="manageprinter wrapper">
-        <h1>Quản lí máy in</h1>
+      <div class="managesystem wrapper">
+        <h1>Cài đặt hệ thống</h1>
         <div class="main">
-          <div class="choose choose-building">
-            <h1>Chọn máy in</h1>
-            <div class="list building-list">
-              <div class="left">
-                <div class="item">
-                  <img src="/UI Temporary/admin/img/building.svg" alt="" />
-                  <span>H1</span>
-                </div>
-                <div class="item">
-                  <img src="/UI Temporary/admin/img/building.svg" alt="" />
-                  <span>H2</span>
-                </div>
+          <div class="detail">
+            <form action="" method="post">
+              <div>
+                <input
+                  type="text"
+                  name="default-number-page"
+                  id="default-number-page"
+                />
+                <label for="default-number-page">Số trang mặc định</label>
+                <span id="edit">Sửa</span>
               </div>
-              <div class="right">
-                <div class="item">
-                  <img src="/UI Temporary/admin/img/building.svg" alt="" />
-                  <span>H3</span>
-                </div>
-                <div class="item">
-                  <img src="/UI Temporary/admin/img/building.svg" alt="" />
-                  <span>H6</span>
-                </div>
+              <div>
+                <input
+                  type="text"
+                  name="time-to-reset"
+                  id="default-number-page"
+                />
+                <label for="default-number-page"
+                  >Thời gian reset số trang mặc định</label
+                >
+                <span id="edit">Sửa</span>
               </div>
-            </div>
-            <div class="btn-group"></div>
+              <div>
+                <input
+                  type="text"
+                  name="default-number-page"
+                  id="default-number-page"
+                />
+                <label for="default-number-page">Đơn giá trang thêm</label>
+                <span id="edit">Sửa</span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="default-number-page"
+                  id="default-number-page"
+                />
+                <label for="default-number-page"
+                  >Số trang được phép in tối đa/lần</label
+                >
+                <span id="edit">Sửa</span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="default-number-page"
+                  id="default-number-page"
+                />
+                <label for="default-number-page"
+                  >Các loại file được phép in</label
+                >
+                <span id="edit">Sửa</span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="default-number-page"
+                  id="default-number-page"
+                />
+                <label for="default-number-page"
+                  >Hình thức khóa tài khoản</label
+                >
+                <span id="edit">Sửa</span>
+              </div>
+            </form>
           </div>
-          <div class="property">
-            <h1>Thông tin máy in</h1>
-            <div class="property-list">
-              <div>
-                <input type="text" id="printer-name" name="printer-name" />
-                <label for="printer-name">Tên máy in</label>
-                <span>Sửa</span>
-              </div>
-              <div>
-                <input type="text" id="firm" name="firm" />
-                <label for="firm">Hãng</label>
-              </div>
-              <div>
-                <input type="text" id="status" name="status" />
-                <label for="status">Trạng thái</label>
-              </div>
-              <div>
-                <input type="text" id="remain-page" name="remain-page" />
-                <label for="remain-page">Lượng giấy còn lại</label>
-              </div>
-              <div>
-                <input type="text" id="remain-ink" name="remain-ink" />
-                <label for="remain-ink">Lượng mực còn lại</label>
-              </div>
-              <div>
-                <input type="text" id="used-page" name="used-page" />
-                <label for="used-page">Số trang đã in</label>
-              </div>
-            </div>  
+          <div class="chart">
+            <h2>Thống kê hệ thống</h2>
+            <div>
+              <span>Tổng số lượt in: 1049s</span> <br />
+              <span>Tổng số trang đã in: 20128 </span>
+            </div>
+            <canvas id="myChart"></canvas>
           </div>
         </div>
         <div class="btn-group">
@@ -126,6 +145,5 @@
     <script src="/UI Temporary/admin/js/header-footer.js"></script>
     <script src="./script.js"></script>
     <script src="/UI Temporary/admin/js/href.js"></script>
-    <!-- <script src="./printer-list.js"></script> -->
   </body>
 </html>
