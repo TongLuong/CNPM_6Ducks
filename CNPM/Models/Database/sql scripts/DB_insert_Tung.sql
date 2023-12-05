@@ -47,12 +47,12 @@ values
 
 insert into Feedback([user_id],printer_id,detail,rating,time_create)
 values
-('2119876',100000001,'Máy in bị lỗi thường xuyên, cần được bảo trì',1,'2023-09-22'),
-('2115432',100000002,'Máy in hay bị thiếu mực',1,'2023-10-12'),
-('2119876',100000003,'Thời gian sửa chữa máy in lâu',1,'2023-09-22'),
-('2117654',100000002,'Văn bản của máy in bị lỗi, cần sửa chữa',2,'2023-09-22'),
-('2115432',100000002,'Sử dụng máy in này làm mất thời gian vì in không đúng yêu cầu',3,'2023-09-22'),
-('2110987',100000004,'Máy in hay bị thiếu giấy, cần được chú ý hơn',4,'2023-11-25'),
-('2110987',100000005,'Máy in sử dụng tốt',5,'2023-12-01');
+('2119876',100000001,N'Máy in bị lỗi thường xuyên, cần được bảo trì',1,'2023-09-22'),
+('2115432',100000002,N'Máy in hay bị thiếu mực',1,'2023-10-12'),
+('2119876',100000003,N'Thời gian sửa chữa máy in lâu',1,'2023-09-22'),
+('2117654',100000002,N'Văn bản của máy in bị lỗi, cần sửa chữa',2,'2023-09-22'),
+('2115432',100000002,N'Sử dụng máy in này làm mất thời gian vì in không đúng yêu cầu',3,'2023-09-22'),
+('2110987',100000004,N'Máy in hay bị thiếu giấy, cần được chú ý hơn',4,'2023-11-25'),
+('2110987',100000000,N'Máy in sử dụng tốt',5,'2023-12-01');
 
 insert into page_setting values(default,default)
