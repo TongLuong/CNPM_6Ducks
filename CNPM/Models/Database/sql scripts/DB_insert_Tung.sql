@@ -55,4 +55,4 @@ values
 ('2110987',100000004,N'Máy in hay bị thiếu giấy, cần được chú ý hơn',4,'2023-11-25'),
 ('2110987',100000000,N'Máy in sử dụng tốt',5,'2023-12-01');
 
-insert into page_setting values(default,default)
+insert into page_setting values(default,default,default)

@@ -39,12 +39,14 @@ create table [Printer] (
 	[floor] int not null check ([floor] >= 0),
 	brand nvarchar(50) not null,
 	[des] nvarchar(50) not null default N'Không có mô tả',
-	currentState nvarchar(50) not null check(currentState = N'Sẵn sàng' or currentState = N'Đang chờ' or currentState = N'Vô hiệu'),
+	currentState nvarchar(50) not null default N'Sẵn sàng' check(currentState = N'Sẵn sàng' or currentState = N'Đang chờ' or currentState = N'Vô hiệu'),
 	pagesLeft int not null default 0 check(pagesLeft >= 0),
-	inkLeft decimal(5,2) not null default 0 check (inkLeft >= 0 and inkLeft <= 100.00),
+	inkLeft decimal(5,2) not null default 100 check (inkLeft >= 0 and inkLeft <= 100.00),
 	total_printed int not null default 0 check(total_printed >= 0),
 	time_insert datetime not null default getdate(),
 )
+alter table Printer add constraint DF_ink default 100 for inkLeft
+alter table Printer add constraint DF_state default N'Sẵn sàng' for currentState
 -- drop table [Printer]
 
 create table Feedback(
@@ -80,18 +82,22 @@ create table Print_log(
 	constraint PK_printlog
 		primary key(user_id, printer_id)
 )
-
+--drop table Buying_page_log
 create table Buying_page_log(
 	transaction_code int identity(300000000,1) check(transaction_code between 300000000 and 399999999) primary key,
 	time_trans datetime not null default getdate(),
 	no_pages int not null check(no_pages >= 0),
 	user_id varchar(7) not null,
+	price int not null default 0
 )
-
+ 
+--drop table page_setting
 create table page_setting(
 	default_no_pages int not null default 20,
 	resetdate datetime not null default getdate(),
+	page_price int not null default 1000
 )
+
 
 alter table [User] add constraint FK_user_transID foreign key (transaction_id) references Transaction_info(transaction_id)
 
