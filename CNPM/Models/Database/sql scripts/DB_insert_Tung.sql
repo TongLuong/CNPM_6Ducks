@@ -30,7 +30,9 @@ values
 ('0004100045678901','OCB','EDU'),
 ('0004100012345678','OCB','EDU'),
 ('0004100089012345','OCB','EDU'),
-('0004100078901234','OCB','EDU');
+('0004100078901234','OCB','EDU'),
+('0004100012347895','OCB','EDU'),
+('0004100045678912','OCB','EDU');
 
 insert into Printer([name],building,[floor],brand,[des],currentState,pagesLeft,inkLeft,total_printed,time_insert)
 values
