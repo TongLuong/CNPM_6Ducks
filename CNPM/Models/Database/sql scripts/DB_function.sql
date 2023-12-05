@@ -1,13 +1,17 @@
 ﻿use DB_Printing
 
 go
+--drop procedure insert_noti
 create procedure insert_noti
-@usernoti_id varchar(7)
+@usernoti_id varchar(7),
+@fn varchar(1000)
 as
 begin
-	insert into [Notification] values (@usernoti_id, getdate(), N'Tài liệu của bạn đã được in xong')
+	declare @detail varchar(1000) = N'Tài liệu '+@fn + N' của bạn đã được in xong'
+	insert into [Notification] values (@usernoti_id, default,@detail )
 end
 go
+--drop procedure save_log_print
 create procedure save_log_print(
 @user_id varchar(7),
 @printer_id int,
@@ -17,16 +21,31 @@ create procedure save_log_print(
 )
 as
 begin
-	insert into Print_log values(@user_id,@printer_id,getdate(),@file_name,@no_pages)
-	exec insert_noti @usernoti_id = @user_id
+	insert into Print_log values(@user_id,@printer_id,default,@file_name,@no_pages)
+	exec insert_noti @usernoti_id = @user_id, @fn = @file_name
+	set @success = 'True'
 end
 go
-/*create trigger insert_noti_for_print
-@usernoti_id varchar(7)
+
+
+create trigger insert_noti_for_print
+on Print_log
+for insert
 as
 begin
-	select * from User
-end*/
+	declare cur Cursor for (select [user_id],[file_name] from inserted)
+	declare @user_id varchar(7)
+	declare @file_name varchar(1000)
+	open cur
+	fetch next from cur into @user_id, @file_name
+	while @@FETCH_STATUS = 0
+	begin
+		insert into [Notification] values(@user_id,default,N'Tài liệu '+@file_name+N' của bạn đang được in')
+		fetch next from cur into @user_id, @file_name
+	end
+	close cur
+	deallocate cur
+end
 
 go
 
@@ -40,4 +59,26 @@ begin
 		return 'False'
 	return 'True'
 end
+go
 
+create function total_price(
+@no_page int
+)
+returns int as
+begin
+	declare @total_price int = 0
+	set @total_price = @no_page * (select page_price from page_setting)
+	return @total_price
+end
+
+go
+
+create function display_log (
+@user_id varchar(7)
+)
+returns table as
+return (
+	select [file_name],[time],building,[floor],no_pages
+	from Print_log pl, Printer p
+	where pl.printer_id = p.printer_id and pl.user_id = @user_id
+)

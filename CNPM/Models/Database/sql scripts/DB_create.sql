@@ -80,18 +80,22 @@ create table Print_log(
 	constraint PK_printlog
 		primary key(user_id, printer_id)
 )
-
+--drop table Buying_page_log
 create table Buying_page_log(
 	transaction_code int identity(300000000,1) check(transaction_code between 300000000 and 399999999) primary key,
 	time_trans datetime not null default getdate(),
 	no_pages int not null check(no_pages >= 0),
 	user_id varchar(7) not null,
+	price int not null default 0
 )
-
+ 
+--drop table page_setting
 create table page_setting(
 	default_no_pages int not null default 20,
 	resetdate datetime not null default getdate(),
+	page_price int not null default 1000
 )
+
 
 alter table [User] add constraint FK_user_transID foreign key (transaction_id) references Transaction_info(transaction_id)
 
