@@ -63,7 +63,11 @@ h1 {
   overflow: scroll;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding-bottom: 25px;
+}
+
+.printer-list .left,
+.printer-list .right {
+  margin-bottom: 25px;
 }
 
 .building-list .left,
@@ -87,7 +91,11 @@ h1 {
   }
 }
 
-.printer-list .item:hover {
+.item.disabled {
+  opacity: 0.1;
+}
+
+.printer-list .item:not(.disabled):hover {
   border: 1px solid rgba(0, 0, 0, 0.9);
 }
 
@@ -149,9 +157,13 @@ h1 {
 .property-list {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
-  gap: 24.4px;
+  gap: 30px;
   height: max-content;
-  margin: 0 10px 70px 10px;
+  margin: 0 10px 0 10px;
+}
+
+.main .btn-group {
+  margin-bottom: 35px;
 }
 
 .property-list input {

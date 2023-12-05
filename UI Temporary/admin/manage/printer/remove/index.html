@@ -13,7 +13,6 @@
       href="/UI Temporary/font-awesome/css/font-awesome.min.css"
     />
   </head>
-
   <body>
     <div class="content">
       <div class="information wrapper">
@@ -58,31 +57,89 @@
       <div class="manageprinter wrapper">
         <h1>Quản lí máy in</h1>
         <div class="main">
-          <div class="choose choose-building">
+          <div class="choose choose-printer">
             <h1>Chọn máy in</h1>
-            <div class="list building-list">
+            <div class="list printer-list">
               <div class="left">
-                <div class="item">
-                  <img src="/UI Temporary/admin/img/building.svg" alt="" />
-                  <span>H1</span>
+                <div class="item disabled">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
                 </div>
                 <div class="item">
-                  <img src="/UI Temporary/admin/img/building.svg" alt="" />
-                  <span>H2</span>
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item disabled">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item disabled">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
                 </div>
               </div>
               <div class="right">
                 <div class="item">
-                  <img src="/UI Temporary/admin/img/building.svg" alt="" />
-                  <span>H3</span>
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item disabled">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
                 </div>
                 <div class="item">
-                  <img src="/UI Temporary/admin/img/building.svg" alt="" />
-                  <span>H6</span>
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item disabled">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item disabled">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
+                </div>
+                <div class="item">
+                  <img src="/UI Temporary/admin/img/printer.svg" alt="" />
+                  <span>H6 - 107</span>
                 </div>
               </div>
             </div>
-            <div class="btn-group"></div>
+            <div class="btn-group">
+              <button type="button" id="add-printer">Thêm máy in</button>
+            </div>
           </div>
           <div class="property">
             <h1>Thông tin máy in</h1>
@@ -112,7 +169,12 @@
                 <input type="text" id="used-page" name="used-page" />
                 <label for="used-page">Số trang đã in</label>
               </div>
-            </div>  
+            </div>
+            <div class="btn-group">
+              <button type="button" id="see-print-log">
+                Xem lịch sử in ấn
+              </button>
+            </div>
           </div>
         </div>
         <div class="btn-group">
@@ -120,11 +182,11 @@
           <button type="button" id="cancel">Hủy</button>
         </div>
       </div>
+      <div class="noti"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/UI Temporary/admin/js/main.js"></script>
     <script src="/UI Temporary/admin/js/header-footer.js"></script>
-    <script src="./script.js"></script>
-    <!-- <script src="./printer-list.js"></script> -->
+    <script src="script.js"></script>
   </body>
 </html>

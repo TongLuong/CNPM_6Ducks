@@ -38,12 +38,18 @@ h1 {
   width: max-content;
 }
 
-.manageprinter .btn-group button {
+.noti .btn-group {
+  display: block;
+  margin: 10px auto 5px auto;
+  width: max-content;
+}
+
+.btn-group button {
   cursor: pointer;
   transition: transform 0.1s ease;
 }
 
-.manageprinter .btn-group button:hover {
+.btn-group button:hover {
   transform: scale(1.04);
 }
 
@@ -55,7 +61,6 @@ h1 {
 
 .choose .list {
   margin: 0 29.5px;
-  height: 300px;
   border: 1px solid #000;
 }
 
@@ -63,7 +68,11 @@ h1 {
   overflow: scroll;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding-bottom: 25px;
+}
+
+.printer-list .left,
+.printer-list .right {
+  margin-bottom: 25px;
 }
 
 .building-list .left,
@@ -87,7 +96,15 @@ h1 {
   }
 }
 
-.printer-list .item:hover {
+.item.disabled {
+  opacity: 0.1;
+}
+
+.item.selected {
+  border: 1px solid rgba(0, 0, 0, 0.9);
+}
+
+.printer-list .item:not(.disabled):hover {
   border: 1px solid rgba(0, 0, 0, 0.9);
 }
 
@@ -113,7 +130,9 @@ h1 {
 
 .main .btn-group #add-printer,
 .main .btn-group #see-print-log,
-.manageprinter .btn-group #done {
+.manageprinter .btn-group #done,
+.noti .btn-group #cancel-remove,
+.noti .btn-group #done-remove {
   padding: 5px 10px;
   border-radius: 2px;
   border: 2px solid var(--secondary-500, #2da5f3);
@@ -128,7 +147,8 @@ h1 {
 }
 
 .main .btn-group #remove-printer,
-.manageprinter .btn-group #cancel {
+.manageprinter .btn-group #cancel,
+.noti .btn-group #confirm-remove {
   padding: 5px 10px;
   border-radius: 2px;
   border: 2px solid rgba(255, 0, 0, 0.52);
@@ -142,16 +162,21 @@ h1 {
   letter-spacing: 0.168px;
 }
 
-.manageprinter .btn-group #cancel {
+.manageprinter .btn-group #cancel,
+.noti .btn-group #cancel-remove {
   margin-left: 6px;
 }
 
 .property-list {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
-  gap: 24.4px;
+  gap: 30px;
   height: max-content;
-  margin: 0 10px 70px 10px;
+  margin: 0 10px 0 10px;
+}
+
+.main .btn-group {
+  margin-bottom: 35px;
 }
 
 .property-list input {
@@ -161,7 +186,7 @@ h1 {
   border-radius: 3px;
   outline: solid 1.5px black;
   width: calc(100% - 20px);
-  height: 35px;
+  height: 40px;
   margin: 0;
 }
 
@@ -217,4 +242,41 @@ h1 {
 
 .property-list div:has(label) {
   position: relative;
+}
+
+.noti {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+
+  .wrapper {
+    display: block;
+    width: 50%;
+  }
+
+  & h1 {
+    margin: 0;
+    color: #1488db;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  & span {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
 }
