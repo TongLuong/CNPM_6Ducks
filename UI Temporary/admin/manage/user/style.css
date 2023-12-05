@@ -1,0 +1,172 @@
+body {
+  text-align: left;
+}
+
+.manageuser {
+  display: block;
+  height: max-content;
+  padding-top: 0;
+}
+
+h1 {
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 17px;
+}
+
+.main {
+  margin: 0 auto;
+}
+
+.search-user {
+  position: relative;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 20px;
+  padding: 10px;
+  margin: 20px auto;
+  width: max-content;
+}
+
+.search-user input {
+  border-radius: 2px;
+  border: none;
+  outline: 1.5px solid var(--gray-100, #e4e7e9);
+  background: var(--gray-00, #fff);
+  height: 30px;
+  width: 450px;
+}
+
+.search-user label {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.search-user .btn-group #confirm-search {
+  cursor: pointer;
+  border-radius: 2px;
+  border: 2px solid var(--secondary-500, #2da5f3);
+  background: rgba(20, 136, 219, 0.2);
+
+  color: var(--secondary-500, #2da5f3);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 0.168px;
+}
+
+.filter-bar {
+  margin: 20px auto;
+  width: max-content;
+  display: flex;
+  gap: 10px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  color: #000;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 0px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(20, 136, 219, 0.2);
+  width: 150px;
+}
+
+.dropbtn svg {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content div {
+  cursor: pointer;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content div:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: rgba(20, 136, 219, 0.35);
+}
+
+.filter-record {
+  width: max-content;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 40px 300px 100px 130px 160px;
+  column-gap: 23px;
+  row-gap: 13px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: none;
+  padding-top: 13px;
+  height: calc(24*9px + 13*9px);
+  overflow: scroll;
+}
+
+.field-bar {
+  width: max-content;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 40px 300px 100px 130px 160px;
+  column-gap: 23px;
+  row-gap: 13px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: rgba(45, 165, 243, 0.31);
+}
+
+.record,
+.field {
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.record:nth-child(5n + 2),
+.field:nth-child(5n + 2) {
+  text-align: left;
+}
+
+.record:last-child {
+  margin-bottom: 13px;
+}

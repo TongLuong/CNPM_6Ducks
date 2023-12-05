@@ -1,0 +1,12 @@
+{
+  "printer": [
+    {
+      "printer-name": "H6 - 107",
+      "firm": "HP LaserJet P4015x",
+      "status" : "Hoạt động",
+      "remain-page": "3000",
+      "remain-ink": "100%",
+      "used-page": "0"
+    }
+  ]
+}
