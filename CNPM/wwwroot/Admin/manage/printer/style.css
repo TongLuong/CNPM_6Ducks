@@ -1,0 +1,220 @@
+body {
+  text-align: left;
+}
+
+.manageprinter {
+  display: block;
+  height: max-content;
+  padding-top: 0;
+}
+
+h1 {
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 17px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 35px;
+}
+
+.main .btn-group {
+  width: max-content;
+  margin: 21px auto 42px auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 13px;
+}
+
+.manageprinter > .btn-group {
+  display: block;
+  margin: 12px 0 27px auto;
+  width: max-content;
+}
+
+.manageprinter .btn-group button {
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.manageprinter .btn-group button:hover {
+  transform: scale(1.04);
+}
+
+.choose,
+.property {
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.choose .list {
+  margin: 0 29.5px;
+  height: 300px;
+  border: 1px solid #000;
+}
+
+.list {
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 25px;
+}
+
+.building-list .left,
+.building-list .right {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.printer-list .item {
+  width: 75px;
+  height: max-content;
+  margin: 25px auto 0 auto;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  & span,
+  & img {
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+  }
+}
+
+.printer-list .item:hover {
+  border: 1px solid rgba(0, 0, 0, 0.9);
+}
+
+.building-list .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 2px;
+  & span {
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+  }
+  & img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.main .btn-group #add-printer,
+.main .btn-group #see-print-log,
+.manageprinter .btn-group #done {
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: 2px solid var(--secondary-500, #2da5f3);
+  background: rgba(20, 136, 219, 0.2);
+
+  color: var(--secondary-500, #2da5f3);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 0.168px;
+}
+
+.main .btn-group #remove-printer,
+.manageprinter .btn-group #cancel {
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: 2px solid rgba(255, 0, 0, 0.52);
+  background: rgba(255, 0, 0, 0.2);
+
+  color: #ff3636;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 0.168px;
+}
+
+.manageprinter .btn-group #cancel {
+  margin-left: 6px;
+}
+
+.property-list {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 24.4px;
+  height: max-content;
+  margin: 0 10px 70px 10px;
+}
+
+.property-list input {
+  position: relative;
+  display: block;
+  border: none;
+  border-radius: 3px;
+  outline: solid 1.5px black;
+  width: calc(100% - 20px);
+  height: 35px;
+  margin: 0;
+}
+
+.property-list input:disabled {
+  border: none;
+  outline: solid 1.5px black;
+  border-radius: 3px;
+  background-color: white;
+}
+
+.property-list input#status {
+  color: #0a5d02;
+}
+
+.property-list input:focus ~ label {
+  color: rgba(20, 136, 219, 0.7);
+}
+.property-list input:focus {
+  outline-color: rgba(20, 136, 219, 0.7);
+}
+
+.property-list label {
+  position: absolute;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  left: 10px;
+  top: -10px;
+  background-color: white;
+  padding-inline: 5px;
+  z-index: 1;
+}
+
+.property-list input[type="text" i] {
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.property-list span {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: -6px;
+  right: 5px;
+  padding-inline: 4px;
+  background-color: white;
+}
+
+.property-list div:has(label) {
+  position: relative;
+}

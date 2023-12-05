@@ -1,0 +1,17 @@
+{
+  "admin": [
+    {
+      "avatar": "https://images.unsplash.com/photo-1701207859644-59994f41c62e?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "fullname": "Admin",
+      "mscb": "1",
+      "bdate": "2003-10-29",
+      "sex": "male",
+      "hometown": "Bình Dương",
+      "department": "Quản trị viên",
+      "living_place": "Thành phố Hồ Chí Minh",
+      "email": "admin1@gmail.com",
+      "phone_number": "0869925410",
+      "password": "27th-May"
+    }
+  ]
+}
