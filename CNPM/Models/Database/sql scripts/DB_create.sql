@@ -92,3 +92,5 @@ create table page_setting(
 	default_no_pages int not null default 20,
 	resetdate datetime not null default getdate(),
 )
+
+alter table [User] add constraint FK_user_transID foreign key (transaction_id) references Transaction_info(transaction_id)
