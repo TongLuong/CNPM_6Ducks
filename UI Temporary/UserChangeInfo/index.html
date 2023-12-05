@@ -1,3 +1,10 @@
+<style>
+  :root {
+    --secondary-500: rgba(45, 165, 243, 1);
+    --gray-00: rgba(255, 255, 255, 1);
+    --gray-100: rgba(228, 231, 233, 1);
+  }
+</style>
 <div class="user-change-info wrapper">
   <div class="form">
     <b style="font-size: 20px">Thông tin người dùng</b>
@@ -37,10 +44,7 @@
           <label for="password">Mật khẩu</label>
           <div class="input-container">
             <input type="password" id="password" name="password" />
-            <button
-              type="button"
-              class="toggle-password"
-            >
+            <button type="button" class="toggle-password">
               Show
             </button>
           </div>
@@ -90,25 +94,21 @@
   </div>
   <div class="modal" id="modal">
     <div class="modal-content">
-      <span
-        style="
+      <span style="
           font-weight: 600;
           color: #1488db;
           font-size: 16px;
           margin-bottom: 20px;
           margin-top: 10px;
-        "
-      >
+        ">
         Thông báo
       </span>
-      <span
-        style="
+      <span style="
           font-weight: 600;
           color: #000000;
           font-size: 16px;
           margin-bottom: 20px;
-        "
-      >
+        ">
         Thay đổi thông tin thành công
       </span>
       <button class="done" id="btn-done" style="width: 56px; height: 29px">

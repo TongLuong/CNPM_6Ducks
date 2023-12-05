@@ -26,7 +26,7 @@ $(document).ready(function () {
     $.ajax({
       url: "/UI Temporary/UserChangeInfo/index.html",
       success: function (response) {
-        $.getScript("/UI Temporary/UserChangeInfo/script.js", function () {
+        $.getScript("/UI Temporary/UserChangeInfo/user-change-info.js", function () {
           $(".action").html(response);
         });
       },
@@ -46,7 +46,7 @@ $(document).ready(function () {
     $.ajax({
       url: "/UI Temporary/UserPrinting/index.html",
       success: function (response) {
-        $.getScript("/UI Temporary/UserPrinting/user-printing.js", function () {
+        $.getScript("/UI Temporary/context/user-printing.js", function () {
           $(".action").html(response);
         });
       },
