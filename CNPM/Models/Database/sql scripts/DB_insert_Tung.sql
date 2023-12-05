@@ -32,6 +32,11 @@ values
 ('0004100089012345','OCB','EDU'),
 ('0004100078901234','OCB','EDU');
 
+insert into [Transaction_info]
+values
+('0004100012347895','OCB','EDU'),
+('0004100045678912','OCB','EDU');
+
 insert into Printer([name],building,[floor],brand,[des],currentState,pagesLeft,inkLeft,total_printed,time_insert)
 values
 ('Fast LaserJet','H6',1,'Samsung',default,N'Sẵn sàng',200,100,0,'2023-12-01'),
