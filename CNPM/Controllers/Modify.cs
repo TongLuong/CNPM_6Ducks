@@ -2,7 +2,7 @@
 
 namespace CNPM.Controllers
 {
-    public class PurchasingController : Controller
+    public class Modify : Controller
     {
         public IActionResult Index()
         {

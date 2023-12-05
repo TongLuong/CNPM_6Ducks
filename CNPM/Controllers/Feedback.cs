@@ -2,7 +2,7 @@
 
 namespace CNPM.Controllers
 {
-    public class HomePageController : Controller
+    public class Feedback : Controller
     {
         public IActionResult Index()
         {

@@ -2,7 +2,7 @@
 
 namespace CNPM.Controllers
 {
-    public class FeedbackController : Controller
+    public class User : Controller
     {
         public IActionResult Index()
         {

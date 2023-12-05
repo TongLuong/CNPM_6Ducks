@@ -2,7 +2,7 @@
 
 namespace CNPM.Controllers
 {
-    public class ModifyController : Controller
+    public class ManagePrinter : Controller
     {
         public IActionResult Index()
         {

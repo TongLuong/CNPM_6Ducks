@@ -1,14 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Database\bacpac\" />
-    <Folder Include="Models\Database\sql scripts\" />
+    <Content Remove="Views\User\UserBuyPage\index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\User\UserBuyPage\index.cshtml" />
   </ItemGroup>
 
 </Project>

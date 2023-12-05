@@ -1,0 +1,123 @@
+@{
+    Layout = null;
+}
+
+<style>
+    :root {
+        --secondary-500: rgba(45, 165, 243, 1);
+        --gray-00: rgba(255, 255, 255, 1);
+        --gray-100: rgba(228, 231, 233, 1);
+    }
+</style>
+<div class="user-change-info wrapper">
+    <div class="form">
+        <b style="font-size: 20px">Thông tin người dùng</b>
+        <div class="table" id="table" contenteditable="false">
+            <div class="table-left">
+                <form action="">
+                    <label for="fullname">Họ và tên</label>
+                    <input type="text" id="fullname" name="fullname" />
+
+                    <label for="mssv">MSSV</label>
+                    <input type="text" id="mssv" name="mssv" />
+
+                    <label for="bdate">Ngày sinh</label>
+                    <input type="date" id="bdate" name="bdate" />
+
+                    <label for="sex">Giới tính</label>
+                    <select id="sex" name="sex">
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                    </select>
+
+                    <label for="hometown">Quê quán</label>
+                    <input type="text" id="hometown" name="hometown" />
+
+                    <label for="living_place">Nơi ở hiện tại</label>
+                    <input type="text" id="living_place" name="living_place" />
+
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" />
+
+                    <label for="phone_number">Số điện thoại liên lạc</label>
+                    <input type="text" id="phone_number" name="phone_number" />
+                </form>
+            </div>
+            <div class="table-right">
+                <form action="">
+                    <label for="password">Mật khẩu</label>
+                    <div class="input-container">
+                        <input type="password" id="password" name="password" />
+                        <button type="button" class="toggle-password">
+                            Show
+                        </button>
+                    </div>
+
+                    <label for="department">Khoa</label>
+                    <input type="text" id="department" name="department" />
+
+                    <label for="major">Ngành</label>
+                    <input type="text" id="major" name="major" />
+
+                    <label for="start-year">Khóa</label>
+                    <input type="text" id="start-year" name="start-year" />
+
+                    <label for="end-year">Năm tốt nghiệp (dự kiến)</label>
+                    <input type="text" id="end-year" name="end-year" />
+
+                    <label for="state">Tình trạng</label>
+                    <select id="state" name="state" style="color: #0e8704">
+                        <option value="studying" style="color: black">Đang học</option>
+                        <option value="state-2" style="color: black">Tình trạng</option>
+                        <option value="state-3" style="color: black">Tình trạng</option>
+                    </select>
+
+                    <label for="bank">Ngân hàng liên kết</label>
+                    <select id="bank" name="bank">
+                        <option value="ocb">Ngân hàng TMCP Phương Đông (OCB)</option>
+                        <option value="bank-2">Ngân hàng 2</option>
+                        <option value="bank-3">Ngân hàng 3</option>
+                    </select>
+
+                    <label for="bank-number">STK ngân hàng</label>
+                    <input type="text" id="bank-number" name="bank-number" />
+                </form>
+            </div>
+        </div>
+        <div class="hideedit">
+            <div class="button-section">
+                <button class="done" id="done" style="width: 56px">Xong</button>
+                <button class="cancel" style="width: 56px">Hủy</button>
+            </div>
+        </div>
+        <div class="showedit">
+            <div class="button-section">
+                <button class="edit">Chỉnh sửa thông tin cá nhân</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span style="
+          font-weight: 600;
+          color: #1488db;
+          font-size: 16px;
+          margin-bottom: 20px;
+          margin-top: 10px;
+        ">
+                Thông báo
+            </span>
+            <span style="
+          font-weight: 600;
+          color: #000000;
+          font-size: 16px;
+          margin-bottom: 20px;
+        ">
+                Thay đổi thông tin thành công
+            </span>
+            <button class="done" id="btn-done" style="width: 56px; height: 29px">
+                Xong
+            </button>
+        </div>
+    </div>
+</div>

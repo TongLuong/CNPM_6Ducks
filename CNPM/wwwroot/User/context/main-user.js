@@ -24,9 +24,9 @@ $(document).ready(function () {
   //action bar href
   $(".action-bar .edit-info, .information .edit-info").click(function () {
     $.ajax({
-      url: "~/User/UserChangeInfo/index.html",
+      url: "HomePage/UserChangeInfo",
       success: function (response) {
-        $.getScript("~/User/UserChangeInfo/user-change-info.js", function () {
+        $.getScript("/User/UserChangeInfo/user-change-info.js", function () {
           $(".action").html(response);
         });
       },
@@ -34,9 +34,9 @@ $(document).ready(function () {
   });
   $(".action-bar .print-history").click(function () {
     $.ajax({
-      url: "~/User/UserPrintingHistory/index.html",
+      url: "HomePage/UserPrintingHistory",
       success: function (response) {
-        $.getScript("~/User/context/printer-log.js", function () {
+        $.getScript("/User/context/printer-log.js", function () {
           $(".action").html(response);
         });
       },
@@ -44,9 +44,9 @@ $(document).ready(function () {
   });
   $(".action-bar .printing").click(function () {
     $.ajax({
-      url: "~/User/UserPrinting/index.html",
+      url: "HomePage/UserPrinting",
       success: function (response) {
-        $.getScript("~/User/context/user-printing.js", function () {
+        $.getScript("/User/context/user-printing.js", function () {
           $(".action").html(response);
         });
       },
@@ -54,7 +54,7 @@ $(document).ready(function () {
   });
   $(".action-bar .notification").click(function () {
     $.ajax({
-      url: "~/User/UserNotification/index.html",
+      url: "HomePage/UserNotification",
       success: function (response) {
         $(".action").html(response);
       },
@@ -62,7 +62,7 @@ $(document).ready(function () {
   });
   $(".action-bar .buy-page, .information .buy-page").click(function () {
     $.ajax({
-      url: "~/User/UserBuyPage/index.html",
+      url: "HomePage/UserBuyPage",
       success: function (response) {
         $(".action").html(response);
       },
