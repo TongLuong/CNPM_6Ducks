@@ -1,4 +1,4 @@
-use [DB_Printing]
+﻿use [DB_Printing]
 
 go
 create table [User] (
@@ -38,8 +38,8 @@ create table [Printer] (
 	building nvarchar(50) not null,
 	[floor] int not null check ([floor] >= 0),
 	brand nvarchar(50) not null,
-	[des] nvarchar(50) not null default N'Kh�ng c� m� t?',
-	currentState nvarchar(50) not null check(currentState = N'S?n s�ng' or currentState = N'?ang ch?' or currentState = N'V� hi?u'),
+	[des] nvarchar(50) not null default N'Không có mô tả',
+	currentState nvarchar(50) not null check(currentState = N'Sẵn sàng' or currentState = N'Đang chờ' or currentState = N'Vô hiệu'),
 	pagesLeft int not null default 0 check(pagesLeft >= 0),
 	inkLeft decimal(5,2) not null default 0 check (inkLeft >= 0 and inkLeft <= 100.00),
 	total_printed int not null default 0 check(total_printed >= 0),
@@ -49,7 +49,7 @@ create table [Printer] (
 
 create table Feedback(
 	feedback_id int identity(200000000,1) primary key check(feedback_id between 200000000 and 299999999),
-	user_id varchar(7) not null,
+	[user_id] varchar(7) not null,
 	printer_id int not null,
 	detail nvarchar(1000) not null,
 	rating int not null default 5 check (rating between 0 and 5),
