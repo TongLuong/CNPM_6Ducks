@@ -94,3 +94,15 @@ create table page_setting(
 )
 
 alter table [User] add constraint FK_user_transID foreign key (transaction_id) references Transaction_info(transaction_id)
+
+alter table [Notification] add constraint FK_noti_uid foreign key (user_id) references [User](user_id)
+
+alter table Printer add constraint FK_printer_admin foreign key (admin_id) references [Admin](admin_id)
+
+alter table Feedback add constraint FK_fb_uid foreign key (user_id) references [User](user_id)
+alter table Feedback add constraint FK_fb_pid foreign key (printer_id) references [Printer](printer_id)
+
+alter table Print_log add constraint FK_pl_uid foreign key (user_id) references [User](user_id)
+alter table Print_log add constraint FK_pl_pid foreign key (printer_id) references [Printer](printer_id)
+
+alter table Buying_page_log add constraint FK_bl_uid foreign key (user_id) references [User](user_id)
