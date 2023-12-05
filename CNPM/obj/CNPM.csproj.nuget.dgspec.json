@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\BTL\\CNPM_6Ducks\\CNPM\\CNPM.csproj": {}
+    "D:\\HCMUT\\hk231\\CNPM\\btl\\src_code\\CNPM\\CNPM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\BTL\\CNPM_6Ducks\\CNPM\\CNPM.csproj": {
+    "D:\\HCMUT\\hk231\\CNPM\\btl\\src_code\\CNPM\\CNPM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\BTL\\CNPM_6Ducks\\CNPM\\CNPM.csproj",
+        "projectUniqueName": "D:\\HCMUT\\hk231\\CNPM\\btl\\src_code\\CNPM\\CNPM.csproj",
         "projectName": "CNPM",
-        "projectPath": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\BTL\\CNPM_6Ducks\\CNPM\\CNPM.csproj",
-        "packagesPath": "C:\\Users\\Tongkhangte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\BTL\\CNPM_6Ducks\\CNPM\\obj\\",
+        "projectPath": "D:\\HCMUT\\hk231\\CNPM\\btl\\src_code\\CNPM\\CNPM.csproj",
+        "packagesPath": "C:\\Users\\Dong Hoang Son\\.nuget\\packages\\",
+        "outputPath": "D:\\HCMUT\\hk231\\CNPM\\btl\\src_code\\CNPM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Tongkhangte\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dong Hoang Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
