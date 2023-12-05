@@ -2,7 +2,7 @@
 
 go
 --drop procedure insert_noti
-create procedure insert_noti
+create procedure insert_noti -- ignore, just use in save_log_print
 @usernoti_id varchar(7),
 @fn varchar(1000)
 as
@@ -12,7 +12,7 @@ begin
 end
 go
 --drop procedure save_log_print
-create procedure save_log_print(
+create procedure save_log_print( --pls redisplay notification after save log
 @user_id varchar(7),
 @printer_id int,
 @file_name varchar(1000),
@@ -26,27 +26,13 @@ begin
 	set @success = 'True'
 end
 go
-
-
-create trigger insert_noti_for_print
-on Print_log
-for insert
+create procedure noti_before_print --run before run save_log_print, pls redisplay noti after run this
+@user_id varchar(7),
+@file_name varchar(1000)
 as
 begin
-	declare cur Cursor for (select [user_id],[file_name] from inserted)
-	declare @user_id varchar(7)
-	declare @file_name varchar(1000)
-	open cur
-	fetch next from cur into @user_id, @file_name
-	while @@FETCH_STATUS = 0
-	begin
-		insert into [Notification] values(@user_id,default,N'Tài liệu '+@file_name+N' của bạn đang được in')
-		fetch next from cur into @user_id, @file_name
-	end
-	close cur
-	deallocate cur
+	insert into [Notification] values(@user_id,default,N'Tài liệu '+@file_name+N' của bạn đang được in')
 end
-
 go
 
 create function check_login(
@@ -82,3 +68,48 @@ return (
 	from Print_log pl, Printer p
 	where pl.printer_id = p.printer_id and pl.user_id = @user_id
 )
+go
+create procedure insert_Buying_log(
+@no_page int,
+@user_id varchar(7)
+)
+as
+begin
+	declare @totalprice int = (select dbo.total_price (@no_page) as price )
+	insert into Buying_page_log (no_pages,user_id,price) 
+	values
+	(@no_page,@user_id,@totalprice)
+
+end
+
+go
+create procedure insert_printer(
+@name nvarchar(50),
+@building nvarchar(50),
+@floor int,
+@brand nvarchar(50),
+@des nvarchar(50) = null,
+@pagesLeft int
+)
+as
+begin
+	if @des is not null
+		insert into Printer (name,building,[floor],brand,[des],currentState,pagesLeft)
+		values
+		(@name,@building,@floor,@brand,@des,N'Sẵn sàng',@pagesLeft);
+	else 
+		insert into Printer (name,building,[floor],brand,currentState,pagesLeft)
+		values
+		(@name,@building,@floor,@brand,N'Sẵn sàng',@pagesLeft);
+end
+
+go
+create procedure unactive_printer
+@printer_id int
+as
+begin
+	update Printer
+	set currentState = N'Vô hiệu'
+	where printer_id = @printer_id
+end
+go

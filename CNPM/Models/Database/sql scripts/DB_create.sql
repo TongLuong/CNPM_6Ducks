@@ -39,12 +39,14 @@ create table [Printer] (
 	[floor] int not null check ([floor] >= 0),
 	brand nvarchar(50) not null,
 	[des] nvarchar(50) not null default N'Không có mô tả',
-	currentState nvarchar(50) not null check(currentState = N'Sẵn sàng' or currentState = N'Đang chờ' or currentState = N'Vô hiệu'),
+	currentState nvarchar(50) not null default N'Sẵn sàng' check(currentState = N'Sẵn sàng' or currentState = N'Đang chờ' or currentState = N'Vô hiệu'),
 	pagesLeft int not null default 0 check(pagesLeft >= 0),
-	inkLeft decimal(5,2) not null default 0 check (inkLeft >= 0 and inkLeft <= 100.00),
+	inkLeft decimal(5,2) not null default 100 check (inkLeft >= 0 and inkLeft <= 100.00),
 	total_printed int not null default 0 check(total_printed >= 0),
 	time_insert datetime not null default getdate(),
 )
+alter table Printer add constraint DF_ink default 100 for inkLeft
+alter table Printer add constraint DF_state default N'Sẵn sàng' for currentState
 -- drop table [Printer]
 
 create table Feedback(
