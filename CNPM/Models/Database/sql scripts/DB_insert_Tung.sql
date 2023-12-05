@@ -49,3 +49,5 @@ values
 ('2115432',100000002,'Sử dụng máy in này làm mất thời gian vì in không đúng yêu cầu',3,'2023-09-22'),
 ('2110987',100000004,'Máy in hay bị thiếu giấy, cần được chú ý hơn',4,'2023-11-25'),
 ('2110987',100000005,'Máy in sử dụng tốt',5,'2023-12-01');
+
+insert into page_setting values(default,default)
