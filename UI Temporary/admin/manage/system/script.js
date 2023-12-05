@@ -1,4 +1,3 @@
-// Chart
 const data = {
   type: "bar",
   data: {
@@ -8,11 +7,12 @@ const data = {
       "March",
       "April",
       "May",
+      "June",
     ],
     datasets: [
       {
         label: "Pages",
-        data: [30, 15, 62, 65, 61],
+        data: [30, 15, 62, 65, 61, 80],
         borderWidth: 1,
       },
     ],
@@ -28,3 +28,7 @@ const data = {
 };
 
 new Chart(document.getElementById("myChart"), data);
+
+$(document).ready(function () {
+  
+});
