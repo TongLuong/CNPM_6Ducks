@@ -1,0 +1,136 @@
+<style>
+  :root {
+    --secondary-500: rgba(45, 165, 243, 1);
+    --gray-00: rgba(255, 255, 255, 1);
+    --gray-100: rgba(228, 231, 233, 1);
+  }
+</style>
+
+<!-- <body> -->
+<div class="user-buypage wrapper">
+  <h1 class="header">Mua thêm trang</h1>
+  <div class="buy-table">
+    <div class="left">
+      <h1 class="header">Chọn số trang</h1>
+      <label for="page-number">Số trang</label>
+      <input type="text" name="page-number" id="page-number"
+        placeholder="Nhập số trang                                                  Đơn giá 500đ/trang">
+
+      <h1 class="header">Các combo trang in tiết kiệm</h1>
+      <form action="">
+
+        <label>
+          <input class="check" style="width: 18px; height: 18px;" type="checkbox" name="silver" value="on" id="silver">
+          Combo Bạc (200 trang in + tặng thêm 20 trang in)
+        </label>
+        <div class="combo-save">
+          <div class="save">Tiết kiệm 10.000đ</div>
+          <div class="save-money">100.000đ</div>
+        </div>
+
+        <label>
+          <input class="check" style="width: 18px; height: 18px;" type="checkbox" name="gold" value="on" id="gold">
+          Combo Vàng (300 trang in + tặng thêm 40 trang in)
+        </label>
+        <div class="combo-save">
+          <div class="save">Tiết kiệm 20.000đ</div>
+          <div class="save-money">150.000đ</div>
+        </div>
+        <label>
+          <input class="check" style="width: 18px; height: 18px;" type="checkbox" name="plantinum" value="on"
+            id="plantinum">
+          Combo Bạch Kim (500 trang in + tặng thêm 80 trang in)
+        </label>
+        <div class="combo-save">
+          <div class="save">Tiết kiệm 40.000đ</div>
+          <div class="save-money">250.000đ</div>
+        </div>
+        <label>
+          <input class="check" style="width: 18px; height: 18px;" type="checkbox" name="silver" value="on" id="silver">
+          Combo Kim Cương (1000 trang in + tặng thêm 200 trang in)
+        </label>
+        <div class="combo-save">
+          <div class="save">Tiết kiệm 100.000đ</div>
+          <div class="save-money">500.000đ</div>
+        </div>
+
+      </form>
+    </div>
+    <div class="right">
+      <h1 class="header">Phương thức thanh toán</h1>
+      <span style="font-size: 15px; font-weight: 500;">
+        Thanh toán qua BKPay
+      </span>
+      <div class="choose-bank">
+        <span style="font-weight: 500;">Chọn tài khoản thanh toán</span>
+        <select id="account" name="account">
+          <option selected disabled>Tài khoản thanh toán</option>
+          <option value="acc-1" style="color: black">OCB - 0004100029187372 - 15.000đ</option>
+          <option value="acc-2" style="color: black">OCB - 098788273 - 1.238.000đ</option>
+        </select>
+
+        <div class="line"></div>
+      </div>
+      <div class="sum-page">
+        Tổng số tiền thanh toán: 250.000đ
+        <button onclick="resetSelect()" form="" class="pay">Thanh toán</button>
+        <button onclick="resetSelect()" class="cancel">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span style="
+            font-weight: 600;
+            color: #1488db;
+            font-size: 16px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+          ">
+      Thông báo
+    </span>
+    <span style="
+            font-weight: 500;
+            color: #000000;
+            font-size: 16px;
+            margin-bottom: 20px;
+          ">
+      Thanh toán thành công
+    </span>
+    <button id="btn-done" style="width: 56px; height: 29px">
+      Xong
+    </button>
+  </div>
+</div>
+<!-- </div> -->
+<script>
+  $(document).ready(function () {
+    $(".pay").click(function () {
+      $(".modal").css("display", "block");
+    });
+    $("#btn-done").click(function () {
+      $(".modal").css("display", "none");
+      $('input[type="checkbox"]').prop('checked', false);
+    });
+    $(".cancel").click(function () {
+      $('input[type="checkbox"]').prop('checked', false);
+      $('select').prop('checked', false);
+    });
+  });
+
+  let checkboxes = document.querySelectorAll('.check');
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+      checkboxes.forEach(function (c) {
+        if (c !== checkbox) c.checked = false;
+      });
+    });
+  });
+  function resetSelect() {
+    document.getElementById('account').selectedIndex = 0;
+  }
+</script>
+<!-- </body>
+
+</html> -->
