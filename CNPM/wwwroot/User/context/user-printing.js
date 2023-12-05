@@ -102,6 +102,7 @@ $(document).ready(function () {
   });
 
   $(".print").click(function () {
+
     $(".modal").css("display", "block");
   });
   $("#btn-done").click(function () {

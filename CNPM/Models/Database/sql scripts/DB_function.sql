@@ -34,10 +34,14 @@ create function check_login(
 @username varchar(100),
 @pwd varchar(1000)
 )
-returns bit as
+returns varchar(7) as
 begin
-	if not exists (select * from [User] where  email = @username + '@hcmut.edu.vn' and pwd = @pwd)
-		return 'False'
-	return 'True'
-end
+	declare @result varchar(7) = null
+	select @result = user_id from [User] 
+	where email = @username + '@hcmut.edu.vn' and pwd = @pwd and [status] = 'Actived'
 
+	if isnull(@result, -1) = -1
+		return ''
+	return @result
+end
+go

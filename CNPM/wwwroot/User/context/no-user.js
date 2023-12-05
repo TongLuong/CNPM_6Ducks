@@ -14,8 +14,18 @@ $("document").ready(function () {
       $(".login-modal").css("display", "none");
     });
       $("#in").click(function () {
-          document.getElementById("loginForm").submit();
-        //location.href = "HomePage";
+          var user = document.getElementsByName("username")[0].value;
+          var pass = document.getElementsByName("password")[0].value;
+          $.get
+          (
+              "HomePage/CheckLogin", {"username": user, "password": pass},
+              function (response) {
+                  if (response.userID != '')
+                      location.href = "HomePage" + "?id=" + response.userID;
+                  else
+                      location.href = "HomePageNoUser";
+              }
+          )
     });
   });
 });

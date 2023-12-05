@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using System.Data;
 
 namespace CNPM.Controllers
@@ -44,8 +44,7 @@ namespace CNPM.Controllers
             return View("/Views/User/UserPrintingHistory/index.cshtml");
         }
 
-        [HttpPost]
-        public IActionResult CheckLogin(string username, string password)
+        public JsonResult CheckLogin(string username, string password)
         {
             // TODO
             // check username and pwd using function from model
@@ -61,15 +60,42 @@ namespace CNPM.Controllers
                 func.Parameters.AddWithValue("@username", username);
                 func.Parameters.AddWithValue("@pwd", password == null ? DBNull.Value : password);
             }
-            bool result = (bool)func.ExecuteScalar();
+            string id = (string)func.ExecuteScalar();
             //return Content("result: " + result.ToString() + " " + username + " " + email + " " + pwd);
 
             conn.Close();
 
-            if (result)
+            return new JsonResult
+            (
+                new { userID = id }
+            );
+            /*if (result)
                 return RedirectToAction("Index", "HomePage");
             else
-                return RedirectToAction("Index", "HomePageNoUser");
+                return RedirectToAction("Index", "HomePageNoUser");*/
+        }
+
+        [HttpPost]
+        public void SavePrintingLog(string userID, string printerID,
+                        string fileName, string noPages)
+        {
+            // TODO
+            // check username and pwd using function from model
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "EXEC save_log_print @user_id=" + userID +
+                ",@printer_id=" + printerID +
+                ",@file_name=" + fileName +
+                ",no_pages=" + noPages,
+                conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
         }
     }
 }
