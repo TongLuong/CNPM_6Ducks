@@ -19,11 +19,6 @@ namespace CNPM.Controllers
             return View("/Views/User/index.cshtml");
         }
 
-        public IActionResult UserBuyPage()
-        {
-            return View("/Views/User/UserBuyPage/index.cshtml");
-        }
-
         public IActionResult UserChangeInfo()
         {
             return View("/Views/User/UserChangeInfo/index.cshtml");
@@ -44,6 +39,10 @@ namespace CNPM.Controllers
             return View("/Views/User/UserPrintingHistory/index.cshtml");
         }
 
+        public IActionResult UserBuyPage()
+        {
+            return View("/Views/User/UserBuyPage/index.cshtml");
+        }
         public JsonResult CheckLogin(string username, string password)
         {
             // TODO
