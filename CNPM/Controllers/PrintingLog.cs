@@ -6,9 +6,13 @@ namespace CNPM.Controllers
 {
     public class PrintingLog : Controller
     {
+        SqlConnection conn;
 
-
-        SqlConnection conn = new SqlConnection(ConnectionString.sqlConnectionString);
+        public PrintingLog()
+        {
+            //conn = new SqlConnection(connectionString);
+            conn = new SqlConnection(ConnectionString.sqlConnectionString);
+        }
 
         public IActionResult Index()
         {
@@ -27,6 +31,29 @@ namespace CNPM.Controllers
             SqlDataReader dr = cmd.ExecuteReader();
             List<string >*/
             return null;
+        }
+
+        [HttpPost]
+        public void SavePrintingLog(string userID, string printerID,
+                        string fileName, string noPages)
+        {
+            // TODO
+            // check username and pwd using function from model
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "EXEC save_log_print @user_id=" + userID +
+                ",@printer_id=" + printerID +
+                ",@file_name=" + fileName +
+                ",no_pages=" + noPages,
+                conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
         }
     }
 }

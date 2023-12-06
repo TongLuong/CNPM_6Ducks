@@ -1,4 +1,4 @@
-$("document").ready(function () {
+﻿$("document").ready(function () {
   $.get("/User/modules/header-out.html", function (data) {
     $("body").prepend(data);
   });
@@ -22,8 +22,10 @@ $("document").ready(function () {
               function (response) {
                   if (response.userID != '')
                       location.href = "HomePage" + "?id=" + response.userID;
-                  else
-                      location.href = "HomePageNoUser";
+                  else {
+                      $("#msg").text("Đăng nhập thất bại, vui lòng thử lại");
+                      //location.href = "HomePageNoUser";
+                  }
               }
           )
     });

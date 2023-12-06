@@ -54,11 +54,9 @@ namespace CNPM.Controllers
             SqlCommand func = new SqlCommand("SELECT dbo.check_login(@username, @pwd)",
                 conn);
 
-            if (username != null)
-            {
-                func.Parameters.AddWithValue("@username", username);
-                func.Parameters.AddWithValue("@pwd", password == null ? DBNull.Value : password);
-            }
+            func.Parameters.AddWithValue("@username", username == null ? DBNull.Value : username);
+            func.Parameters.AddWithValue("@pwd", password == null ? DBNull.Value : password);
+
             string id = (string)func.ExecuteScalar();
             //return Content("result: " + result.ToString() + " " + username + " " + email + " " + pwd);
 
@@ -72,29 +70,6 @@ namespace CNPM.Controllers
                 return RedirectToAction("Index", "HomePage");
             else
                 return RedirectToAction("Index", "HomePageNoUser");*/
-        }
-
-        [HttpPost]
-        public void SavePrintingLog(string userID, string printerID,
-                        string fileName, string noPages)
-        {
-            // TODO
-            // check username and pwd using function from model
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-
-            SqlCommand cmd = new SqlCommand
-            (
-                "EXEC save_log_print @user_id=" + userID +
-                ",@printer_id=" + printerID +
-                ",@file_name=" + fileName +
-                ",no_pages=" + noPages,
-                conn
-            );
-
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.ExecuteNonQuery();
         }
     }
 }

@@ -39,11 +39,14 @@ values
 
 insert into Printer([name],building,[floor],brand,[des],currentState,pagesLeft,inkLeft,total_printed,time_insert)
 values
-('Fast LaserJet','H6',1,'Samsung',default,N'Sẵn sàng',200,100,0,'2023-12-01'),
-('Wireless PhotoPrinter','H6',3,'Samsung',default,N'Đang chờ',178,89,22,'2023-11-15'),
-('Colorful EcoPrinter','H6',5,'Samsung',default,N'Vô hiệu',122,56,78,'2023-11-01'),
-('High-Resolution OfficeJet','H6',6,'Samsung',default,N'Sẵn sàng',14,10,186,'2023-10-01'),
-('Smart LabelPrinter','H6',7,'Samsung',default,N'Sẵn sàng',46,44,154,'2023-10-15');
+('Fast LaserJet','H6',1,'HP',default,N'Sẵn sàng',200,100,0,'2023-12-01'),
+('Wireless PhotoPrinter','H6',3,'Samsung',default,N'Sẵn sàng',178,89,22,'2023-11-15'),
+('Colorful EcoPrinter','H1',5,'Epson',default,N'Vô hiệu',122,56,78,'2023-11-01'),
+('High-Resolution OfficeJet','H1',6,'Samsung',default,N'Sẵn sàng',14,10,186,'2023-10-01'),
+('Smart LabelPrinter','H2',2,'Smart Label',default,N'Sẵn sàng',46,44,154,'2023-10-15'),
+('HP LASERJET M125A','H2',0,'HP',default,N'Sẵn sàng',89,30,45,'2023-12-01'),
+('Canon imageCLASS LBP6030W','H3',3,'Canon',default,N'Sẵn sàng',13,10,100,'2023-11-30'),
+('XPRINTER','H3',4,'Xprinter',default,N'Vô hiệu',90,85,201,'2023-10-05')
 
 insert into Feedback([user_id],printer_id,detail,rating,time_create)
 values
