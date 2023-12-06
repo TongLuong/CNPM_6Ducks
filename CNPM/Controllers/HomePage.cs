@@ -10,8 +10,8 @@ namespace CNPM.Controllers
 
         public HomePage()
         {
-            //conn = new SqlConnection(connectionString);
             conn = new SqlConnection(ConnectionString.sqlConnectionString);
+            //conn = new SqlConnection(ConnectionString.sqlConnectionString);
         }
 
         public IActionResult Index()
