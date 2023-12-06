@@ -90,4 +90,29 @@
             },
         });
     });
+
+    function showBuyPageLogItem(transactionCode, time, nopage,price) {
+        $.get("components/buy-page.html", function (data) {
+            $(".result").append(data);
+            var item = $(".result .buy-page-item:last-child()");
+            item.find(".transaction-code").text(transactionCode);
+            item.find("time").text(time);
+            item.find("nopage").text(nopage);
+            item.find("price").text(price);
+        }
+        );
+    }
+
+    function displayBuyPageLog(userID) {
+        $.get("PrintingLog/ShowPrintingLog", { "userID": userID },
+            function (response) {
+                for (let i = 0; i < response.number; i++) {
+                    showBuyPageLogItem(response.transactionCode, response.time, response.numberOfPage, response.price);
+                }
+            }
+        )
+    }
+    var urlParams = new URLSearchParams(window.location.search);
+    var id = urlParams.get('id');
+    displayBuyPageLog(id);
 });
