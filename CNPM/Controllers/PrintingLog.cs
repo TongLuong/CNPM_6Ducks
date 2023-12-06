@@ -58,23 +58,44 @@ namespace CNPM.Controllers
 
         [HttpPost]
         public void SavePrintingLog(string userID, string printerID,
-                        string fileName, string noPages)
+                        string fileName, string noPages, string paperType)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
+            DateTime localDate = DateTime.Now;
             SqlCommand cmd = new SqlCommand
             (
-                "dbo.save_log_print",
+                "dbo.noti_before_print",
                 conn
             );
+
             cmd.CommandType = CommandType.StoredProcedure;
+            string tempTime = localDate.ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
 
             cmd.Parameters.AddWithValue("@user_id", userID);
             cmd.Parameters.AddWithValue("@printer_id", printerID);
             cmd.Parameters.AddWithValue("@file_name", fileName);
             cmd.Parameters.AddWithValue("@no_pages", noPages);
+            cmd.Parameters.AddWithValue("@paperType", paperType);
+            cmd.Parameters.AddWithValue("@time_start", tempTime);
 
+            cmd.ExecuteNonQuery();
+
+            //====================================================
+            cmd = new SqlCommand
+            (
+                "dbo.save_log_print",
+                conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@user_id", userID);
+            cmd.Parameters.AddWithValue("@printer_id", printerID);
+            cmd.Parameters.AddWithValue("@file_name", fileName);
+            cmd.Parameters.AddWithValue("@time_start", tempTime);
+            
             cmd.ExecuteNonQuery();
         }
     }

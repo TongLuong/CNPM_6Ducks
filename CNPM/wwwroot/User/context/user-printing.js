@@ -177,12 +177,14 @@ $(document).ready(function () {
     }
     
     var urlParams = new URLSearchParams(window.location.search);
+    var e = document.getElementById("size");
 
     var userID = urlParams.get('id');
     var printerID = values_id[printerIndex];
     var fileName = document.getElementById("show-name").textContent;
+    var paperType = e.options[e.selectedIndex].text;
     var noPages = document.getElementById("input-pages").value;
-
+    
     // check whether noPages contains only number
     if (!/^\d+$/.test(noPages)) {
         alert("Vui lòng chỉ nhập số!");
@@ -193,7 +195,8 @@ $(document).ready(function () {
         url: "PrintingLog/SavePrintingLog",
         data: {
             "userID": userID, "printerID": printerID,
-            "fileName": fileName, "noPages": noPages
+            "fileName": fileName, "noPages": noPages,
+            "paperType": paperType
         },
         async: false,
         cache: false,

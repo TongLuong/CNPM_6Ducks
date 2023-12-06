@@ -71,4 +71,3 @@ INSERT INTO [Printer] VALUES
 	('Canon imageCLASS LBP6030W','H3',3,'Canon',default,N'Sẵn sàng',13,10,100,'2023-11-30'),
 	('XPRINTER','H3',4,'Xprinter',default,N'Vô hiệu',90,85,201,'2023-10-05')
 GO
-
