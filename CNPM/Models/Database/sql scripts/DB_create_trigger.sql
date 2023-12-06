@@ -21,7 +21,7 @@ BEGIN
             SET @tStart = GETDATE()
         END
 
-        SET @totalPage = @noPage * (
+        SET @totalPage = @nPage * (
             CASE
                 WHEN @pType = 'A4' THEN 1
                 WHEN @pType = 'A3' THEN 2
@@ -30,7 +30,7 @@ BEGIN
                 ELSE 16
             END
         )
-        
+
         INSERT INTO [Print_log] (user_id, printer_id, file_name, no_pages, paperType, time_start, time_end)
         VALUES (
             @uID, 
