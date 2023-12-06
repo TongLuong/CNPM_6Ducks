@@ -17,21 +17,27 @@ CREATE PROCEDURE save_log_print
     @user_id VARCHAR(7),
     @printer_id INT,
     @file_name VARCHAR(1000),
-    @no_pages INT,
-    @success BIT OUTPUT
+    @time_start DATETIME
 AS
 BEGIN
-    INSERT INTO Print_log VALUES (@user_id, @printer_id, DEFAULT, @file_name, @no_pages);
+    update Print_log 
+	set time_end = getdate()
+	where user_id = @user_id and printer_id = @printer_id and [file_name] = @file_name and time_start = @time_start
     EXEC insert_noti @usernoti_id = @user_id, @fn = @file_name;
-    SET @success = 1; -- True
 END
 GO
-
+--drop procedure noti_before_print
 CREATE PROCEDURE noti_before_print
     @user_id VARCHAR(7),
-    @file_name VARCHAR(1000)
+    @printer_id INT,
+    @file_name VARCHAR(1000),
+    @no_pages INT,
+	@paperType VARCHAR(3),
+	@time_start DATETIME
 AS
 BEGIN
+	INSERT INTO Print_log VALUES 
+	(@user_id, @printer_id,@file_name,@no_pages,@paperType, @time_start, null)
     INSERT INTO [Notification] VALUES (@user_id, DEFAULT, N'Tài liệu ' + @file_name + N' của bạn đang được in');
 END
 GO
