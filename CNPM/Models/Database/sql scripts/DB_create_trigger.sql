@@ -89,3 +89,21 @@ BEGIN
     DEALLOCATE cur_afterPrint
 END
 GO
+
+CREATE TRIGGER update_user_pageleft
+ON [Buying_page_log]
+AFTER INSERT
+AS
+BEGIN
+    UPDATE U
+    SET U.pageLeft = U.pageLeft + (
+        SELECT SUM(I.no_pages) 
+        FROM [inserted] I
+        WHERE U.user_id = I.user_id
+        GROUP BY I.user_id
+    )
+    FROM [User] U INNER JOIN [inserted] I 
+    ON U.user_id = I.user_id;
+END
+GO
+
