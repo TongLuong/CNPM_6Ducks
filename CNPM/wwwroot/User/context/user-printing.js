@@ -167,14 +167,38 @@ $(document).ready(function () {
         alert("Vui lòng chọn máy in!");
         return;
     }
+    if (document.getElementById("uploadButton") != null) {
+        alert("Vui lòng chọn tập tin cần in!");
+        return;
+    }
+    if (document.getElementById("input-pages").value == "") {
+        alert("Vui lòng nhập số trang của tập tin!");
+        return;
+    }
     
     var urlParams = new URLSearchParams(window.location.search);
-      var userID = urlParams.get('id');
-      var printerID = values_id[printerIndex];
-      var fileName = document.getElementById("show-name").textContent;
-    //alert("yo " + values_others[printerIndex]);
 
-      alert()
+    var userID = urlParams.get('id');
+    var printerID = values_id[printerIndex];
+    var fileName = document.getElementById("show-name").textContent;
+    var noPages = document.getElementById("input-pages").value;
+
+    // check whether noPages contains only number
+    if (!/^\d+$/.test(noPages)) {
+        alert("Vui lòng chỉ nhập số!");
+        return;
+    }
+
+    $.ajax({
+        url: "PrintingLog/SavePrintingLog",
+        data: {
+            "userID": userID, "printerID": printerID,
+            "fileName": fileName, "noPages": noPages
+        },
+        async: false,
+        cache: false,
+        type: "post"
+    })
 
     $(".modal").css("display", "block");
   });
@@ -184,10 +208,12 @@ $(document).ready(function () {
     $(".down-box .building-wrapper").css("display", "grid");
     // Reset the "show-name" div to its initial state
     document.getElementById("show-name").innerHTML = `
-          <input type="file" id="file" style="display:none;" onchange="updateFileName(this)" />
-          <button class="upload" id="uploadButton" value="Upload" onclick="thisFileUpload();">
-              <i class="fa fa-upload" aria-hidden="true"></i>
-              Tải file
-          </button>`;
+          <div class="up" id="show-name">
+            <input type="file" id="file" style="display:none;" onchange="updateFileName(this)" />
+            <button class="upload" id="uploadButton" value="Upload" onclick="thisFileUpload();">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                Chọn tập tin
+            </button>
+          </div>`;
   });
 });

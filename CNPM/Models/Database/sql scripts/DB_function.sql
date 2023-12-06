@@ -16,14 +16,12 @@ create procedure save_log_print( --pls redisplay notification after save log
 @user_id varchar(7),
 @printer_id int,
 @file_name varchar(1000),
-@no_pages int,
-@success bit = 'False' output
+@no_pages int
 )
 as
 begin
 	insert into Print_log values(@user_id,@printer_id,default,@file_name,@no_pages)
 	exec insert_noti @usernoti_id = @user_id, @fn = @file_name
-	set @success = 'True'
 end
 go
 create procedure noti_before_print --run before run save_log_print, pls redisplay noti after run this

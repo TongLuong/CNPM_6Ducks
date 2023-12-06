@@ -121,19 +121,6 @@ label {
 .sum-page {
     margin-top: 10px;
     text-align: right;
-
-  & .input-pages {
-    width: 100%;
-    font-size: 14px;
-    font-family: Arial;
-    padding: 5px 14px;
-    margin: 5px 0;
-    display: inline-block;
-    box-sizing: border-box;
-    border-radius: 2px;
-    border: 1px solid;
-    border-color: var(--gray-100);
-  }
 }
 
 .accept {

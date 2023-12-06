@@ -60,22 +60,21 @@ namespace CNPM.Controllers
         public void SavePrintingLog(string userID, string printerID,
                         string fileName, string noPages)
         {
-            // TODO
-            // check username and pwd using function from model
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
             SqlCommand cmd = new SqlCommand
             (
-                "EXEC save_log_print @user_id=" + userID +
-                ",@printer_id=" + printerID +
-                ",@file_name=" + fileName +
-                ",no_pages=" + noPages,
+                "dbo.save_log_print",
                 conn
             );
-
             cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@user_id", userID);
+            cmd.Parameters.AddWithValue("@printer_id", printerID);
+            cmd.Parameters.AddWithValue("@file_name", fileName);
+            cmd.Parameters.AddWithValue("@no_pages", noPages);
+
             cmd.ExecuteNonQuery();
         }
     }
