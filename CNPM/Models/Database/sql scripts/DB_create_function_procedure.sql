@@ -73,7 +73,7 @@ BEGIN
     RETURN @total_price;
 END
 GO
-
+--DROP FUNCTION display_log
 CREATE FUNCTION display_log(
     @user_id VARCHAR(7)
 )
@@ -81,7 +81,7 @@ RETURNS TABLE
 AS
 RETURN
 (
-    SELECT [file_name], [time], building, [floor], no_pages
+    SELECT [file_name],building, [floor], no_pages,pl.paperType,[time_start],[time_end]
     FROM Print_log pl
     JOIN Printer p ON pl.printer_id = p.printer_id
     WHERE pl.user_id = @user_id
@@ -129,3 +129,12 @@ BEGIN
     WHERE printer_id = @printer_id;
 END
 GO
+
+CREATE FUNCTION display_buy_page(@userID varchar(7))
+returns table
+as return 
+(
+SELECT transaction_code,time_trans,no_pages,price
+FROM Buying_page_log
+WHERE user_id = @userID
+)

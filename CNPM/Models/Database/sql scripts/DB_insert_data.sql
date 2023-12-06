@@ -58,3 +58,10 @@ GO
 
 -- Inserting data into [page_setting] table
 INSERT INTO page_setting VALUES(DEFAULT, DEFAULT, DEFAULT);
+GO
+
+INSERT INTO [Printer] VALUES
+    ('HP LASERJET M125A','H2',0,'HP',default,N'Sẵn sàng',89,30,45,'2023-12-01'),
+	('Canon imageCLASS LBP6030W','H3',3,'Canon',default,N'Sẵn sàng',13,10,100,'2023-11-30'),
+	('XPRINTER','H3',4,'Xprinter',default,N'Vô hiệu',90,85,201,'2023-10-05')
+GO
