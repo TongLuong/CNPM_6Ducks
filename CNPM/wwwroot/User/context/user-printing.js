@@ -90,10 +90,10 @@ $(document).ready(function () {
   })
   
   // Thêm sự kiện click cho mỗi id
-  var printerIndex, values_others;
+  var printerIndex, values_others, values_id;
   $("#1, #2, #3, #6").click(function () {
     var id = $(this).attr("id");
-    var values, values_id;
+    var values;
 
     // Sử dụng cấu trúc switch để xác định danh sách giá trị tương ứng với mỗi id
     switch (id) {
@@ -169,10 +169,12 @@ $(document).ready(function () {
     }
     
     var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
+      var userID = urlParams.get('id');
+      var printerID = values_id[printerIndex];
+      var fileName = document.getElementById("show-name").textContent;
     //alert("yo " + values_others[printerIndex]);
 
-
+      alert()
 
     $(".modal").css("display", "block");
   });

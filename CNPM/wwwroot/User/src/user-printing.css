@@ -119,8 +119,26 @@ label {
 }
 
 .sum-page {
-  margin-top: 10px;
-  text-align: right;
+    margin-top: 10px;
+    text-align: right;
+
+  & .input-pages {
+    width: 100%;
+    font-size: 14px;
+    font-family: Arial;
+    padding: 5px 14px;
+    margin: 5px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid;
+    border-color: var(--gray-100);
+  }
+}
+
+.accept {
+    margin-top: 10px;
+    text-align: right;
 
   & .print {
     background-color: #1488db33;
@@ -128,15 +146,17 @@ label {
     border: 2px solid;
     border-color: var(--secondary-500);
     color: #2ca4f3;
-    margin: 0 6px;
+    margin: 0px 6px 0px 0px;
+    width: 25%;
   }
-  & .cancel {
+& .cancel {
     background-color: #ff000033;
     border-radius: 2px;
     border: 2px solid;
     border-color: #ff000085;
     color: #ff3636;
-  }
+    width: 15%;
+}
 }
 
 button {

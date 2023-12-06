@@ -83,11 +83,11 @@
                             </p>
                             <p>
                                 Số trang của máy: <span style="color: #0c8c01;" id="pagesLeft">
-                                    1500</span>
+                                    0</span>
                             </p>
                             <p>
                                 Mực máy: <span style="color: #f98131;" id="inkLeft">
-                                84%</span>
+                                0%</span>
                             </p>
                         </div>
                     </div>
@@ -144,8 +144,13 @@
                     <option value="narrow">Hẹp</option>
                     <option value="wide">Rộng</option>
                 </select>
-                <div class="sum-page">
-                    Tổng số trang: 8/160
+
+                <label for="sum-page">Tổng số trang</label>
+                <div class="sum-page" id="sum-page" name="sum-page">
+                    <input class="input-pages" type="text" id="input-pages">
+                </div>
+
+                <div class="accept">
                     <button form="" class="print">In tài liệu</button>
                     <button class="cancel">Hủy</button>
                 </div>
