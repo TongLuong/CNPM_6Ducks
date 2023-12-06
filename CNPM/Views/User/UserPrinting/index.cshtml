@@ -10,7 +10,7 @@
                 <input type="file" id="file" style="display:none;" onchange="updateFileName(this)" />
                 <button class="upload" id="uploadButton" value="Upload" onclick="thisFileUpload();">
                     <i class="fa fa-upload" aria-hidden="true"></i>
-                    Tải file
+                    Chọn tập tin
                 </button>
             </div>
             <div class="down">
@@ -23,15 +23,15 @@
                         </div>
                         <div class="building" id="2">
                             <img draggable="false" src="/User/img/building.png" alt="">
-                            <span id="2">H2</span>
+                            <span>H2</span>
                         </div>
                         <div class="building" id="3">
                             <img draggable="false" src="/User/img/building.png" alt="">
-                            <span id="">H3</span>
+                            <span>H3</span>
                         </div>
                         <div class="building" id="6">
                             <img draggable="false" src="/User/img/building.png" alt="">
-                            <span id="">H6</span>
+                            <span>H6</span>
                         </div>
                     </div>
                     <div class="printer-list">
@@ -83,11 +83,11 @@
                             </p>
                             <p>
                                 Số trang của máy: <span style="color: #0c8c01;" id="pagesLeft">
-                                    1500</span>
+                                    0</span>
                             </p>
                             <p>
                                 Mực máy: <span style="color: #f98131;" id="inkLeft">
-                                84%</span>
+                                0%</span>
                             </p>
                         </div>
                     </div>
@@ -144,8 +144,11 @@
                     <option value="narrow">Hẹp</option>
                     <option value="wide">Rộng</option>
                 </select>
-                <div class="sum-page">
-                    Tổng số trang: 8/160
+
+                <label for="input-pages">Tổng số trang</label>
+                <input type="text" id="input-pages">
+
+                <div class="accept">
                     <button form="" class="print">In tài liệu</button>
                     <button class="cancel">Hủy</button>
                 </div>

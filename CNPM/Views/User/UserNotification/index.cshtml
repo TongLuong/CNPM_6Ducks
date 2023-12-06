@@ -9,7 +9,7 @@
       <p class="notification">Nội dung thông báo</p>
       <p class="time">Thời gian</p>
     </div>
-    <div class="item log-item wait">
+    @*<div class="item log-item wait">
       <p class="notification">Bạn đã nạp thành công combo Bạch Kim (500 + 80 trang) - Phí 250.000đ</p>
       <p class="time">10:42 - 1/11/2023 (0 phút trước)</p>
     </div>
@@ -37,7 +37,7 @@
       <p class="notification">“C.Mác và Ăngghen toàn tập (tập 33)” đã được in xong (H6 - 107)</p>
       <p class="time">9:41 - 26/10/2023 (6 ngày trước)</p>
     </div>
-  </div>
+  </div>*@
   <div style="text-align: right;">
     <button class="mark-done" id="mark-done">Đánh dấu tất cả là đã đọc</button>
   </div>
@@ -67,4 +67,27 @@
       }
     }
   });
+
+  function showNotificationItem(detail,time) {
+    $.get("components/notification.html", function (data) {
+        $(".log-table").append(data);
+        var item = $(".log-table .log-item:last-child()");
+        item.find(".notification").text(detail);
+        item.find("time").text(time);
+    }
+    );
+}
+
+function displayPrintingLog(userID) {
+    $.get("Notification/ShowNotification", { "userID": userID },
+        function (response) {
+            for (let i = 0; i < response.number; i++) {
+                showNotificationItem(response.detail, response.time);
+            }
+        }
+    )
+}
+var urlParams = new URLSearchParams(window.location.search);
+var id = urlParams.get('id');
+displayPrintingLog(id);
 </script>
