@@ -73,6 +73,17 @@ return (
 	where pl.printer_id = p.printer_id and pl.user_id = @user_id
 )
 go
+
+create function display_notification(
+@user_id varchar(7)
+)
+returns table as
+return (
+	select [time],detail
+	from Notification
+	where [user_id] = @user_id
+	)
+go
 create procedure insert_Buying_log(
 @no_page int,
 @user_id varchar(7)
