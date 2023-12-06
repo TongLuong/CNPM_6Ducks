@@ -51,6 +51,11 @@ RETURNS VARCHAR(7)
 AS
 BEGIN
     DECLARE @result VARCHAR(7) = NULL;
+
+	SELECT @result = admin_id
+    FROM [Admin]
+    WHERE email = @username + '@hcmut.edu.vn' AND pwd = @pwd;
+
     SELECT @result = user_id
     FROM [User]
     WHERE email = @username + '@hcmut.edu.vn' AND pwd = @pwd AND [status] = 'Actived';
