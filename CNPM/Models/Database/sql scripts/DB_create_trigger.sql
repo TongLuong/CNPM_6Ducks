@@ -8,16 +8,29 @@ INSTEAD OF INSERT
 AS
 BEGIN
     DECLARE @uID INTEGER, @pID INTEGER, @fName VARCHAR(1000), @nPage INTEGER, @pType VARCHAR(3), @tStart DATETIME
+    DECLARE @totalPage INTEGER
     DECLARE cur_beforePrint CURSOR FOR (SELECT user_id, printer_id, file_name, no_pages, paperType from [inserted])
     OPEN cur_beforePrint
     FETCH FROM cur_beforePrint INTO @uID, @pID, @fName, @nPage, @pType
     WHILE @@FETCH_STATUS = 0
     BEGIN
         SET @tStart = DATEADD(SECOND, 1, (SELECT MAX(time_end) FROM [Print_log]))
+
         IF @tStart IS NULL or @tStart < GETDATE() 
         BEGIN
             SET @tStart = GETDATE()
         END
+
+        SET @totalPage = @noPage * (
+            CASE
+                WHEN @pType = 'A4' THEN 1
+                WHEN @pType = 'A3' THEN 2
+                WHEN @pType = 'A2' THEN 4
+                WHEN @pType = 'A1' THEN 8
+                ELSE 16
+            END
+        )
+        
         INSERT INTO [Print_log] (user_id, printer_id, file_name, no_pages, paperType, time_start, time_end)
         VALUES (
             @uID, 
@@ -26,7 +39,7 @@ BEGIN
             @nPage, 
             @pType, 
             @tStart,
-            DATEADD(SECOND, @nPage / 2 , @tStart) -- assume that the time needed to print a page is 0.5s
+            DATEADD(SECOND, @totalPage * (0.5) , @tStart) -- mặc định mỗi trang in hết 0.5s, 
         )
 
         FETCH NEXT FROM cur_beforePrint INTO @uID, @pID, @fName, @nPage, @pType
@@ -68,7 +81,15 @@ BEGIN
                     ELSE 16
                 END
             ), 
-            total_printed = total_printed + 1 -- chắc đổi total thành số lượt in, số trang có thể tính sau
+            total_printed = total_printed + @noPage * (
+                CASE
+                    WHEN @pType = 'A4' THEN 1
+                    WHEN @pType = 'A3' THEN 2
+                    WHEN @pType = 'A2' THEN 4
+                    WHEN @pType = 'A1' THEN 8
+                    ELSE 16
+                END
+            )
         WHERE printer_id = @printerID
 
         UPDATE [User]
