@@ -138,3 +138,16 @@ SELECT transaction_code,time_trans,no_pages,price
 FROM Buying_page_log
 WHERE user_id = @userID
 )
+
+CREATE FUNCTION display_total_printed_by_type
+(
+@user_id varchar(7)
+)
+returns table as
+return
+(
+	select paperType,sum(no_pages) as numpg
+	from Print_log 
+	where [user_id] = @user_id
+	group by paperType
+)
