@@ -33,7 +33,7 @@ namespace CNPM.Controllers
                 while (dr.Read())
                 {
                     num++;
-                    times.Add(dr.GetString(0).ToString());
+                    times.Add(dr.GetDateTime(0).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                     details.Add(dr.GetString(1));
                 }
             }

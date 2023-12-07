@@ -26,9 +26,10 @@ namespace CNPM.Controllers
             SqlDataReader dr = cmd.ExecuteReader();
             int num = 0;
             List<string> filenames = new List<string>();
-            List<string> times = new List<string>();    
+            List<string> startTimes = new List<string>(), endTimes = new List<string>();    
             List<string> printers = new List<string>();
             List<string> numberOfPages = new List<string>();
+            List<string> paperTypes = new List<string>();
 
             if (dr.HasRows)
             {
@@ -36,17 +37,18 @@ namespace CNPM.Controllers
                 {
                     num++;
                     filenames.Add(dr.GetString(0));
-                    times.Add(dr.GetString(1).ToString());
-                    printers.Add(dr.GetString(2) + dr.GetInt32(3).ToString());
-                    numberOfPages.Add(dr.GetInt32(4).ToString());
+                    printers.Add(dr.GetString(1) + dr.GetInt32(2).ToString());
+                    numberOfPages.Add(dr.GetInt32(3).ToString());
+                    paperTypes.Add(dr.GetString(4));
+                    startTimes.Add(dr.GetDateTime(5).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
+                    endTimes.Add(dr.GetDateTime(5).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                 }
             }
-
             conn.Close();
 
             return new JsonResult
             (
-                new { number = num, filename = filenames, time = times, printer = printers, numberOfPage = numberOfPages }
+                new { number = num, filename = filenames, printer = printers, numberOfPage = numberOfPages, paperType = paperTypes, startTime = startTimes, endTime = endTimes }
             );
 
         }

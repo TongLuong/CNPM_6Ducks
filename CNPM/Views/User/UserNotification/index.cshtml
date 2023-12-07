@@ -77,18 +77,19 @@
         );
     }
 
-    function displayPrintingLog(userID) {
+    function displayNotification(userID) {
         $.get("Notification/ShowNotification", { "userID": userID },
             function (response) {
                 for (let i = 0; i < response.number; i++) {
-                    showNotificationItem(response.detail, response.timex``);
+                    showNotificationItem(response.detail, response.time);
                 }
             }
         )
     }
     var urlParams = new URLSearchParams(window.location.search);
     var id = urlParams.get('id');
-    displayPrintingLog(id);
+    alert(id.toString());
+    //displayNotification(id);
   });
 
  

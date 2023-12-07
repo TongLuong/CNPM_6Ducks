@@ -106,7 +106,7 @@
     }
 
     function displayBuyPageLog(userID) {
-        $.get("PrintingLog/ShowPrintingLog", { "userID": userID },
+        $.get("Purchasing/ShowBuyPageLog", { "userID": userID },
             function (response) {
                 for (let i = 0; i < response.number; i++) {
                     showBuyPageLogItem(response.transactionCode, response.time, response.numberOfPage, response.price);
