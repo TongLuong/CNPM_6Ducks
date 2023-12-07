@@ -1,27 +1,22 @@
 $(document).ready(function () {
   $(".edit-info, .avatar").click(function (e) { 
     e.preventDefault();
-    location.href = "/UI Temporary/admin/info";
+    location.href = "AdminInfo";
   });
   $(".manage-user").click(function (e) { 
     e.preventDefault();
-    location.href = "/UI Temporary/admin/manage/user";
+    location.href = "AdminManageUser";
   });
   $(".manage-printer").click(function (e) { 
     e.preventDefault();
-    location.href = "/UI Temporary/admin/manage/printer";
+    location.href = "AdminManagePrinter";
   });
   $(".manage-system").click(function (e) { 
     e.preventDefault();
-    location.href = "/UI Temporary/admin/manage/system";
+    location.href = "AdminManageSystem";
   });
   $(".notification").click(function (e) { 
     e.preventDefault();
-    location.href = "/UI Temporary/admin/notification";
+    location.href = "AdminNotification";
   });
-  $(".notification").click(function (e) { 
-    e.preventDefault();
-    location.href = "/UI Temporary/admin/notification";
-  });
-
 });
