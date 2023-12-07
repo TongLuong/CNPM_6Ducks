@@ -143,6 +143,7 @@ SELECT transaction_code,time_trans,no_pages,price
 FROM Buying_page_log
 WHERE user_id = @userID
 )
+go
 
 CREATE FUNCTION display_total_printed_by_type
 (
@@ -156,3 +157,15 @@ return
 	where [user_id] = @user_id
 	group by paperType
 )
+go
+
+create function display_notification(
+@user_id varchar(7)
+)
+returns table as
+return (
+	select [time],detail
+	from Notification
+	where [user_id] = @user_id
+	)
+go
