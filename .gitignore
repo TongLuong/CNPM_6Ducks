@@ -483,4 +483,3 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 /CNPM/ConnectionString.cs
-CNPM/ConnectionString.cs
