@@ -6,11 +6,6 @@ namespace CNPM.Controllers
 {
     public class Purchasing : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         SqlConnection conn;
 
         public Purchasing()

@@ -31,7 +31,7 @@ $(document).ready(function () {
     }
     var urlParams = new URLSearchParams(window.location.search);
     var id = urlParams.get('id');
-    displayPrintingLog(id);
+    //displayPrintingLog(id);
 });
 
 

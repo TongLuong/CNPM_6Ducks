@@ -43,33 +43,5 @@ namespace CNPM.Controllers
         {
             return View("/Views/User/UserBuyPage/index.cshtml");
         }
-        public JsonResult CheckLogin(string username, string password)
-        {
-            // TODO
-            // check username and pwd using function from model
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-
-            SqlCommand func = new SqlCommand("SELECT dbo.check_login(@username, @pwd)",
-                conn);
-
-            func.Parameters.AddWithValue("@username", username == null ? DBNull.Value : username);
-            func.Parameters.AddWithValue("@pwd", password == null ? DBNull.Value : password);
-
-            string id = (string)func.ExecuteScalar();
-            //return Content("result: " + result.ToString() + " " + username + " " + email + " " + pwd);
-
-            conn.Close();
-
-            return new JsonResult
-            (
-                new { userID = id }
-            );
-            /*if (result)
-                return RedirectToAction("Index", "HomePage");
-            else
-                return RedirectToAction("Index", "HomePageNoUser");*/
-        }
     }
 }

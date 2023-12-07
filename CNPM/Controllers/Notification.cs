@@ -14,11 +14,6 @@ namespace CNPM.Controllers
             conn = new SqlConnection(ConnectionString.sqlConnectionString);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public JsonResult ShowNotification(string userID)
         {
             if (conn.State == ConnectionState.Closed)

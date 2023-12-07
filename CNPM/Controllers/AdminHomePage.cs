@@ -2,11 +2,11 @@
 
 namespace CNPM.Controllers
 {
-    public class User : Controller
+    public class AdminHomePage : Controller
     {
         public IActionResult Index()
         {
-            return View();
+            return View("/Views/Admin/index.cshtml");
         }
     }
 }

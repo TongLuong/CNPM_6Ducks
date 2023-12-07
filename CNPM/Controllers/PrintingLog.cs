@@ -14,11 +14,6 @@ namespace CNPM.Controllers
             conn = new SqlConnection(ConnectionString.sqlConnectionString);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public JsonResult ShowPrintingLog(string userID)
         {
             if (conn.State == ConnectionState.Closed)
@@ -97,6 +92,8 @@ namespace CNPM.Controllers
             cmd.Parameters.AddWithValue("@time_start", tempTime);
             
             cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }

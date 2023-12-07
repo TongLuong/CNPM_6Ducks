@@ -56,6 +56,9 @@ BEGIN
     FROM [Admin]
     WHERE email = @username + '@hcmut.edu.vn' AND pwd = @pwd;
 
+	IF ISNULL(@result, -1) <> -1
+		RETURN @result;
+
     SELECT @result = user_id
     FROM [User]
     WHERE email = @username + '@hcmut.edu.vn' AND pwd = @pwd AND [status] = 'Actived';

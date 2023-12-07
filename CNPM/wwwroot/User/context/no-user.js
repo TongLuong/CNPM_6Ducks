@@ -18,13 +18,16 @@
           var pass = document.getElementsByName("password")[0].value;
           $.get
           (
-              "HomePage/CheckLogin", {"username": user, "password": pass},
+              "Login/CheckLogin", {"username": user, "password": pass},
               function (response) {
-                  if (response.userID != '')
-                      location.href = "HomePage" + "?id=" + response.userID;
+                  if (response.id != '') {
+                      if (response.type == 0)
+                          location.href = "AdminHomePage" + "?id=" + response.id;
+                      else if (response.type > 0)
+                          location.href = "HomePage" + "?id=" + response.id;
+                  }
                   else {
                       $("#msg").text("Đăng nhập thất bại, vui lòng thử lại");
-                      //location.href = "HomePageNoUser";
                   }
               }
           )
