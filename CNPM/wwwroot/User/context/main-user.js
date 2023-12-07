@@ -109,12 +109,12 @@
         $.get("Purchasing/ShowBuyPageLog", { "userID": userID },
             function (response) {
                 for (let i = 0; i < response.number; i++) {
-                    showBuyPageLogItem(response.transactionCode, response.time, response.numberOfPage, response.price);
+                    showBuyPageLogItem(response.transactionCode[i], response.time[i], response.numberOfPage[i], response.price[i]);
                 }
             }
         )
     }
     var urlParams = new URLSearchParams(window.location.search);
     var id = urlParams.get('id');
-    //displayBuyPageLog(id);
+    displayBuyPageLog(id);
 });

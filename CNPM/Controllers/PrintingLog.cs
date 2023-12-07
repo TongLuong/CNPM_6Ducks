@@ -41,7 +41,7 @@ namespace CNPM.Controllers
                     numberOfPages.Add(dr.GetInt32(3).ToString());
                     paperTypes.Add(dr.GetString(4));
                     startTimes.Add(dr.GetDateTime(5).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
-                    endTimes.Add(dr.GetDateTime(5).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
+                    endTimes.Add(dr.GetDateTime(6).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                 }
             }
             conn.Close();
