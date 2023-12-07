@@ -6,7 +6,7 @@ $(document).ready(function () {
   $(".log-item .total").width($(".title .total").width());
   $(".log-item .status").width($(".title .status").width());
     $(".log-table").height(10 * $(".item").height() + 80 + "px");
-
+    alert("sy")
     function showPrintingLogItem(name, time, printer, nopage) {
         $.get("components/printing-log.html", function (data) {
             $(".log-table").append(data);

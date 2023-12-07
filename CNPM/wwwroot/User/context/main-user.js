@@ -25,7 +25,9 @@
         $.ajax({
             url: "HomePage/UserPrintingHistory",
             success: function (response) {
-                $(".action").html(response);
+                $.getScript("/User/context/printer-log.js", function () {
+                    $(".action").html(response);
+                });
             },
         });
     });
@@ -114,5 +116,5 @@
     }
     var urlParams = new URLSearchParams(window.location.search);
     var id = urlParams.get('id');
-    displayBuyPageLog(id);
+    //displayBuyPageLog(id);
 });
