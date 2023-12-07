@@ -5,23 +5,19 @@ $(document).ready(function () {
   $(".log-item .size").width($(".title .size").width());
   $(".log-item .total").width($(".title .total").width());
   $(".log-item .status").width($(".title .status").width());
-    $(".log-table").height(10 * $(".item").height() + 80 + "px");
-    
-    function showPrintingLogItem(name, time, printer, nopage) {
-
-    alert("tonga");
+  $(".log-table").height(10 * $(".item").height() + 80 + "px");
 
     function showPrintingLogItem(name, start_time, end_time, printer, nopage) {
-        $.get("components/printing-log.html", function (data) {
-            $(".log-table").append(data);
-            var item = $(".log-table .log-item:last-child()");
-            item.find(".name").text(name);
-            item.find("start-time").text(start_time);
-            item.find("end-time").text(end_time);
-            item.find("printer").text(printer);
-            item.find("nopage").text(nopage);
-            item.find("total").text(nopage);
-        }
+            $.get("components/printing-log.html", function (data) {
+                $(".log-table").append(data);
+                var item = $(".log-table .log-item:last-child()");
+                item.find(".name").text(name);
+                item.find(".start-time").text(start_time);
+                item.find(".end-time").text(end_time);
+                item.find(".printer").text(printer);
+                item.find(".nopage").text(nopage);
+                item.find(".total").text(nopage);
+            }
         );
     }
 
@@ -31,7 +27,7 @@ $(document).ready(function () {
                 
                 for (let i = 0; i < response.number; i++) {
                     
-                    showPrintingLogItem(response.filename, response.startTime, response.endTime, response.printer, response.numberOfPage, response.paperType );
+                    showPrintingLogItem(response.filename[i], response.startTime[i], response.endTime[i], response.printer[i], response.numberOfPage[i], response.paperType[i]);
                 }
             }
         )

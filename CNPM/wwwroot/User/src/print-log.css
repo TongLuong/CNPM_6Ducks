@@ -51,6 +51,42 @@
   width: 260px;
 }
 
+.print-log .log-table .start-time {
+    text-align: left;
+    padding-left: 10px;
+    width: 260px;
+}
+
+.print-log .log-table .end-time {
+    text-align: left;
+    padding-left: 10px;
+    width: 260px;
+}
+
+.print-log .log-table .printer {
+    text-align: left;
+    padding-left: 10px;
+    width: 260px;
+}
+
+.print-log .log-table .page {
+    text-align: left;
+    padding-left: 10px;
+    width: 260px;
+}
+
+.print-log .log-table .size {
+    text-align: left;
+    padding-left: 10px;
+    width: 260px;
+}
+
+.print-log .log-table .total {
+    text-align: left;
+    padding-left: 10px;
+    width: 260px;
+}
+
 .print-log .log-table .status {
   padding-right: 10px;
 }
