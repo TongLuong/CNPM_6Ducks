@@ -66,28 +66,30 @@
         wait[i].style.color = '#191c1e99';
       }
     }
+
+     function showNotificationItem(detail,time) {
+        $.get("components/notification.html", function (data) {
+            $(".log-table").append(data);
+            var item = $(".log-table .log-item:last-child()");
+            item.find(".notification").text(detail);
+            item.find("time").text(time);
+        }
+        );
+    }
+
+    function displayPrintingLog(userID) {
+        $.get("Notification/ShowNotification", { "userID": userID },
+            function (response) {
+                for (let i = 0; i < response.number; i++) {
+                    showNotificationItem(response.detail, response.timex``);
+                }
+            }
+        )
+    }
+    var urlParams = new URLSearchParams(window.location.search);
+    var id = urlParams.get('id');
+    displayPrintingLog(id);
   });
 
-  function showNotificationItem(detail,time) {
-    $.get("components/notification.html", function (data) {
-        $(".log-table").append(data);
-        var item = $(".log-table .log-item:last-child()");
-        item.find(".notification").text(detail);
-        item.find("time").text(time);
-    }
-    );
-}
-
-function displayPrintingLog(userID) {
-    $.get("Notification/ShowNotification", { "userID": userID },
-        function (response) {
-            for (let i = 0; i < response.number; i++) {
-                showNotificationItem(response.detail, response.time);
-            }
-        }
-    )
-}
-var urlParams = new URLSearchParams(window.location.search);
-var id = urlParams.get('id');
-displayPrintingLog(id);
+ 
 </script>
