@@ -21,38 +21,81 @@ namespace CNPM.Controllers
 
         public JsonResult ShowPrintingLog(string userID)
         {
-            /*if (conn.State == ConnectionState.Closed)
+            if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Print_log pl JOIN Printer p ON pl.printer_id = p.printer_id WHERE pl.user_id = @userID", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.display_log(@userID)", conn);
 
             cmd.Parameters.AddWithValue("@userID", userID);
 
             SqlDataReader dr = cmd.ExecuteReader();
-            List<string >*/
-            return null;
+            int num = 0;
+            List<string> filenames = new List<string>();
+            List<string> times = new List<string>();    
+            List<string> printers = new List<string>();
+            List<string> numberOfPages = new List<string>();
+
+            if (dr.HasRows)
+            {
+                while(dr.Read())
+                {
+                    num++;
+                    filenames.Add(dr.GetString(0));
+                    times.Add(dr.GetString(1).ToString());
+                    printers.Add(dr.GetString(2) + dr.GetInt32(3).ToString());
+                    numberOfPages.Add(dr.GetInt32(4).ToString());
+                }
+            }
+
+            conn.Close();
+
+            return new JsonResult
+            (
+                new { number = num, filename = filenames, time = times, printer = printers, numberOfPage = numberOfPages }
+            );
+
         }
 
         [HttpPost]
         public void SavePrintingLog(string userID, string printerID,
-                        string fileName, string noPages)
+                        string fileName, string noPages, string paperType)
         {
-            // TODO
-            // check username and pwd using function from model
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
+            DateTime localDate = DateTime.Now;
             SqlCommand cmd = new SqlCommand
             (
-                "EXEC save_log_print @user_id=" + userID +
-                ",@printer_id=" + printerID +
-                ",@file_name=" + fileName +
-                ",no_pages=" + noPages,
+                "dbo.noti_before_print",
                 conn
             );
 
             cmd.CommandType = CommandType.StoredProcedure;
+            string tempTime = localDate.ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
+
+            cmd.Parameters.AddWithValue("@user_id", userID);
+            cmd.Parameters.AddWithValue("@printer_id", printerID);
+            cmd.Parameters.AddWithValue("@file_name", fileName);
+            cmd.Parameters.AddWithValue("@no_pages", noPages);
+            cmd.Parameters.AddWithValue("@paperType", paperType);
+            cmd.Parameters.AddWithValue("@time_start", tempTime);
+
+            cmd.ExecuteNonQuery();
+
+            //====================================================
+            cmd = new SqlCommand
+            (
+                "dbo.save_log_print",
+                conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@user_id", userID);
+            cmd.Parameters.AddWithValue("@printer_id", printerID);
+            cmd.Parameters.AddWithValue("@file_name", fileName);
+            cmd.Parameters.AddWithValue("@time_start", tempTime);
+            
             cmd.ExecuteNonQuery();
         }
     }
