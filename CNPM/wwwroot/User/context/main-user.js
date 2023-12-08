@@ -1,4 +1,7 @@
-﻿$(document).ready(function () {
+﻿
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+$(document).ready(function () {
     function setPerOfBar() {
         var x = $(".page-number").text().split(": ")[1];
 
@@ -58,6 +61,20 @@
                 $(".pay").click(function () {
                     $(".modal").css("display", "block");
                     $("body, html").css("overflow", "hidden")
+
+                    var no_page = document.getElementById("page-number").value;
+
+                    $.ajax({
+                        url: "Purchasing/SaveBuyPageLog",
+                        data: {
+                            "numberOfPage": no_page, "userID": id
+                        },
+                        async: false,
+                        cache: false,
+                        type: "post"
+                    })
+
+                    displayBuyPageLog(id);
                 });
                 $("#btn-done").click(function () {
                     $(".modal").css("display", "none");
@@ -71,6 +88,8 @@
                 
                 $("#view-buying-log").click(function() {
                     $(".user-buying-log").toggle();
+                    displayBuyPageLog(id);
+
                 });
 
                 $("input").change(function () {
@@ -91,31 +110,27 @@
                 }
             },
         });
+
+        
     });
 
-    $.ajax({
-        url: "Purchasing/SaveBuyPageLog",
-        data: {
-            "numberOfPage" : no_page, "userID": userID
-        },
-        async: false,
-        cache: false,
-        type: "post"
-    })
-
-    alert(id);
 
 
     function showBuyPageLogItem(transactionCode, time, nopage,price) {
-        $.get("components/buy-page.html", function (data) {
-            $(".result").append(data);
-            var item = $(".result .buy-page-item:last-child()");
-            item.find(".transaction-code").text(transactionCode);
-            item.find("time").text(time);
-            item.find("nopage").text(nopage);
-            item.find("price").text(price);
-        }
-        );
+        //$.get("components/buy-page.html", function (data) {
+        //    //$(".result").append(data);
+        //    //var item = $(".result .buy-page-item:last-child()");
+        //    //item.find(".transaction-code").text(transactionCode);
+        //    //item.find(".time").text(time);
+        //    //item.find(".nopage").text(nopage);
+        //    //item.find(".price").text(price);
+        //}
+        //);
+        $(".result").append($("<p></p>").text(transactionCode));
+        $(".result").append($("<p></p>").text(time));
+        $(".result").append($("<p></p>").text(nopage));
+        $(".result").append($("<p></p>").text(price));
+
     }
 
     function displayBuyPageLog(userID) {
@@ -127,7 +142,5 @@
             }
         )
     }
-    var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
-    displayBuyPageLog(id);
+
 });

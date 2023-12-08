@@ -36,8 +36,8 @@ namespace CNPM.Controllers
                 while (dr.Read())
                 {
                     num++;
-                    transactionCodes.Add(dr.GetString(0).ToString());
-                    times.Add(dr.GetString(1).ToString());
+                    transactionCodes.Add(dr.GetInt32(0).ToString());
+                    times.Add(dr.GetDateTime(1).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                     numberOfPages.Add(dr.GetInt32(2).ToString());
                     prices.Add(dr.GetInt32(3).ToString());
                 }
