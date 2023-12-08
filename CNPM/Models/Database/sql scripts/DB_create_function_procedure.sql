@@ -127,6 +127,64 @@ BEGIN
 END
 GO
 
+--drop procedure change_user_info
+create procedure change_user_info
+@user_id varchar(7),
+@user_type nvarchar(15),
+@name nvarchar(50),
+@dob date,
+@sex char(1),
+@hometown nvarchar(50),
+@addr nvarchar(1000),
+@email varchar(100),
+@phone_number varchar(10),
+@faculty nvarchar(1000),
+@enrolled_year int,
+@graduate_year int,
+@pwd varchar(1000),
+@status varchar(1000) = null,
+@transaction_id varchar(16) = null,
+@pageLeft int = null
+as
+begin
+	update [dbo].[User]
+    set [user_type] = @user_type
+      ,[name] = @name
+      ,[dob] = @dob
+      ,[sex] = @sex
+      ,[hometown] = @hometown
+      ,[addr] = @addr
+      ,[email] = @email
+      ,[phone_number] = @phone_number
+      ,[faculty] = @faculty
+      ,[enrolled_year] = @enrolled_year
+      ,[graduate_year] = @graduate_year
+      ,[pwd] = @pwd
+	where [user_id] = @user_id
+
+	if @status is not null
+	begin
+		update [dbo].[User]
+		set [status] = @status
+		where [user_id] = @user_id
+	end
+	 
+	if @transaction_id is not null
+	begin
+		update [dbo].[User]
+		set [transaction_id] = @transaction_id
+		where [user_id] = @user_id
+	end
+
+	if @pageLeft is not null
+	begin
+		update [dbo].[User]
+		set [pageLeft] = @pageLeft
+		where [user_id] = @user_id
+	end
+end
+go
+
 -- DROP PROCEDURE unactive_printer
 CREATE PROCEDURE unactive_printer
     @printer_id INT
