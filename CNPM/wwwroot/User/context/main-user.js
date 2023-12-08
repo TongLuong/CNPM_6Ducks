@@ -93,6 +93,19 @@
         });
     });
 
+    $.ajax({
+        url: "Purchasing/SaveBuyPageLog",
+        data: {
+            "numberOfPage" : no_page, "userID": userID
+        },
+        async: false,
+        cache: false,
+        type: "post"
+    })
+
+    alert(id);
+
+
     function showBuyPageLogItem(transactionCode, time, nopage,price) {
         $.get("components/buy-page.html", function (data) {
             $(".result").append(data);

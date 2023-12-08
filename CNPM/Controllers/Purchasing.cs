@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
+using CNPM.Models.Domain;
 
 namespace CNPM.Controllers
 {
@@ -49,6 +50,28 @@ namespace CNPM.Controllers
                 new { number = num, transactionCode = transactionCodes, time = times, numberOfPage = numberOfPages, price = prices }
             );
 
+        }
+
+        [HttpPost]
+        public void SaveBuyPageLog(int numberOfPage, string userID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "dbo.insert_Buying_log",
+                conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@user_id", userID);
+            cmd.Parameters.AddWithValue("@no_page", numberOfPage);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }
