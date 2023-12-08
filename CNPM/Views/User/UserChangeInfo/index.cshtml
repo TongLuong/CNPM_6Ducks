@@ -11,15 +11,15 @@
                     <input type="text" id="fullname" name="fullname" />
 
                     <label for="mssv">MSSV</label>
-                    <input type="text" id="mssv" name="mssv" />
+                    <input type="text" id="mssv" name="mssv" disabled/>
 
                     <label for="bdate">Ngày sinh</label>
                     <input type="date" id="bdate" name="bdate" />
 
                     <label for="sex">Giới tính</label>
                     <select id="sex" name="sex">
-                        <option value="male">Nam</option>
-                        <option value="female">Nữ</option>
+                        <option value="M">Nam</option>
+                        <option value="F">Nữ</option>
                     </select>
 
                     <label for="hometown">Quê quán</label>
@@ -46,10 +46,10 @@
                     </div>
 
                     <label for="department">Khoa</label>
-                    <input type="text" id="department" name="department" />
+                    <input type="text" id="department" name="department" disabled />
 
                     <label for="major">Ngành</label>
-                    <input type="text" id="major" name="major" />
+                    <input type="text" id="major" name="major" disabled />
 
                     <label for="start-year">Khóa</label>
                     <input type="text" id="start-year" name="start-year" />
@@ -58,17 +58,15 @@
                     <input type="text" id="end-year" name="end-year" />
 
                     <label for="state">Tình trạng</label>
-                    <select id="state" name="state" style="color: #0e8704">
-                        <option value="studying" style="color: black">Đang học</option>
-                        <option value="state-2" style="color: black">Tình trạng</option>
-                        <option value="state-3" style="color: black">Tình trạng</option>
-                    </select>
+                    <!-- <select id="state" name="state" style="color: #0e8704">
+                        <option value="Actived" style="color: #0e8704">Đang học</option>
+                        <option value="Banned" style="color: red">Tạm dừng</option>
+                    </select> -->
+                    <input type="text" id="state" name="state" disabled />
 
                     <label for="bank">Ngân hàng liên kết</label>
                     <select id="bank" name="bank">
                         <option value="ocb">Ngân hàng TMCP Phương Đông (OCB)</option>
-                        <option value="bank-2">Ngân hàng 2</option>
-                        <option value="bank-3">Ngân hàng 3</option>
                     </select>
 
                     <label for="bank-number">STK ngân hàng</label>
