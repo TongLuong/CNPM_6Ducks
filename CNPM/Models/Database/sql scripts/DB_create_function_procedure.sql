@@ -130,7 +130,7 @@ GO
 --drop procedure change_user_info
 create procedure change_user_info
 @user_id varchar(7),
-@user_type nvarchar(15),
+@user_type nvarchar(15) = null,
 @name nvarchar(50),
 @dob date,
 @sex char(1),
@@ -148,8 +148,7 @@ create procedure change_user_info
 as
 begin
 	update [dbo].[User]
-    set [user_type] = @user_type
-      ,[name] = @name
+    set [name] = @name
       ,[dob] = @dob
       ,[sex] = @sex
       ,[hometown] = @hometown
@@ -161,6 +160,13 @@ begin
       ,[graduate_year] = @graduate_year
       ,[pwd] = @pwd
 	where [user_id] = @user_id
+
+	if @user_type is not null
+	begin
+		update [dbo].[User]
+		set [user_type] = @user_type
+		where [user_id] = @user_id
+	end
 
 	if @status is not null
 	begin
