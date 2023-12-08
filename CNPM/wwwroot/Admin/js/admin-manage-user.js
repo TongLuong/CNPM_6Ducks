@@ -12,6 +12,7 @@ $(document).ready(function () {
     }
 
     function display_user() {
+        $(".filter-record").html("");
         $.get("AdminManageUser/ShowUser",
             function (response) {
                 for (let i = 0; i < response.number; i++) {
@@ -20,6 +21,8 @@ $(document).ready(function () {
             }
         )
     }
+
+    display_user();
 
     $("#confirm-search").click(function() {
         display_user();

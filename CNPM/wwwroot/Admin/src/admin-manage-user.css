@@ -131,10 +131,10 @@ h1 {
 }
 
 .filter-record {
-  width: max-content;
+  width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 40px 300px 100px 130px 160px;
+  grid-template-columns: 40px 2fr 1fr 2fr 1fr;
   column-gap: 23px;
   row-gap: 13px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -145,12 +145,11 @@ h1 {
 }
 
 .field-bar {
-  width: max-content;
+  width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 40px 300px 100px 130px 160px;
+  grid-template-columns: 40px 2fr 1fr 2fr 1fr;
   column-gap: 23px;
-  row-gap: 13px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   background: rgba(45, 165, 243, 0.31);

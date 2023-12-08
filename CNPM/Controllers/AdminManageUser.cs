@@ -24,7 +24,7 @@ namespace CNPM.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("select [name], [user_id], faculty, pageLeft from [User])", conn);
+            SqlCommand cmd = new SqlCommand("select [name], [user_id], faculty, pageLeft from [User]", conn);
 
             SqlDataReader dr = cmd.ExecuteReader();
             int num = 0;
