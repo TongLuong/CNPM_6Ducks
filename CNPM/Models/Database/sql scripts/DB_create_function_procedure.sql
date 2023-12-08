@@ -230,3 +230,33 @@ return (
 	where [user_id] = @user_id
 	)
 go
+
+create procedure update_printer
+@printer_id int,
+@name nvarchar(50),
+@building nvarchar(50),
+@floor int,
+@brand nvarchar(50),
+@des nvarchar(50) = null,
+@currentState nvarchar(50),
+@pagesLeft int,
+@inkLeft decimal(5,2)
+as
+begin
+	update Printer
+	set
+	[name] = @name,
+	building = @building,
+	[floor] = @floor,
+	brand = @brand,
+	currentState = @currentState,
+	pagesLeft = @pagesLeft,
+	inkLeft = @inkLeft
+	where printer_id = @printer_id
+
+	if @des is not null
+		update Printer set [des] = @des where printer_id = @printer_id
+	else
+		update Printer set [des] = default where printer_id = @printer_id
+	
+end
