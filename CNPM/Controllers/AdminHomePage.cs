@@ -25,11 +25,11 @@ namespace CNPM.Controllers
 
         public IActionResult Index()
         {
-            ExportReportByYear(wwwPath + "\\AnnualReport.csv",
+            /*ExportReportByYear(wwwPath + "\\AnnualReport.csv",
                 DateTime.Now.Year.ToString());
 
             ExportReportByMonth(wwwPath + "\\MonthlyReport.csv",
-                DateTime.Now.Year.ToString());
+                DateTime.Now.Year.ToString());*/
 
             return View("/Views/Admin/index.cshtml");
         }
