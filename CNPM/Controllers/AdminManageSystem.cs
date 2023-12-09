@@ -34,7 +34,7 @@ namespace CNPM.Controllers
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@default_no_pages", defNoPage);
-            cmd.Parameters.AddWithValue("@reset_date", timeReset);
+            cmd.Parameters.AddWithValue("@resetdate", timeReset);
             cmd.Parameters.AddWithValue("@max_print_per", maxPrint);
             cmd.Parameters.AddWithValue("@page_price", price);
 
@@ -49,14 +49,27 @@ namespace CNPM.Controllers
                 "dbo.insert_file_type",
                 conn
             );
-
-            string[] fileType = fileTypes.Split(',');
-            foreach(string type in fileType)
+            if (fileTypes == string.Empty || !fileTypes.Contains('.'))
             {
+                conn.Close();
+                return;
+            }
+            if (fileTypes.Contains('.'))
+            {
+                string[] fileType = fileTypes.Split(',');
+                foreach (string type in fileType)
+                {
+                    string ft = string.Join("", type.Split(' '));
+                    cmd.Parameters.AddWithValue("@type", ft);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                string type = string.Join("", fileTypes.Split(' '));
                 cmd.Parameters.AddWithValue("@type", type);
                 cmd.ExecuteNonQuery();
             }
-
             conn.Close();
         }
     }
