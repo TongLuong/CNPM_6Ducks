@@ -140,7 +140,7 @@ h1 {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   padding-top: 13px;
-  height: calc(24 * 9px + 13 * 9px);
+  max-height: calc(24 * 9px + 13 * 9px);
   overflow: scroll;
 }
 
