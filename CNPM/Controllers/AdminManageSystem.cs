@@ -49,6 +49,8 @@ namespace CNPM.Controllers
                 "dbo.insert_file_type",
                 conn
             );
+
+            cmd.CommandType = CommandType.StoredProcedure;
             if (fileTypes == string.Empty || !fileTypes.Contains('.'))
             {
                 conn.Close();
