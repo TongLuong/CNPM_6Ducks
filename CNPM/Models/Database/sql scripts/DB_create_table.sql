@@ -132,6 +132,9 @@ CREATE TABLE page_setting (
 )
 GO
 ALTER TABLE page_setting add max_print_per int not null default 100
+ALTER TABLE page_setting drop constraint [DF__page_sett__reset__74AE54BC]
+ALTER TABLE page_setting drop column resetdate
+ALTER TABLE page_setting ADD resetdate int not null default 4
 
 IF OBJECT_ID(N'dbo.file_type', N'U') IS NULL
 CREATE TABLE file_type (
