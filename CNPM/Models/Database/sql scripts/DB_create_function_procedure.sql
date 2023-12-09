@@ -105,6 +105,19 @@ return
 	from Printer
 	where building = @building and [floor] = @floor
 );
+go
+
+CREATE PROCEDURE change_printer_name
+@building nvarchar(50),
+@floor int,
+@name nvarchar(50)
+AS
+BEGIN
+    update Printer
+	set name = @name
+	where building = @building and [floor]=@floor
+END
+GO
 
 -- DROP PROCEDURE insert_Buying_log
 CREATE PROCEDURE insert_Buying_log
@@ -218,6 +231,32 @@ begin
 		set [pageLeft] = @pageLeft
 		where [user_id] = @user_id
 	end
+end
+go
+
+--drop procedure change_admin_info
+create procedure change_admin_info
+@admin_id varchar(7),
+@name nvarchar(50),
+@email varchar(100),
+@phone_number varchar(10),
+@pwd varchar(1000),
+@bdate datetime,
+@sex char(1),
+@hometown nvarchar(50),
+@addr nvarchar(1000)
+as
+begin
+	update [dbo].[Admin]
+    set [name] = @name
+	  ,[email] = @email
+	  ,[phone_number] = @phone_number
+	  ,[pwd] = @pwd
+	  ,[bdate] = @bdate
+      ,[sex] = @sex
+      ,[hometown] = @hometown
+      ,[addr] = @addr
+	where [admin_id] = @admin_id
 end
 go
 

@@ -5,18 +5,18 @@
 
     function show_user_item(stt, name, userID, faculty, status, pageLeft) {
         $(".filter-record").append(
-            $("<div></div>").addClass("record stt " + stt).text(stt));
+            $("<div></div>").addClass("record stt line-" + stt).text(stt));
         $(".filter-record").append(
-            $("<div></div>").addClass("record name " + stt).text(name));
+            $("<div></div>").addClass("record name line-" + stt).text(name));
         $(".filter-record").append(
-            $("<div></div>").addClass("record userID " + stt).text(userID));
+            $("<div></div>").addClass("record userID line-" + stt).text(userID));
         $(".filter-record").append(
-            $("<div></div>").addClass("record faculty " + stt).text(faculty));
+            $("<div></div>").addClass("record faculty line-" + stt).text(faculty));
         $(".filter-record").append(
-            $("<div></div>").addClass("record pageLeft " + stt).text(pageLeft));
+            $("<div></div>").addClass("record pageLeft line-" + stt).text(pageLeft));
 
         var selectElement = $("<select disabled></select>");
-        selectElement.addClass("select-status changeStatus " + stt);
+        selectElement.addClass("select-status changeStatus line-" + stt);
         selectElement.attr("id", userID);
 
         selectElement.append(
@@ -90,8 +90,8 @@
         /*if (searchInput == "")
             return;*/
 
-        var record = $(".filter-record .0");
-        var count = 1;
+        var record = $(".filter-record .line-1");
+        var count = 2;
         //record.remove();
         while (record.length > 0) {
             var name = record.eq(1).text();
@@ -109,7 +109,7 @@
                 });
             }
 
-            record = $(".filter-record ." + count);
+            record = $(".filter-record .line-" + count);
             count++;
         }
         //display_user_from_cache(searchInput);

@@ -16,9 +16,9 @@ INSERT INTO [User] VALUES
 GO
 -- Inserting data into [Admin] table
 INSERT INTO [Admin] VALUES
-    ('1123456',N'Trần Thị An','an.tran@hcmut.edu.vn','0923456789','2000-5-12','123456'),
-    ('1109876',N'Nguyễn Vân Hoàng','hoang.nguyen@hcmut.edu.vn','0987654321','2002-4-21','123456'),
-    ('1145678',N'Lê Minh Tâm','tam.le@hcmut.edu.vn','0978563412','2005-12-20','123456');
+    ('1123456',N'Trần Thị An','an.tran@hcmut.edu.vn','0923456789','2000-5-12','123456','F',N'Thái Bình',N'Số 81, đường Số 6, phường Tân Phong, Quận 7, Thành phố Hồ Chí Minh','1975-01-04'),
+    ('1109876',N'Nguyễn Vân Hoàng','hoang.nguyen@hcmut.edu.vn','0987654321','2002-04-21','123456','M',N'Hà Nội',N'17 Nguyễn Gia Thiều, P.6, Q.3, TP.HCM','1968-10-23'),
+    ('1145678',N'Lê Minh Tâm','tam.le@hcmut.edu.vn','0978563412','2005-12-20','123456','M',N'Quảng Nam',N'05 Lô A1, Chung cư 312, Lạc Long Quân, Phường 5, Quận 11, TPHCM','1960-7-8');
 GO
 
 -- Inserting data into [Transaction_info] table
