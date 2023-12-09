@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Data.Common;
+using CNPM.Models.Domain;
 
 namespace CNPM.Controllers
 {
@@ -92,6 +93,28 @@ namespace CNPM.Controllers
                 new { number = num, name = names, brand = brands, currentState = currentStates, pageLeft = pagesLeft, inkLeft = inksLeft, totalPrinted = totalPrinteds }
             );
 
+        }
+
+        public void ChangePrinterName(string building, int floor, string newName)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "dbo.change_printer_name",
+                conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@building", building);
+            cmd.Parameters.AddWithValue("@floor", floor);
+            cmd.Parameters.AddWithValue("@name", newName);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }
