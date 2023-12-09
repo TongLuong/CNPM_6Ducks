@@ -173,3 +173,14 @@ h1 {
 .record:last-child {
   margin-bottom: 13px;
 }
+
+button {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #1488db33;
+    border-radius: 2px;
+    border: 2px solid;
+    border-color: var(--secondary-500);
+    color: #2ca4f3;
+    cursor: pointer;
+}

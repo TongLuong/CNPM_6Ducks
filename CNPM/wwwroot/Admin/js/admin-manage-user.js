@@ -15,7 +15,7 @@
         $(".filter-record").append(
             $("<div></div>").addClass("record pageLeft " + stt).text(pageLeft));
 
-        var selectElement = $("<select></select>");
+        var selectElement = $("<select disabled></select>");
         selectElement.addClass("select-status changeStatus " + stt);
         selectElement.attr("id", userID);
 
@@ -119,5 +119,30 @@
 
     $("#confirm-search").click(function () {
         filterUser();
+    });
+
+    $("#toggle-edit").click(function () {
+        var selectElements = $(".select-status");
+
+        // enable all selects
+        selectElements.each(function () {
+            $(this).prop("disabled", false);
+        });
+
+        document.getElementById("done").style.display = "";
+        // hide this button
+        this.style.display = "none";
+    });
+
+    $("#done").click(function () {
+        document.getElementById("toggle-edit").style.display = "";
+        this.style.display = "none";
+
+        var selectElements = $(".select-status");
+
+        // enable all selects
+        selectElements.each(function () {
+            $(this).prop("disabled", true);
+        });
     });
 });
