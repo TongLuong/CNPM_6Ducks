@@ -105,6 +105,19 @@ return
 	from Printer
 	where building = @building and [floor] = @floor
 );
+go
+
+CREATE PROCEDURE change_printer_name
+@building nvarchar(50),
+@floor int,
+@name nvarchar(50)
+AS
+BEGIN
+    update Printer
+	set name = @name
+	where building = @building and [floor]=@floor
+END
+GO
 
 -- DROP PROCEDURE insert_Buying_log
 CREATE PROCEDURE insert_Buying_log
