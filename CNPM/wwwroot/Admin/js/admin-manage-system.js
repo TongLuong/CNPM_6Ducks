@@ -46,10 +46,30 @@ $(document).ready(function () {
             async: false,
             cache: false,
             type: "post"
-        })
+        });
+    });
 
-        alert("Update System");
-    })
+    $("#download").click(function () {
+        $.ajax({
+            url: "AdminManageSystem/ExportReportByYear",
+            data: {
+                "fileNameByYear": "AnnualReport.csv",
+                "year": 2023
+            },
+            async: false,
+            cache: false,
+            type: "get"
+        });
 
-    alert("Test");
+        $.ajax({
+            url: "AdminManageSystem/ExportReportByMonth",
+            data: {
+                "fileNameByMonth": "MonthlyReport.csv",
+                "year": 2023
+            },
+            async: false,
+            cache: false,
+            type: "get"
+        });
+    });
 });
