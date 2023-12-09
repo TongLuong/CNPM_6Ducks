@@ -68,5 +68,41 @@ namespace CNPM.Controllers
                 new { data = result }
             );
         }
+
+        public JsonResult GetAllowedFileType()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "SELECT type FROM dbo.file_type"
+                , conn
+            );
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<string> result = new List<string>();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (!dr.IsDBNull(i))
+                        {
+                            string temp = dr.GetValue(i).ToString() ?? "";
+                            if (temp != "")
+                                result.Add(temp);
+                        }
+                    }
+                }     
+            }
+            conn.Close();
+
+            return new JsonResult
+            (
+                new { data = result }
+            );
+        }
     }
 }

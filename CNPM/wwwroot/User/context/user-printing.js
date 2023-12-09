@@ -2,12 +2,31 @@ function thisFileUpload() {
   document.getElementById("file").click();
 }
 
+var allowFileTypes = [];
 function updateFileName(inputElement) {
   var fileName = inputElement.files[0].name;
+  var extension = fileName.split('.').pop();
+  if (!allowFileTypes.includes("." + extension)) {
+      alert("Định dạng tập tin không cho phép!");
+      return;
+  }
+
   document.getElementById("show-name").textContent = fileName;
 }
 
 $(document).ready(function () {
+  $.ajax({
+      url: "ManagePrinter/GetAllowedFileType",
+      dataType: "json",
+      async: false,
+      cache: false,
+      success: function(response) {
+          for (var i = 0; i < response.data.length; i++) {
+              allowFileTypes.push(response.data[i]);
+          }
+      }
+  });
+  
   // Danh sách giá trị cho mỗi id
   var values_1 = [];
   var values_1_id = [];
@@ -88,7 +107,7 @@ $(document).ready(function () {
         }
      }
   })
-  
+
   // Thêm sự kiện click cho mỗi id
   var printerIndex, values_others, values_id;
   $("#1, #2, #3, #6").click(function () {
