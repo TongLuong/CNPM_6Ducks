@@ -27,7 +27,7 @@ CREATE TABLE [User] (
     CONSTRAINT en_gra_cond CHECK (graduate_year > enrolled_year)
 )
 GO
-
+--DROP TABLE [Admin]
 IF OBJECT_ID(N'dbo.Admin', N'U') IS NULL
 CREATE TABLE [Admin] (
     admin_id VARCHAR(7) PRIMARY KEY CHECK (admin_id NOT LIKE '%[^0-9]' AND LEN(admin_id) = 7),
@@ -35,13 +35,12 @@ CREATE TABLE [Admin] (
     email VARCHAR(100) NOT NULL UNIQUE CHECK (email LIKE '%@hcmut.edu.vn'),
     phone_number VARCHAR(10) NOT NULL UNIQUE CHECK (phone_number NOT LIKE '%[^0-9]%' AND LEN(phone_number) = 10),
     time_create DATETIME NOT NULL DEFAULT GETDATE(),
+	[pwd] VARCHAR(1000) NOT NULL,
+	[bdate] DATE,
+	[sex] CHAR(1),
+	[hometown] NVARCHAR(1000),
+	[addr] NVARCHAR(1000)
 )
-ALTER TABLE [Admin] ADD [pwd] VARCHAR(1000) NOT NULL
-
-ALTER TABLE [Admin] ADD [bdate] DATETIME
-ALTER TABLE [Admin] ADD [sex] CHAR(1)
-ALTER TABLE [Admin] ADD [hometown] NVARCHAR(1000)
-ALTER TABLE [Admin] ADD [addr] NVARCHAR(1000)
 GO
 
 IF OBJECT_ID(N'dbo.Printer', N'U') IS NULL
