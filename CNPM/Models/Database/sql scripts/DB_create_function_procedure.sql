@@ -362,3 +362,43 @@ begin
 	return
 end
 
+go
+create function report_by_year(@year int)
+returns @res table(yyyy int, A1 int, A2 int, A3 int, A4 int)
+as
+begin
+	declare @a3 int = 0
+	declare @a4 int = 0
+	declare @a2 int = 0
+	declare @a1 int = 0
+
+	set @a1 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A1')
+	set @a2 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A2')
+	set @a3 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3')
+	set @a4 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4')
+
+	insert into @res values(@year, @a1,@a2,@a3,@a4)
+	return
+end
+
+go
+create function report_by_year_n_month(@year int)
+returns @res table(yyyy int,mm int, A1 int, A2 int, A3 int, A4 int)
+as
+begin
+	declare @a3 int = 0
+	declare @a4 int = 0
+	declare @a2 int = 0
+	declare @a1 int = 0
+	declare @mm int =1
+	while (@mm <= month(getdate()) or @year < year(getdate())) and @mm <= 12
+	begin
+		set @a1 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A1' and MONTH(time_end) = @mm)
+		set @a2 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A2' and MONTH(time_end) = @mm)
+		set @a3 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3' and MONTH(time_end) = @mm)
+		set @a4 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4' and MONTH(time_end) = @mm)
+		insert into @res values(@year,@mm, @a1,@a2,@a3,@a4)
+	end
+	return	
+end
+
