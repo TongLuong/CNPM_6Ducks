@@ -137,6 +137,26 @@ BEGIN
 END
 GO
 
+create procedure change_system_setting
+@default_no_pages int,
+@resetdate int,
+@page_price int,
+@max_print_per int
+as
+begin
+	update page_setting
+	set default_no_pages = @default_no_pages,resetdate=@resetdate,page_price=@page_price,max_print_per = @max_print_per
+end
+go
+
+create procedure insert_file_type
+@type varchar(50)
+as
+begin 
+	insert into file_type values (@type);
+end
+go
+
 --drop procedure change_user_info
 create procedure change_user_info
 @user_id varchar(7),

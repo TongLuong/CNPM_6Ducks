@@ -30,5 +30,24 @@ const data = {
 new Chart(document.getElementById("myChart"), data);
 
 $(document).ready(function () {
-  
+
+    var def_no_page = document.getElementById("default-number-page").value;
+    var time_reset = document.getElementById("time-to-reset").value;
+    var price = document.getElementById("default-price").value;
+    var max_print = document.getElementById("max-print-per-time").value;
+    var file_type = document.getElementById("file-type").value;
+
+    $("#done").click(function () {
+        $.ajax({
+            url: "AdminManageSystem/SaveSystem",
+            data: {
+                "defNoPage": def_no_page, "timeReset": time_reset, "price": price, "maxPrint": max_print, "fileType": file_type
+            },
+            async: false,
+            cache: false,
+            type: "post"
+        })
+
+        alert("Hieuga");
+    })
 });
