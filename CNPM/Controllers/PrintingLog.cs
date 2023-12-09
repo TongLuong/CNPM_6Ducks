@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -30,6 +31,7 @@ namespace CNPM.Controllers
             List<string> printers = new List<string>();
             List<string> numberOfPages = new List<string>();
             List<string> paperTypes = new List<string>();
+            List<string> totals = new List<string>();
 
             if (dr.HasRows)
             {
@@ -51,6 +53,28 @@ namespace CNPM.Controllers
                 new { number = num, filename = filenames, printer = printers, numberOfPage = numberOfPages, paperType = paperTypes, startTime = startTimes, endTime = endTimes }
             );
 
+        }
+
+        public JsonResult ShowTotalPrintedByType(string userID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.display_total_printed_by_type(@userID)", conn);
+
+            cmd.Parameters.AddWithValue("@userID", userID);
+            SqlDataReader dr = cmd.ExecuteReader();
+            string res = string.Empty;
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    res += dr.GetString(0) + " : " + dr.GetInt32(1).ToString() + " trang<br>";
+                }
+            }
+
+            conn.Close();
+            return new JsonResult(new {result = res});
         }
 
         [HttpPost]
