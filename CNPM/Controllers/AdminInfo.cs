@@ -42,7 +42,7 @@ namespace CNPM.Controllers
                     {
                         if (!dr.IsDBNull(i))
                         {
-                            if (i == 4 || i == 6) // time_create
+                            if (i == 4 || i == 9) // time_create
                                 temp[i] = ((DateTime)dr.GetValue(i)).ToString("yyyy-MM-dd") ?? "";
                             else
                                 temp[i] = dr.GetValue(i).ToString() ?? "";
