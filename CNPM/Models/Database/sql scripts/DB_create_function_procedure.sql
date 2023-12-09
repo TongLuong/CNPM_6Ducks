@@ -96,6 +96,16 @@ RETURN
 );
 GO
 
+create function display_printer_info(@building nvarchar(50), @floor int)
+returns table
+as
+return 
+(
+	select [name],brand,currentState, pagesLeft, inkLeft,total_printed
+	from Printer
+	where building = @building and [floor] = @floor
+);
+
 -- DROP PROCEDURE insert_Buying_log
 CREATE PROCEDURE insert_Buying_log
     @no_page INT,
