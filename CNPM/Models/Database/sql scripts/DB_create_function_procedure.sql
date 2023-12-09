@@ -266,3 +266,19 @@ begin
 		update Printer set [des] = default where printer_id = @printer_id
 	
 end
+
+go
+create procedure insert_file_type
+@file_type varchar(50)
+as
+begin
+	insert into file_type values (@file_type)
+end
+
+go
+create procedure delete_file_type
+@file_type varchar(50)
+as
+begin
+	delete file_type where [type] = @file_type
+end

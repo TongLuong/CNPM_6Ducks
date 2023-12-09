@@ -131,3 +131,9 @@ CREATE TABLE page_setting (
     page_price INTEGER NOT NULL DEFAULT 1000
 )
 GO
+
+IF OBJECT_ID(N'dbo.file_type', N'U') IS NULL
+CREATE TABLE file_type (
+    [type] varchar(50) primary key check([type] like '.%')
+)
+GO
