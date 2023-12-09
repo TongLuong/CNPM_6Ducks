@@ -40,22 +40,22 @@ namespace CNPM.Controllers
                 {
                     num++;
                     buildings.Add(dr.GetString(0));
-                    currentStates.Add(dr.GetString(1));
-                    floors.Add(dr.GetInt32(2).ToString());
+                    currentStates.Add(dr.GetString(2));
+                    floors.Add(dr.GetInt32(1).ToString());
                 }
             }
 
             conn.Close();
 
             return new JsonResult(
-                new {building = buildings, floor = floors, currentState = currentStates} );
+                new { building = buildings, floor = floors, currentState = currentStates });
         }
 
         public JsonResult ShowPrinter(string building, string floorStr)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-            
+
             int floor = Int32.Parse(floorStr);
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.display_printer_info(@building,@floor)", conn);
@@ -81,7 +81,7 @@ namespace CNPM.Controllers
                     brands.Add(dr.GetString(1));
                     currentStates.Add(dr.GetString(2));
                     pagesLeft.Add(dr.GetInt32(3).ToString());
-                    inksLeft.Add(dr.GetInt32(4).ToString());
+                    inksLeft.Add(dr.GetDecimal(4).ToString());
                     totalPrinteds.Add(dr.GetInt32(5).ToString());
                 }
             }

@@ -51,6 +51,7 @@ h1 {
 .property {
   border-radius: 5px;
   border: 2px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 30px;
 }
 
 .choose .list {
@@ -190,7 +191,7 @@ h1 {
   font-weight: 500;
   line-height: 24px;
   left: 10px;
-  top: -10px;
+  top: -15px;
   background-color: white;
   padding-inline: 5px;
   z-index: 1;
@@ -199,6 +200,7 @@ h1 {
 .property-list input[type="text" i] {
   padding-inline-start: 10px;
   padding-inline-end: 10px;
+  padding-block: 0;
   color: #000;
   font-size: 15px;
   font-weight: 500;
