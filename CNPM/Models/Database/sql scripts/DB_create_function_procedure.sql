@@ -305,7 +305,8 @@ begin
 end
 
 go
-create function total_page_A4(@year int, @mm int) --mm use only for graph
+--drop function total_page_A4
+create function total_page_A4(@year int, @mm int = null) --mm use only for graph
 returns int
 as
 begin
