@@ -38,12 +38,6 @@ h1 {
   width: max-content;
 }
 
-.noti .btn-group {
-  display: block;
-  margin: 10px auto 5px auto;
-  width: max-content;
-}
-
 .btn-group button {
   cursor: pointer;
   transition: transform 0.1s ease;
@@ -68,17 +62,6 @@ h1 {
   overflow: scroll;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-}
-
-.printer-list .left,
-.printer-list .right {
-  margin-bottom: 25px;
-}
-
-.building-list .left,
-.building-list .right {
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
 }
 
 .printer-list .item {
@@ -113,18 +96,10 @@ h1 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0 auto;
   cursor: pointer;
-  border-radius: 2px;
-  & span {
-    display: block;
-    width: max-content;
-    margin: 0 auto;
-  }
-  & img {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
+  height: 50%;
+   & img {
+    width: 50%;
   }
 }
 

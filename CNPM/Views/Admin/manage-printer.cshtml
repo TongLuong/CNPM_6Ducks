@@ -1,5 +1,5 @@
 @{
-    Layout = null;
+  Layout = null;
 }
 
 <!DOCTYPE html>
@@ -14,6 +14,11 @@
   <link rel="stylesheet" href="/Admin/src/main.css" />
   <link rel="stylesheet" href="/Admin/src/admin-manage-printer.css" />
   <link rel="stylesheet" href="/Admin/font-awesome/css/font-awesome.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="/Admin/js/main.js"></script>
+  <script src="/Admin/js/header-footer.js"></script>
+  <script src="/Admin/js/admin-manage-printer.js"></script>
+  <script src="/Admin/js/href.js"></script>
 </head>
 
 <body>
@@ -58,88 +63,153 @@
     <div class="manageprinter wrapper">
       <h1>Quản lí máy in</h1>
       <div class="main">
-        <div class="choose choose-printer">
+        <div class="choose">
           <h1>Chọn máy in</h1>
-          <div class="list printer-list">
-            <div class="left">
-              <div class="item disabled">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
+          <div class="list building-list">
+            <div>
+              <div class="item building-h1">
+                <img src="/Admin/img/building.svg" alt="" />
+                <span>H1</span>
               </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item disabled">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item disabled">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
+              <div class="item building-h2">
+                <img src="/Admin/img/building.svg" alt="" />
+                <span>H2</span>
               </div>
             </div>
-            <div class="right">
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
+            <div>
+              <div class="item building-h3">
+                <img src="/Admin/img/building.svg" alt="" />
+                <span>H3</span>
               </div>
-              <div class="item disabled">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item disabled">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item disabled">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
-              </div>
-              <div class="item">
-                <img src="/Admin/img/printer.svg" alt="" />
-                <span>H6 - 107</span>
+              <div class="item building-h6">
+                <img src="/Admin/img/building.svg" alt="" />
+                <span>H6</span>
               </div>
             </div>
           </div>
-          <div class="btn-group">
-            <button type="button" id="add-printer">Thêm máy in</button>
+          <div class="list printer-list building-h1">
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H1 - 107</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H1 - 207</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H1 - 307</span>
+            </div>
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H1 - 407</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H1 - 507</span>
+            </div>
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H1 - 607</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H1 - 707</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H1 - 807</span>
+            </div>
+          </div>
+          <div class="list printer-list building-h2">
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H2 - 107</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H2 - 207</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H2 - 307</span>
+            </div>
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H2 - 407</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H2 - 507</span>
+            </div>
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H2 - 607</span>
+            </div>
+          </div>
+          <div class="list printer-list building-h3">
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H3 - 107</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H3 - 207</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H3 - 307</span>
+            </div>
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H3 - 407</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H3 - 507</span>
+            </div>
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H3 - 607</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H3 - 707</span>
+            </div>
+          </div>
+          <div class="list printer-list building-h6">
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H6 - 107</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H6 - 107</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H6 - 107</span>
+            </div>
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H6 - 107</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H6 - 107</span>
+            </div>
+            <div class="item disabled">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H6 - 107</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H6 - 107</span>
+            </div>
+            <div class="item">
+              <img src="/Admin/img/printer.svg" alt="" />
+              <span>H6 - 107</span>
+            </div>
           </div>
         </div>
         <div class="property">
@@ -183,29 +253,6 @@
         <button type="button" id="cancel">Hủy</button>
       </div>
     </div>
-    <div class="noti"></div>
-  </div>
-  <div class="wrapper alert">
-    <h1>Thông báo</h1>
-    <span>Bạn có thật sự muốn xóa máy in này?</span>
-    <div class="btn-group">
-      <button type="button" id="confirm-remove">Xóa</button>
-      <button type="button" id="cancel-remove">Hủy</button>
-    </div>
-  </div>
-  <div class="wrapper">
-    <h1>Thông báo</h1>
-    <span>Máy in đã được xóa khỏi hệ thống.</span>
-    <div class="btn-group">
-      <button type="button" id="done-remove">Xong</button>
-    </div>
-  </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="/Admin/js/main.js"></script>
-  <script src="/Admin/js/header-footer.js"></script>
-  <script src="/Admin/js/admin-manage-printer.js"></script>
-  <script src="/Admin/js/href.js"></script>
 </body>
 
 </html>

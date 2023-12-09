@@ -1,23 +1,4 @@
 $(document).ready(function () {
-  getInfo();
-  function getInfo() {
-    $.ajax({
-      url: "./info.json",
-      dataType: "json",
-      success: function (data) {
-        const prop = Object.keys(data.admin[0]);
-        $(".avatar").attr("src", data.admin[0]["avatar"]);
-        $(".username").text(data.admin[0]["fullname"]);
-        $(".department").text(data.admin[0]["department"]);
-        for (let i = 0; i < prop.length; i++) {
-          $("#" + prop[i]).val(data.admin[0][prop[i]]);
-        }
-      },
-      error: function (error) {
-        return error;
-      },
-    });
-  }
   $(".hideedit").css("display", "none"); // Initially set the 'hideedit' section to display: none
   $("input, select").prop("readonly", true);
   $("select").prop("disabled", true);

@@ -54,7 +54,6 @@ h1 {
   border-radius: 2px;
   border: 2px solid var(--secondary-500, #2da5f3);
   background: rgba(20, 136, 219, 0.2);
-
   color: var(--secondary-500, #2da5f3);
   text-align: center;
   font-size: 14px;
@@ -135,12 +134,13 @@ h1 {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 40px 2fr 1fr 2fr 1fr;
-  column-gap: 23px;
   row-gap: 13px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   padding-top: 13px;
-  height: calc(24*9px + 13*9px);
+  height: calc(24 * 9px + 13 * 9px);
   overflow: scroll;
 }
 
@@ -149,8 +149,8 @@ h1 {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 40px 2fr 1fr 2fr 1fr;
-  column-gap: 23px;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   background: rgba(45, 165, 243, 0.31);
 }
