@@ -128,9 +128,10 @@ IF OBJECT_ID(N'dbo.page_setting', N'U') IS NULL
 CREATE TABLE page_setting (
     default_no_pages INTEGER NOT NULL DEFAULT 20,
     resetdate DATETIME NOT NULL DEFAULT GETDATE(),
-    page_price INTEGER NOT NULL DEFAULT 1000
+    page_price INTEGER NOT NULL DEFAULT 1000,
 )
 GO
+ALTER TABLE page_setting add max_print_per int not null default 100
 
 IF OBJECT_ID(N'dbo.file_type', N'U') IS NULL
 CREATE TABLE file_type (

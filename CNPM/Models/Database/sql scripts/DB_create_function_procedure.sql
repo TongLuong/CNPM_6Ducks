@@ -292,3 +292,52 @@ as
 begin
 	delete file_type where [type] = @file_type
 end
+
+go
+create function total_print(@year int)
+returns int
+as
+begin
+	declare @res int = 0
+	set @res = (select count(*) from Print_log where YEAR(time_end)  = @year)
+
+	return @res
+end
+
+go
+create function total_page_A4(@year int, @mm int) --mm use only for graph
+returns int
+as
+begin
+	declare @res int = 0
+	declare @a3 int = 0
+	declare @a4 int = 0
+	declare @a2 int = 0
+	declare @a1 int = 0
+
+	set @a1 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A1' and (@mm is null or MONTH(time_end) = @mm))
+	set @a2 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A2' and (@mm is null or MONTH(time_end) = @mm))
+	set @a3 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3' and (@mm is null or MONTH(time_end) = @mm))
+	set @a4 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4' and (@mm is null or MONTH(time_end) = @mm))
+
+	set @res = @a1 * 8 + @a2 * 4 + @a3 * 2 + @a4
+
+	return @res
+end
+
+go
+create function stat_total_page(@year int)
+returns @res table (mm int, total_page int)
+as
+begin
+	declare @mm int = 1
+
+	while @mm <= 12
+	begin
+		insert into @res values(@mm, (select dbo.total_page_A4(@year,@mm) as num))
+		set @mm = @mm + 1
+	end
+
+	return
+end
+
