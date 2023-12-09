@@ -37,7 +37,7 @@ $(document).ready(function () {
     var max_print = document.getElementById("max-print-per-time").value;
     var file_type = document.getElementById("file-type").value;
 
-    $("#done").click(function () {
+    $("button#done").click(function () {
         $.ajax({
             url: "AdminManageSystem/SaveSystem",
             data: {
@@ -48,6 +48,8 @@ $(document).ready(function () {
             type: "post"
         })
 
-        alert("Hieuga");
+        alert("Update System");
     })
+
+    alert("Test");
 });
