@@ -31,25 +31,21 @@ new Chart(document.getElementById("myChart"), data);
 
 $(document).ready(function () {
 
-    var def_no_page = document.getElementById("default-number-page").value;
-    var time_reset = document.getElementById("time-to-reset").value;
-    var price = document.getElementById("default-price").value;
-    var max_print = document.getElementById("max-print-per-time").value;
-    var file_type = document.getElementById("file-type").value;
+    var def_no_page = $("#default-number-page").val();
+    var time_reset = $("#time-to-reset").val();
+    var price = $("#default-price").val();
+    var max_print = $("#max-print-per-time").val();
+    var file_type = $("#file-type").val();
 
     $("button#done").click(function () {
         $.ajax({
             url: "AdminManageSystem/SaveSystem",
             data: {
-                "defNoPage": def_no_page, "timeReset": time_reset, "price": price, "maxPrint": max_print, "fileType": file_type
+                "defNoPage": def_no_page, "timeReset": time_reset, "price": price, "maxPrint": max_print, "fileTypes": file_type
             },
             async: false,
             cache: false,
             type: "post"
         })
-
-        alert("Update System");
     })
-
-    alert("Test");
 });
