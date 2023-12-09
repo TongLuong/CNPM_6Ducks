@@ -221,6 +221,31 @@ begin
 end
 go
 
+create procedure change_admin_info
+@admin_id varchar(7),
+@name nvarchar(50),
+@email varchar(100),
+@phone_number varchar(10),
+@pwd varchar(1000),
+@bdate datetime,
+@sex char(1),
+@hometown nvarchar(50),
+@addr nvarchar(1000)
+as
+begin
+	update [dbo].[Admin]
+    set [name] = @name
+	  ,[email] = @email
+	  ,[phone_number] = @phone_number
+	  ,[pwd] = @pwd
+	  ,[bdate] = @bdate
+      ,[sex] = @sex
+      ,[hometown] = @hometown
+      ,[addr] = @addr
+	where [admin_id] = @admin_id
+end
+go
+
 -- DROP PROCEDURE unactive_printer
 CREATE PROCEDURE unactive_printer
     @printer_id INT
