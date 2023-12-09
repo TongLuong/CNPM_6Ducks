@@ -133,7 +133,7 @@ h1 {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 40px 2fr 1fr 2fr 1fr;
+  grid-template-columns: 40px 2fr 1fr 2fr 1fr 1fr;
   row-gap: 13px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-top: none;
@@ -148,11 +148,15 @@ h1 {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 40px 2fr 1fr 2fr 1fr;
+  grid-template-columns: 40px 2fr 1fr 2fr 1fr 1fr;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   background: rgba(45, 165, 243, 0.31);
+}
+
+.select-status {
+    text-align: center;
 }
 
 .record,
@@ -161,8 +165,8 @@ h1 {
   padding: 5px 10px;
 }
 
-.record:nth-child(5n + 2),
-.field:nth-child(5n + 2) {
+.record:nth-child(6n + 2),
+.field:nth-child(6n + 2) {
   text-align: left;
 }
 

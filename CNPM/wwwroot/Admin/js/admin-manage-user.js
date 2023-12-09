@@ -1,16 +1,31 @@
 ﻿$(document).ready(function () {
-  $("#myDropdown div").click(function() {
-    $(".dropdown").has(this).find("span").text($(this).text());
-  });
+    $("#myDropdown div").click(function () {
+        $(".dropdown").has(this).find("span").text($(this).text());
+    });
 
-    var itemList = null;
+    function show_user_item(stt, name, userID, faculty, status, pageLeft) {
+        $(".filter-record").append(
+            $("<div></div>").addClass("record stt " + stt).text(stt));
+        $(".filter-record").append(
+            $("<div></div>").addClass("record name " + stt).text(name));
+        $(".filter-record").append(
+            $("<div></div>").addClass("record userID " + stt).text(userID));
+        $(".filter-record").append(
+            $("<div></div>").addClass("record faculty " + stt).text(faculty));
+        $(".filter-record").append(
+            $("<div></div>").addClass("record pageLeft " + stt).text(pageLeft));
 
-    function show_user_item(stt, name, userID, faculty, pageLeft) {
-        $(".filter-record").append($("<div></div>").addClass("record stt " + stt).text(stt));
-        $(".filter-record").append($("<div></div>").addClass("record name " + stt).text(name));
-        $(".filter-record").append($("<div></div>").addClass("record userID " + stt).text(userID));
-        $(".filter-record").append($("<div></div>").addClass("record faculty " + stt).text(faculty));
-        $(".filter-record").append($("<div></div>").addClass("record pageLeft " + stt).text(pageLeft));
+        var selectElement = $("<select></select>");
+        selectElement.addClass("select-status changeStatus " + stt);
+        selectElement.attr("id", userID);
+
+        selectElement.append(
+            $("<option value = Actived>Hoạt động</option>"));
+        selectElement.append(
+            $("<option value = Banned>Cấm hoạt động</option>"));
+
+        selectElement.val(status);
+        $(".filter-record").append(selectElement);
     }
 
     function display_user() {
@@ -18,11 +33,22 @@
         $.get("AdminManageUser/ShowUser",
             function (response) {
                 for (let i = 0; i < response.number; i++) {
-                    show_user_item(i.toString(), response.name[i],
+                    show_user_item((i + 1).toString(), response.name[i],
                         response.userID[i], response.faculty[i],
-                        response.pageLeft[i]);
+                        response.status[i], response.pageLeft[i]);
+
+                    $("#" + response.userID[i]).on("change", function () {
+                        var stateSelected = this.value;
+
+                        $.get(
+                            "AdminManageUser/ChangeUserState",
+                            {
+                                "userID": response.userID[i],
+                                "newState": stateSelected
+                            }
+                        )
+                    });
                 }
-                itemList = response;
             }
         )
     }
