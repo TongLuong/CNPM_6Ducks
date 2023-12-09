@@ -31,13 +31,16 @@ new Chart(document.getElementById("myChart"), data);
 
 $(document).ready(function () {
 
-    var def_no_page = $("#default-number-page").val();
-    var time_reset = $("#time-to-reset").val();
-    var price = $("#default-price").val();
-    var max_print = $("#max-print-per-time").val();
-    var file_type = $("#file-type").val();
+    
 
     $("button#done").click(function () {
+
+        var def_no_page = $("#default-number-page").val();
+        var time_reset = $("#time-to-reset").val();
+        var price = $("#default-price").val();
+        var max_print = $("#max-print-per-time").val();
+        var file_type = $("#file-type").val();
+
         $.ajax({
             url: "AdminManageSystem/SaveSystem",
             data: {
