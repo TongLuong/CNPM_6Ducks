@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.Common;
 
 namespace CNPM.Controllers
 {
@@ -17,6 +18,36 @@ namespace CNPM.Controllers
         public IActionResult Index()
         {
             return View("/Views/Admin/manage-printer.cshtml");
+        }
+
+        public JsonResult DisplayAllPrinter()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT building,floor,currentState FROM Printer", conn);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            int num = 0;
+            List<string> buildings = new List<string>();
+            List<string> floors = new List<string>();
+            List<string> currentStates = new List<string>();
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    num++;
+                    buildings.Add(dr.GetString(0));
+                    currentStates.Add(dr.GetString(1));
+                    floors.Add(dr.GetInt32(2).ToString());
+                }
+            }
+
+            conn.Close();
+
+            return new JsonResult(
+                new {building = buildings, floor = floors, currentState = currentStates} );
         }
 
         public JsonResult ShowPrinter(string building, string floorStr)
