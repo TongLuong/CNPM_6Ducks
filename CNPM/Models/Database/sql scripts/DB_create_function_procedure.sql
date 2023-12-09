@@ -221,6 +221,7 @@ begin
 end
 go
 
+--drop procedure change_admin_info
 create procedure change_admin_info
 @admin_id varchar(7),
 @name nvarchar(50),
