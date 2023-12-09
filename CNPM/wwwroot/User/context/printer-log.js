@@ -7,7 +7,7 @@ $(document).ready(function () {
   $(".log-item .status").width($(".title .status").width());
   $(".log-table").height(10 * $(".item").height() + 80 + "px");
 
-    function showPrintingLogItem(name, start_time, end_time, printer, nopage) {
+    function showPrintingLogItem(name, start_time, end_time, printer, nopage,type) {
             $.get("components/printing-log.html", function (data) {
                 $(".log-table").append(data);
                 var item = $(".log-table .log-item:last-child()");
@@ -15,7 +15,8 @@ $(document).ready(function () {
                 item.find(".start-time").text(start_time);
                 item.find(".end-time").text(end_time);
                 item.find(".printer").text(printer);
-                item.find(".nopage").text(nopage);
+                item.find(".page").text(nopage);
+                item.find(".size").text(type);
                 item.find(".total").text(nopage);
             }
         );
@@ -32,9 +33,19 @@ $(document).ready(function () {
             }
         )
     }
+
+    function displayTotalPrintByType(userID) {
+        $.get("PrintingLog/ShowTotalPrintedByType", { "userID": userID },
+            function (response) {
+                //alert(response.result);
+                document.getElementById("total-by-type").innerHTML = response.result;
+            }
+        )
+    }
     var urlParams = new URLSearchParams(window.location.search);
     var id = urlParams.get('id');
     displayPrintingLog(id);
+    displayTotalPrintByType(id);
 });
 
 

@@ -98,3 +98,9 @@
 .status.done {
   color: #0c8c01;
 }
+
+#total-by-type {
+    width:max-content;
+    margin:30px auto 0 auto;
+    text-align:center;
+} 
