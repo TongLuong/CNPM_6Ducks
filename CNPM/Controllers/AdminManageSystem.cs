@@ -80,7 +80,7 @@ namespace CNPM.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM total_print(@year)", conn);
+            SqlCommand cmd = new SqlCommand("SELECT dbo.total_print(@year) as num", conn);
 
             cmd.Parameters.AddWithValue("@year", year);
 
@@ -96,7 +96,7 @@ namespace CNPM.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM total_page_A4(@year,@mm)", conn);
+            SqlCommand cmd = new SqlCommand("SELECT dbo.total_page_A4(@year,@mm) as num", conn);
 
             cmd.Parameters.AddWithValue("@year", year);
             cmd.Parameters.AddWithValue("@mm", month);
@@ -113,7 +113,7 @@ namespace CNPM.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM total_print(@year)", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * from dbo.stat_total_page(@year)", conn);
 
             cmd.Parameters.AddWithValue("@year", year);
 
@@ -126,7 +126,7 @@ namespace CNPM.Controllers
                 while (dr.Read())
                 {
                     months.Add(dr.GetInt32(0).ToString());
-                    total_pages.Add(dr.GetInt32(0).ToString());
+                    total_pages.Add(dr.GetInt32(1).ToString());
                 }
             }
 
