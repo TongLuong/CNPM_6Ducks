@@ -40,36 +40,38 @@ namespace CNPM.Controllers
 
             cmd.ExecuteNonQuery();
             //------------------------------------
-            //cmd = new SqlCommand("delete from file_type", conn);
-            //cmd.CommandType = CommandType.Text;
-            //cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("delete from file_type", conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
 
-            //cmd = new SqlCommand
-            //(
-            //    "dbo.insert_file_type",
-            //    conn
-            //);
-            //if (fileTypes == string.Empty || !fileTypes.Contains('.'))
-            //{
-            //    conn.Close();
-            //    return;
-            //}
-            //if (fileTypes.Contains('.'))
-            //{
-            //    string[] fileType = fileTypes.Split(',');
-            //    foreach (string type in fileType)
-            //    {
-            //        string ft = string.Join("", type.Split(' '));
-            //        cmd.Parameters.AddWithValue("@type", ft);
-            //        cmd.ExecuteNonQuery();
-            //    }
-            //}
-            //else
-            //{
-            //    string type = string.Join("", fileTypes.Split(' '));
-            //    cmd.Parameters.AddWithValue("@type", type);
-            //    cmd.ExecuteNonQuery();
-            //}
+            cmd = new SqlCommand
+            (
+                "dbo.insert_file_type",
+                conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            if (fileTypes == string.Empty || !fileTypes.Contains('.'))
+            {
+                conn.Close();
+                return;
+            }
+            if (fileTypes.Contains('.'))
+            {
+                string[] fileType = fileTypes.Split(',');
+                foreach (string type in fileType)
+                {
+                    string ft = string.Join("", type.Split(' '));
+                    cmd.Parameters.AddWithValue("@type", ft);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                string type = string.Join("", fileTypes.Split(' '));
+                cmd.Parameters.AddWithValue("@type", type);
+                cmd.ExecuteNonQuery();
+            }
             conn.Close();
         }
 
