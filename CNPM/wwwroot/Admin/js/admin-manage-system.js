@@ -47,5 +47,50 @@ $(document).ready(function () {
             cache: false,
             type: "post"
         })
+    });
+
+    $("#download").click(function () {
+        var year = (new Date()).getFullYear();
+
+        $.ajax({
+            url: "AdminHomePage/ExportReportByYear",
+            data: {
+                "fileNameByYear": "AnnualReport.csv",
+                "year": year
+            },
+            asycn: false,
+            cache: false,
+            type: "get",
+            success: function (response) {
+                $("#file1").attr("href", response.path);
+                $(".file").css("color", "#001aa0");
+
+                //window.open(response.path, '_blank');
+                //alert("Downloaded");
+            }
+        });
+
+        $.ajax({
+            url: "AdminHomePage/ExportReportByMonth",
+            data: {
+                "fileNameByMonth": "MonthlyReport.csv",
+                "year": year
+            },
+            async: false,
+            cache: false,
+            type: "get",
+            success: function (response) {
+                $("#file2").attr("href", response.path);
+                $(".file").css("color", "#001aa0");
+
+                //window.open(response.path, '_blank');
+                //alert("Downloaded");
+            }
+        });
+
+        /*var urlParams = new URLSearchParams(window.location.search);
+        var adminID = urlParams.get('id');
+        
+        location.href = "AdminManageSystem" + "?id=" + adminID;*/
     })
 });

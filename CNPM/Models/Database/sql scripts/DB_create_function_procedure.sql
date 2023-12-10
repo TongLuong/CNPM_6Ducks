@@ -402,8 +402,9 @@ begin
 end
 
 go
+--drop function report_by_year
 create function report_by_year(@year int)
-returns @res table(yyyy int, A1 int, A2 int, A3 int, A4 int)
+returns @res table([year] int, A1 int, A2 int, A3 int, A4 int)
 as
 begin
 	declare @a3 int = 0
@@ -421,23 +422,32 @@ begin
 end
 
 go
+
+--drop function report_by_year_n_month
 create function report_by_year_n_month(@year int)
-returns @res table(yyyy int,mm int, A1 int, A2 int, A3 int, A4 int)
+returns @res table([year] int,mm int, A1 int, A2 int, A3 int, A4 int)
 as
 begin
 	declare @a3 int = 0
 	declare @a4 int = 0
 	declare @a2 int = 0
 	declare @a1 int = 0
-	declare @mm int =1
-	while (@mm <= month(getdate()) or @year < year(getdate())) and @mm <= 12
+	declare @mm int = 1
+
+	while @year <= year(getdate())
 	begin
-		set @a1 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A1' and MONTH(time_end) = @mm)
-		set @a2 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A2' and MONTH(time_end) = @mm)
-		set @a3 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3' and MONTH(time_end) = @mm)
-		set @a4 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4' and MONTH(time_end) = @mm)
-		insert into @res values(@year,@mm, @a1,@a2,@a3,@a4)
+		while @mm <= month(getdate()) and @mm <= 12
+		begin
+			set @a1 = (select count(*) from Print_log where YEAR(time_end) = @year and paperType = 'A1' and MONTH(time_end) = @mm)
+			set @a2 = (select count(*) from Print_log where YEAR(time_end) = @year and paperType = 'A2' and MONTH(time_end) = @mm)
+			set @a3 = (select count(*) from Print_log where YEAR(time_end) = @year and paperType = 'A3' and MONTH(time_end) = @mm)
+			set @a4 = (select count(*) from Print_log where YEAR(time_end) = @year and paperType = 'A4' and MONTH(time_end) = @mm)
+			insert into @res values(@year,@mm, @a1,@a2,@a3,@a4)
+
+			set @mm = @mm + 1
+		end
+		set @year = @year + 1
 	end
 	return	
 end
-
+go

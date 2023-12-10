@@ -108,6 +108,33 @@ select {
   margin-block: 20px 0;
 }
 
+.download-group {
+    width: max-content;
+    position: relative;
+    margin: auto 15%;
+}
+
+    .download-group button {
+        border-radius: 2px;
+        padding: 5px 10px;
+        margin: auto;
+        position: relative;
+        left: 50%;
+        cursor: pointer;
+    }
+
+    .download-group .inside-download-group {
+        display: flex;
+        text-align: center;
+    }
+
+        .download-group .inside-download-group .file {
+            padding: 5px 12px;
+            position: relative;
+            left: 28%;
+            white-space: nowrap;
+        }
+
 #done {
   border: 2px solid var(--secondary-500, #2da5f3);
   background: rgba(20, 136, 219, 0.2);

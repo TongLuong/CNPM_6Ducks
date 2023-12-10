@@ -28,7 +28,9 @@ $(document).ready(function () {
                 
                 for (let i = 0; i < response.number; i++) {
                     
-                    showPrintingLogItem(response.filename[i], response.startTime[i], response.endTime[i], response.printer[i], response.numberOfPage[i], response.paperType[i]);
+                    showPrintingLogItem(response.filename[i], response.startTime[i],
+                        response.endTime[i], response.printer[i],
+                        response.numberOfPage[i], response.paperType[i]);
                 }
             }
         )

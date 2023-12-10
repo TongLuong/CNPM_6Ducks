@@ -1,11 +1,10 @@
 ﻿using CNPM.Models.Domain;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Reflection.PortableExecutable;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CNPM.Controllers
 {
@@ -34,13 +33,13 @@ namespace CNPM.Controllers
             return View("/Views/Admin/index.cshtml");
         }
 
-        public void ExportReportByYear(string fileNameByYear,
+        public JsonResult ExportReportByYear(string fileNameByYear,
             string year)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            MemoryStream memory = new MemoryStream();
+            string filePath = wwwPath + "\\" + fileNameByYear;
 
             // by year
             SqlCommand cmd = new SqlCommand
@@ -52,12 +51,8 @@ namespace CNPM.Controllers
             cmd.Parameters.AddWithValue("@year", year);
 
             SqlDataReader dr = cmd.ExecuteReader();
-            string[] temp = new string[dr.FieldCount];
-
-            StringBuilder output = new StringBuilder();
-            string t = "";
             
-            using (StreamWriter writer = new StreamWriter(new FileStream(fileNameByYear,
+            using (StreamWriter writer = new StreamWriter(new FileStream(filePath,
                 FileMode.Create, FileAccess.Write, FileShare.None), Encoding.UTF8))
             { 
                 if (dr.HasRows)
@@ -71,8 +66,7 @@ namespace CNPM.Controllers
                         StringBuilder newLine = new StringBuilder();
                         for (int i = 0; i < dr.FieldCount; i++)
                         {
-                            t += (i == 0 ? "" : ",") + dr.GetValue(i).ToString() ?? "";
-                            newLine.Append(t);
+                            newLine.Append((i == 0 ? "" : ",") + dr.GetValue(i).ToString() ?? "");
                         }
 
                         writer.WriteLine(newLine.ToString());
@@ -82,16 +76,32 @@ namespace CNPM.Controllers
 
 
             // close connection
-            conn.Close();
+            //conn.Close();
+
+            /*byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+            return File
+            (
+                fileBytes,
+                System.Net.Mime.MediaTypeNames.Application.Octet,
+                fileNameByYear
+            );*/
+
+            string baseUrl = string.Format("{0}://{1}",
+                       Request.Scheme, Request.Host);
+
+            return new JsonResult
+            (
+                new { path = baseUrl + "/" + fileNameByYear }
+            );
         }
 
-        public void ExportReportByMonth(string fileNameByMonth,
+        public JsonResult ExportReportByMonth(string fileNameByMonth,
             string year)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            MemoryStream memory = new MemoryStream();
+            string fileName = wwwPath + "\\" + fileNameByMonth;
 
             // by month
             SqlCommand cmd = new SqlCommand
@@ -103,12 +113,8 @@ namespace CNPM.Controllers
             cmd.Parameters.AddWithValue("@year", year);
 
             SqlDataReader dr = cmd.ExecuteReader();
-            string[] temp = new string[dr.FieldCount];
 
-            StringBuilder output = new StringBuilder();
-            string t = "";
-
-            using (StreamWriter writer = new StreamWriter(new FileStream(fileNameByMonth,
+            using (StreamWriter writer = new StreamWriter(new FileStream(fileName,
                 FileMode.Create, FileAccess.Write, FileShare.None), Encoding.UTF8))
             {
                 if (dr.HasRows)
@@ -122,8 +128,7 @@ namespace CNPM.Controllers
                         StringBuilder newLine = new StringBuilder();
                         for (int i = 0; i < dr.FieldCount; i++)
                         {
-                            t += (i == 0 ? "" : ",") + dr.GetValue(i).ToString() ?? "";
-                            newLine.Append(t);
+                            newLine.Append((i == 0 ? "" : ",") + dr.GetValue(i).ToString() ?? "");
                         }
 
                         writer.WriteLine(newLine.ToString());
@@ -132,7 +137,15 @@ namespace CNPM.Controllers
             }
 
             // close connection
-            conn.Close();
+            //conn.Close();
+
+            string baseUrl = string.Format("{0}://{1}",
+                       Request.Scheme, Request.Host);
+
+            return new JsonResult
+            (
+                new { path = baseUrl + "/" + fileNameByMonth }
+            );
         }
     }
 }

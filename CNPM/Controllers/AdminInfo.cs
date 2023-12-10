@@ -64,10 +64,10 @@ namespace CNPM.Controllers
                     phone_number = temp[3],
                     time_create = temp[4],
                     pwd = temp[5],
-                    bdate = temp[6],
-                    sex = temp[7],
-                    hometown = temp[8],
-                    addr = temp[9]
+                    sex = temp[6],
+                    hometown = temp[7],
+                    addr = temp[8],
+                    bdate = temp[9]
                 }
             );
         }
