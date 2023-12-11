@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
+using Microsoft.Extensions.Configuration;
 
 namespace CNPM.Controllers
 {
@@ -10,8 +11,7 @@ namespace CNPM.Controllers
 
         public Login()
         {
-            conn = new SqlConnection(ConnectionString.sqlConnectionString);
-            //conn = new SqlConnection(ConnectionString.sqlConnectionString);
+            conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DB_Printing"].ConnectionString);
         }
 
         public JsonResult CheckLogin(string username, string password)

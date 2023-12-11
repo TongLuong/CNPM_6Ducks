@@ -10,8 +10,8 @@ namespace CNPM.Controllers
 
         public HomePage()
         {
-            conn = new SqlConnection(ConnectionString.sqlConnectionString);
-            //conn = new SqlConnection(ConnectionString.sqlConnectionString);
+            conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DB_Printing"].ConnectionString);
+            //conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DB_Printing"].ConnectionString);
         }
 
         public IActionResult Index()

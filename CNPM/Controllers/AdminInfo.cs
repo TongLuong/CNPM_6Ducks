@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace CNPM.Controllers
 {
@@ -10,7 +11,7 @@ namespace CNPM.Controllers
         public AdminInfo()
         {
             //conn = new SqlConnection(connectionString);
-            conn = new SqlConnection(ConnectionString.sqlConnectionString);
+            conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DB_Printing"].ConnectionString);
         }
 
         public IActionResult Index()

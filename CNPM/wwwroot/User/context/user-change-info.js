@@ -9,8 +9,8 @@
     $(".edit").click(function () {
         $(".showedit").css("display", "none");
         $(".hideedit").css("display", "block");
-        //$("input, select").prop("readonly", false);
-        //$("select").prop("disabled", false);
+        $("input, select").prop("readonly", false);
+        $("select").prop("disabled", false);
     });
 
     $(".cancel").click(function () {

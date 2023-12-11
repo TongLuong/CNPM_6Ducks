@@ -12,7 +12,7 @@ namespace CNPM.Controllers
         public UserInfo()
         {
             //conn = new SqlConnection(connectionString);
-            conn = new SqlConnection(ConnectionString.sqlConnectionString);
+            conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DB_Printing"].ConnectionString);
         }
 
         [HttpPost]

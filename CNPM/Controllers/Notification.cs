@@ -11,7 +11,7 @@ namespace CNPM.Controllers
         public Notification()
         {
             //conn = new SqlConnection(connectionString);
-            conn = new SqlConnection(ConnectionString.sqlConnectionString);
+            conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DB_Printing"].ConnectionString);
         }
 
         public JsonResult ShowNotification(string userID)
