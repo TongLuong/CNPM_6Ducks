@@ -1,160 +1,135 @@
 @{
-    Layout = null;
+  Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/Admin/src/header-footer.css" />
-    <link rel="stylesheet" href="/Admin/src/global.css" />
-    <link rel="stylesheet" href="/Admin/src/main.css" />
-    <link rel="stylesheet" href="/Admin/src/admin-manage-system.css" />
-    <link
-      rel="stylesheet"
-      href="/font-awesome/css/font-awesome.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
 
-  <body>
-    <div class="content">
-      <div class="information wrapper">
-        <div class="user-info">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/Admin/src/header-footer.css" />
+  <link rel="stylesheet" href="/Admin/src/global.css" />
+  <link rel="stylesheet" href="/Admin/src/main.css" />
+  <link rel="stylesheet" href="/Admin/src/admin-manage-system.css" />
+  <link rel="stylesheet" href="/Admin/font-awesome/css/font-awesome.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="content">
+    <div class="information wrapper">
+      <div class="user-info">
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1701207859644-59994f41c62e?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="" class="avatar" />
           <div>
-            <img
-              src="https://images.unsplash.com/photo-1701207859644-59994f41c62e?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              class="avatar"
+            <p class="username">Admin</p>
+            <p class="department">Quản trị viên</p>
+          </div>
+        </div>
+      </div>
+      <div class="group-btn">
+        <button type="button" class="edit-info">
+          Chỉnh sửa thông tin cá nhân
+        </button>
+      </div>
+    </div>
+    <div class="action-bar wrapper">
+      <div class="btn edit-info">
+        <p>Thông tin cá nhân</p>
+      </div>
+      <div class="btn manage-user">
+        <p>Quản lí người dùng</p>
+      </div>
+      <div class="btn manage-printer">
+        <p>Quản lí máy in</p>
+      </div>
+      <div class="btn manage-system">
+        <p>Cài đặt hệ thống</p>
+      </div>
+      <div class="btn notification">
+        <p>Thông báo</p>
+      </div>
+    </div>
+  </div>
+  <div class="content action">
+    <div class="managesystem wrapper">
+      <h1>Cài đặt hệ thống</h1>
+      <div class="main">
+        <div class="detail">
+          <form action="">
+            <div>
+              <input type="text" name="default-number-page" id="default-number-page" />
+              <label for="default-number-page">Số trang mặc định</label>
+            </div>
+            <div>
+              <input type="text" name="time-to-reset" id="time-to-reset" />
+              <label for="time-to-reset">Thời gian reset số trang mặc định</label>
+            </div>
+            <div>
+              <input type="text" name="default-price" id="default-price" />
+              <label for="default-price">Đơn giá trang thêm</label>
+            </div>
+            <div>
+              <input type="text" name="max-print-per-time" id="max-print-per-time" />
+              <label for="max-print-per-time">Số trang được phép in tối đa/lần</label>
+            </div>
+            <div>
+              <input type="text" name="file-type" id="file-type" />
+              <label for="file-type">Các loại file được phép in</label>
+            </div>
+            @* <div>
+            <input
+            type="text"
+            name="default-number-page"
+            id="default-number-page"
             />
-            <div>
-              <p class="username">Admin</p>
-              <p class="department">Quản trị viên</p>
+            <label for="default-number-page"
+            >Hình thức khóa tài khoản</label
+            >
+            <span id="edit">Sửa</span>
+            </div>*@
+          </form>
+          <div class="download-group" id="download-group">
+            <button type="button" id="download">Tạo thống kê</button>
+            <div class="inside-download-group">
+              <a href="" class="file" id="file1">Báo cáo năm</a>
+              <a href="" class="file" id="file2">Báo cáo tháng</a>
             </div>
           </div>
         </div>
-        <div class="group-btn">
-          <button type="button" class="edit-info">
-            Chỉnh sửa thông tin cá nhân
-          </button>
-        </div>
-      </div>
-      <div class="action-bar wrapper">
-        <div class="btn edit-info">
-          <p>Thông tin cá nhân</p>
-        </div>
-        <div class="btn manage-user">
-          <p>Quản lí người dùng</p>
-        </div>
-        <div class="btn manage-printer">
-          <p>Quản lí máy in</p>
-        </div>
-        <div class="btn manage-system">
-          <p>Cài đặt hệ thống</p>
-        </div>
-        <div class="btn notification">
-          <p>Thông báo</p>
-        </div>
-      </div>
-    </div>
-    <div class="content action">
-      <div class="managesystem wrapper">
-        <h1>Cài đặt hệ thống</h1>
-        <div class="main">
-          <div class="detail">
-            <form action="">
-              <div>
-                <input
-                  type="text"
-                  name="default-number-page"
-                  id="default-number-page"
-                />
-                <label for="default-number-page">Số trang mặc định</label>
-                <span id="edit">Sửa</span>
-              </div>
-              <div>
-                <input
-                  type="text"
-                  name="time-to-reset"
-                  id="time-to-reset"
-                />
-                <label for="time-to-reset"
-                  >Thời gian reset số trang mặc định</label
-                >
-                <span id="edit">Sửa</span>
-              </div>
-              <div>
-                <input
-                  type="text"
-                  name="default-price"
-                  id="default-price"
-                />
-                <label for="default-price">Đơn giá trang thêm</label>
-                <span id="edit">Sửa</span>
-              </div>
-              <div>
-                <input
-                  type="text"
-                  name="max-print-per-time"
-                  id="max-print-per-time"
-                />
-                <label for="max-print-per-time"
-                  >Số trang được phép in tối đa/lần</label
-                >
-                <span id="edit">Sửa</span>
-              </div>
-              <div>
-                <input
-                  type="text"
-                  name="file-type"
-                  id="file-type"
-                />
-                <label for="file-type"
-                  >Các loại file được phép in</label
-                >
-                <span id="edit">Sửa</span>
-              </div>
-             @* <div>
-                <input
-                  type="text"
-                  name="default-number-page"
-                  id="default-number-page"
-                />
-                <label for="default-number-page"
-                  >Hình thức khóa tài khoản</label
-                >
-                <span id="edit">Sửa</span>
-              </div>*@
-              <div class="download-group" id="download-group">
-                <button type="button" id="download">Tạo thống kê</button>
-                <div class="inside-download-group">
-                    <a href="" class="file" id="file1">Báo cáo năm</a>
-                    <a href="" class="file" id="file2">Báo cáo tháng</a>
-                </div>
-              </div>
-            </form>
+        <div class="chart">
+          <h2>Thống kê hệ thống</h2>
+          <div>
+            <span>Tổng số lượt in:</span> <span id="totalprint"></span><br />
+            <span>Tổng số trang đã in: </span> <span id="totalpage"></span>
           </div>
-          <div class="chart">
-            <h2>Thống kê hệ thống</h2>
-            <div>
-              <span>Tổng số lượt in: 1049s</span> <br />
-              <span>Tổng số trang đã in: 20128 </span>
-            </div>
-            <canvas id="myChart"></canvas>
+          <div class="chart-side">
+            <canvas id="myChart-1"></canvas>
+            <canvas id="myChart-2"></canvas>
+          </div>
+          <div class="btn-group">
+            <button type="button" id="chart">Show Chart</button>
           </div>
         </div>
-        <div class="btn-group">
-          <button type="button" id="done">Xong</button>
-          <button type="button" id="cancel">Hủy</button>
-        </div>
+      </div>
+      <div class="btn-group hide">
+        <button type="button" id="done">Xong</button>
+        <button type="button" id="cancel">Hủy</button>
+      </div>
+      <div class="btn-group">
+        <button type="button" id="edit">Chỉnh sửa</button>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="/Admin/js/main.js"></script>
-    <script src="/Admin/js/header-footer.js"></script>
-    <script src="/Admin/js/admin-manage-system.js"></script>
-    <script src="/Admin/js/href.js"></script>
-  </body>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="/Admin/js/main.js"></script>
+  <script src="/Admin/js/header-footer.js"></script>
+  <script src="/Admin/js/admin-manage-system.js"></script>
+  <script src="/Admin/js/href.js"></script>
+</body>
+
 </html>

@@ -80,6 +80,7 @@ select {
   display: grid;
   grid-template-rows: max-content max-content 1fr;
   gap: 30px;
+  padding: 20px;
 }
 
 .chart h2 {
@@ -99,43 +100,52 @@ select {
 
 .btn-group {
   width: max-content;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
 }
 
 .btn-group button {
+  height: max-content;
   border-radius: 2px;
   padding: 5px 10px;
-  margin-block: 20px 0;
+  cursor: pointer;
 }
 
 .download-group {
-    width: max-content;
-    position: relative;
-    margin: auto 15%;
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-    .download-group button {
-        border-radius: 2px;
-        padding: 5px 10px;
-        margin: auto;
-        position: relative;
-        left: 50%;
-        cursor: pointer;
-    }
+.download-group button {
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 2px solid var(--secondary-500, #2da5f3);
+  background: rgba(20, 136, 219, 0.2);
+  color: var(--secondary-500, #2da5f3);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px; /* 107.143% */
+  letter-spacing: 0.168px;
+}
 
-    .download-group .inside-download-group {
-        display: flex;
-        text-align: center;
-    }
+.download-group .inside-download-group {
+  display: flex;
+  text-align: center;
+}
 
-        .download-group .inside-download-group .file {
-            padding: 5px 12px;
-            position: relative;
-            left: 28%;
-            white-space: nowrap;
-        }
+.download-group .inside-download-group .file {
+  padding: 5px 12px;
+  position: relative;
+  white-space: nowrap;
+}
 
-#done {
+#done, #edit {
   border: 2px solid var(--secondary-500, #2da5f3);
   background: rgba(20, 136, 219, 0.2);
   color: var(--secondary-500, #2da5f3);
@@ -152,4 +162,35 @@ select {
   font-weight: 700;
   line-height: 15px; /* 107.143% */
   letter-spacing: 0.168px;
+}
+
+.chart-side {
+  height: 211px;
+  width: auto;
+}
+
+#chart {
+  border: 2px solid var(--secondary-500, #2da5f3);
+  background: rgba(20, 136, 219, 0.2);
+  color: var(--secondary-500, #2da5f3);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px; /* 107.143% */
+  letter-spacing: 0.168px;
+}
+
+button,
+.download-group a {
+  transform: scale(1);
+  transition: all .5s ease;
+}
+
+button:hover,
+.download-group a:hover {
+  transform: scale(1.1);
+  transition: all .5s ease;
+}
+
+.btn-group.hide {
+  display: none;
 }
