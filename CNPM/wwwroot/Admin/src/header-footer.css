@@ -56,6 +56,14 @@ body {
   font-size: 16px;
   font-weight: 600;
   line-height: 17px;
+  cursor: pointer;
+  transform: scaleZ(1);
+  transition: all .5 ease-in;
+}
+
+.nav .right .logout:hover {
+  transform: scaleZ(1.05);
+  transition: all .5 ease-out;
 }
 
 .nav .right .login {
@@ -63,6 +71,14 @@ body {
   font-size: 16px;
   font-weight: 600;
   line-height: 17px;
+  cursor: pointer;
+  transform: scaleZ(1);
+  transition: all .5 ease-in;
+}
+
+.nav .right .login:hover {
+  transform: scaleZ(1.05);
+  transition: all .5 ease-out;
 }
 
 .nav .right div {

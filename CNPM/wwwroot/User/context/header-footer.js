@@ -1,6 +1,14 @@
 $("document").ready(function () {
   $.get("/User/modules/header.html", function (data) {
     $("body").prepend(data);
+
+    if (id != "") {
+      console.log(id + "OK");
+      $("a.login").hide();
+    } else {
+      console.log(id);
+      $("a.logout").hide();
+    }
   });
   $.get("/User/modules/footer.html", function (data) {
     $("body").append(data);
