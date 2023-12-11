@@ -114,8 +114,6 @@ $(document).ready(function () {
         
     });
 
-
-
     function showBuyPageLogItem(transactionCode, time, nopage,price) {
         //$.get("components/buy-page.html", function (data) {
         //    //$(".result").append(data);
@@ -143,4 +141,14 @@ $(document).ready(function () {
         )
     }
 
+    $.ajax({
+        url: "UserInfo/ShowUserInfo",
+        data: { "user_id": id },
+        dataType: "json",
+        success: function (response) {
+            $("#fullname-header").text(response.name);
+            $("#department-header").text(response.faculty);
+            $("#pageLeft-header").text(response.pageLeft);
+        }
+    });
 });
