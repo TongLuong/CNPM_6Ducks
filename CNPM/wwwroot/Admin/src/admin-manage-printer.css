@@ -106,7 +106,7 @@ h1 {
 
 .main .btn-group #add-printer,
 .main .btn-group #see-print-log,
-.manageprinter .btn-group #add, .enable,
+.manageprinter .btn-group #add, .enable, #done,
 .noti .btn-group #cancel-remove,
 .noti .btn-group #done-remove {
   padding: 5px 10px;
@@ -123,7 +123,7 @@ h1 {
 }
 
 .main .btn-group #remove-printer,
-.manageprinter .btn-group .disable,
+.manageprinter .btn-group .disable, #cancel,
 .noti .btn-group #confirm-remove {
   padding: 5px 10px;
   border-radius: 2px;

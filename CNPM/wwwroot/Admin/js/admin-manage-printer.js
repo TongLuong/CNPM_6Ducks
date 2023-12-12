@@ -3,6 +3,8 @@ $(document).ready(function () {
     $("input").prop("readonly", true);
     $(".printer-list").hide();
     $("#btn-change-state").css("display", "none");
+    $("#done").css("display", "none");
+    $("#cancel").css("display", "none");
 
     $("#printer-name ~ span").click(function () {
         if ($(this).text() === "Sửa") {
@@ -20,14 +22,15 @@ $(document).ready(function () {
         $(".printer-list .item:not(.disabled)").click(function () {
             $(".item.selected").toggleClass("selected");
             $(this).toggleClass("selected");
-            if ($(".item.selected").length === 0) {
+            /*if ($(".item.selected").length === 0) {
                 $(".choose .btn-group").html("");
-            } else {
+            }
+            else {
                 $(".choose .btn-group").html(
                     $("<button type='button' id='remove-printer'>Xóa máy in</button>")
                 );
-            }
-
+            }*/
+            
             /*console.log(
                 printer[$(this).attr("class").split(" ")[1].split("-")[1]].floor
             );*/
@@ -53,7 +56,8 @@ $(document).ready(function () {
                     currentPrinterID = printer[index].id;
                     currentPrinterState = response.currentState;
 
-                    if (currentPrinterState == "Sẵn sàng") {
+                    if (currentPrinterState == "Sẵn sàng" ||
+                        currentPrinterState == "Đang chờ") {
                         $("input[name = 'status']").css("color", "#0a5d02");
 
                         $("#btn-change-state").css("display", "");
@@ -155,7 +159,8 @@ $(document).ready(function () {
 
     $("#btn-change-state").click(function () {
         var newState = currentPrinterState;
-        if (currentPrinterState == "Sẵn sàng") {
+        if (currentPrinterState == "Sẵn sàng" ||
+            currentPrinterState == "Đang chờ") {
             newState = "Vô hiệu";
             $("#btn-change-state").text("Bật máy in");
             $("#btn-change-state").attr("class", "enable");
@@ -182,9 +187,24 @@ $(document).ready(function () {
     });
 
     $("#add").click(function () {
+        $("#done").css("display", "");
+        $("#cancel").css("display", "");
+        $("#btn-change-state").css("display", "none");
+        $("input").prop("readonly", false);
+        $("#printer-name ~ span").css("display", "none");
+        $("input[name = 'status']").css("color", "#000");
+        $("label[for = 'remain-ink']").text("Tòa nhà");
+        $("label[for = 'used-page']").text("Tầng");
+
+        var allInput = $(".property-list input");
+        allInput.each(function () {
+            $(this).val("");
+        });
+    });
+    $("#done").click(function () {
         var name = $("input[name = 'printer-name']").val();
         var brand = $("input[name = 'firm']").val();
-        var pagesLeft = $("input[name = 'status']").val();
+        //var pagesLeft = $("input[name = 'status']").val();
         var pagesLeft = $("input[name = 'remain-page']").val();
         var building = $("input[name = 'remain-ink']").val();
         var floor = $("input[name = 'used-page']").val();
@@ -200,7 +220,28 @@ $(document).ready(function () {
                 "des": des,
                 "pagesLeft": pagesLeft
             }
-        )
+        );
+
+        $("#done").css("display", "none");
+        $("#cancel").css("display", "none");
+        $("#printer-name ~ span").css("display", "");
+        $("input").prop("readonly", true);
+        $("label[for = 'remain-ink']").text("Lượng mực còn lại");
+        $("label[for = 'used-page']").text("Số trang đã in");
+    });
+
+    $("#cancel").click(function () {
+        var allInput = $(".property-list input");
+        allInput.each(function () {
+            $(this).val("");
+        });
+
+        $("#done").css("display", "none");
+        $("#cancel").css("display", "none");
+        $("#printer-name ~ span").css("display", "");
+        $("input").prop("readonly", true);
+        $("label[for = 'remain-ink']").text("Lượng mực còn lại");
+        $("label[for = 'used-page']").text("Số trang đã in");
     });
 
     //   $(".building-list .item").click(function () {

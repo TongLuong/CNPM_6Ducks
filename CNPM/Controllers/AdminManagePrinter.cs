@@ -156,6 +156,8 @@ namespace CNPM.Controllers
                 , conn
             );
 
+            cmd.CommandType = CommandType.StoredProcedure;
+
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@building", building);
             cmd.Parameters.AddWithValue("@floor", floor);
