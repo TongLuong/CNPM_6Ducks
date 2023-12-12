@@ -96,14 +96,15 @@ RETURN
 );
 GO
 
-create function display_printer_info(@building nvarchar(50), @floor int)
+--drop function display_printer_info
+create function display_printer_info(@printerID int)
 returns table
 as
 return 
 (
-	select [name],brand,currentState, pagesLeft, inkLeft,total_printed
+	select [name],brand,currentState, pagesLeft, inkLeft,total_printed,[des]
 	from Printer
-	where building = @building and [floor] = @floor
+	where printer_id = @printerID
 );
 go
 
@@ -260,13 +261,14 @@ begin
 end
 go
 
--- DROP PROCEDURE unactive_printer
-CREATE PROCEDURE unactive_printer
-    @printer_id INT
+-- DROP PROCEDURE change_state_printer
+CREATE PROCEDURE change_state_printer
+    @printer_id INT,
+	@newState NVARCHAR(50)
 AS
 BEGIN
     UPDATE Printer
-    SET currentState = N'Vô hiệu'
+    SET currentState = @newState
     WHERE printer_id = @printer_id;
 END
 GO

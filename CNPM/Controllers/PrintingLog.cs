@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace CNPM.Controllers
 {
@@ -120,6 +121,25 @@ namespace CNPM.Controllers
             cmd.ExecuteNonQuery();
 
             conn.Close();
+        }
+
+        [HttpPost]
+        public void Print(string fileName)
+        {
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.Verb = "print";
+            info.FileName = fileName;
+            info.CreateNoWindow = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+
+            Process p = new Process();
+            p.StartInfo = info;
+            p.Start();
+
+            p.WaitForInputIdle();
+            System.Threading.Thread.Sleep(3000);
+            if(!p.CloseMainWindow())
+                p.Kill();
         }
     }
 }

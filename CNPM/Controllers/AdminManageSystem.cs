@@ -8,7 +8,7 @@ namespace CNPM.Controllers
     public class AdminManageSystem : Controller
     {
         SqlConnection conn;
-
+        
         public AdminManageSystem()
         {
             //conn = new SqlConnection(connectionString);

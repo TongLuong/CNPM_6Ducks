@@ -26,13 +26,14 @@ namespace CNPM.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT building,floor,currentState FROM Printer", conn);
+            SqlCommand cmd = new SqlCommand("SELECT building,floor,currentState,printer_id FROM Printer", conn);
 
             SqlDataReader dr = cmd.ExecuteReader();
             int num = 0;
             List<string> buildings = new List<string>();
             List<string> floors = new List<string>();
             List<string> currentStates = new List<string>();
+            List<string> printer_id = new List<string>();
 
             if (dr.HasRows)
             {
@@ -40,49 +41,50 @@ namespace CNPM.Controllers
                 {
                     num++;
                     buildings.Add(dr.GetString(0));
-                    currentStates.Add(dr.GetString(2));
                     floors.Add(dr.GetInt32(1).ToString());
+                    currentStates.Add(dr.GetString(2));
+                    printer_id.Add(dr.GetInt32(3).ToString());
                 }
             }
 
             conn.Close();
 
             return new JsonResult(
-                new { building = buildings, floor = floors, currentState = currentStates });
+                new { building = buildings, floor = floors, 
+                    currentState = currentStates, printerID = printer_id });
         }
 
-        public JsonResult ShowPrinter(string building, string floorStr)
+        public JsonResult ShowPrinter(string printerID)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            int floor = Int32.Parse(floorStr);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.display_printer_info(@printerID)", conn);
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.display_printer_info(@building,@floor)", conn);
-
-            cmd.Parameters.AddWithValue("@building", building);
-            cmd.Parameters.AddWithValue("@floor", floor);
+            cmd.Parameters.AddWithValue("@printerID", printerID);
 
             SqlDataReader dr = cmd.ExecuteReader();
             int num = 0;
-            List<string> names = new List<string>();
-            List<string> brands = new List<string>();
-            List<string> currentStates = new List<string>();
-            List<string> pagesLeft = new List<string>();
-            List<string> inksLeft = new List<string>();
-            List<string> totalPrinteds = new List<string>();
+            string names= "";
+            string brands= "";
+            string currentStates= "";
+            string pagesLeft= "";
+            string inksLeft= "";
+            string totalPrinteds= "";
+            string description= "";
 
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
                     num++;
-                    names.Add(dr.GetString(0));
-                    brands.Add(dr.GetString(1));
-                    currentStates.Add(dr.GetString(2));
-                    pagesLeft.Add(dr.GetInt32(3).ToString());
-                    inksLeft.Add(dr.GetDecimal(4).ToString());
-                    totalPrinteds.Add(dr.GetInt32(5).ToString());
+                    names = dr.GetString(0);
+                    brands = dr.GetString(1);
+                    currentStates = dr.GetString(2);
+                    pagesLeft = dr.GetInt32(3).ToString();
+                    inksLeft = dr.GetDecimal(4).ToString();
+                    totalPrinteds = dr.GetInt32(5).ToString();
+                    description = dr.GetString(6).ToString();
                 }
             }
 
@@ -90,7 +92,11 @@ namespace CNPM.Controllers
 
             return new JsonResult
             (
-                new { number = num, name = names, brand = brands, currentState = currentStates, pageLeft = pagesLeft, inkLeft = inksLeft, totalPrinted = totalPrinteds }
+                new { number = num, name = names, brand = brands, 
+                    currentState = currentStates, pageLeft = pagesLeft, 
+                    inkLeft = inksLeft, totalPrinted = totalPrinteds,
+                    des = description
+                }
             );
 
         }
@@ -111,6 +117,51 @@ namespace CNPM.Controllers
             cmd.Parameters.AddWithValue("@building", building);
             cmd.Parameters.AddWithValue("@floor", floor);
             cmd.Parameters.AddWithValue("@name", newName);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        public void ChangePrinterState(string printerID, string newState)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "[dbo].[change_state_printer]"
+                , conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@printer_id", printerID);
+            cmd.Parameters.AddWithValue("@newState", newState);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        public void AddPrinter(string name, string building,
+            string floor, string brand, string des, string pagesLeft)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "[dbo].[insert_printer]"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@building", building);
+            cmd.Parameters.AddWithValue("@floor", floor);
+            cmd.Parameters.AddWithValue("@brand", brand);
+            cmd.Parameters.AddWithValue("@des", des);
+            cmd.Parameters.AddWithValue("@pagesLeft", pagesLeft);
 
             cmd.ExecuteNonQuery();
 
