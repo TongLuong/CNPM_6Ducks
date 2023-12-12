@@ -4,7 +4,7 @@ GO
 -- DROP PROCEDURE insert_noti
 CREATE PROCEDURE insert_noti
     @usernoti_id VARCHAR(7),
-    @fn VARCHAR(1000)
+    @fn NVARCHAR(1000)
 AS
 BEGIN
     DECLARE @detail VARCHAR(1000) = N'Tài liệu ' + @fn + N' của bạn đã được in xong';
@@ -30,7 +30,7 @@ GO
 CREATE PROCEDURE noti_before_print
     @user_id VARCHAR(7),
     @printer_id INT,
-    @file_name VARCHAR(1000),
+    @file_name NVARCHAR(1000),
     @no_pages INT,
 	@paperType VARCHAR(3),
 	@time_start DATETIME

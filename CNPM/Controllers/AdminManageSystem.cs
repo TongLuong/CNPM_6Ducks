@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
+using System;
 
 namespace CNPM.Controllers
 {
@@ -73,6 +74,58 @@ namespace CNPM.Controllers
                 cmd.ExecuteNonQuery();
             }
             conn.Close();
+        }
+
+        public JsonResult LoadSystem()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            int defNoPage = 0, timeReset = 0, price = 0, maxPrint = 0; string fileTypes = "";
+
+            SqlCommand cmd = new SqlCommand("select * from page_setting",conn);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                while(dr.Read())
+                {
+                    defNoPage = dr.GetInt32(0);
+                    price = dr.GetInt32(1);
+                    maxPrint = dr.GetInt32(2);
+                    timeReset = dr.GetInt32(3);
+                }
+            }
+
+            //--------------------------------------------------
+
+            cmd = new SqlCommand("select * from file_type", conn);
+
+            dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    fileTypes += dr.GetString(0) + ",";
+                }
+                fileTypes.Remove(fileTypes.Length - 1);
+            }
+
+            conn.Close();
+
+            return new JsonResult
+            (
+                new
+                {
+                    default_no_page = defNoPage,
+                    page_price = price,
+                    max_print_per = maxPrint,
+                    resetdate = timeReset,
+                    file_type = fileTypes
+                }
+            );
         }
 
         public int LoadTotalPrint(int year)
