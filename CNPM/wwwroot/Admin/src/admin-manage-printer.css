@@ -123,7 +123,7 @@ h1 {
 }
 
 .main .btn-group #remove-printer,
-.manageprinter .btn-group .disable, #cancel,
+.manageprinter .btn-group .disable, #cancel, .turnback,
 .noti .btn-group #confirm-remove {
   padding: 5px 10px;
   border-radius: 2px;
@@ -138,7 +138,7 @@ h1 {
   letter-spacing: 0.168px;
 }
 
-.manageprinter .btn-group #cancel,
+.manageprinter .btn-group #cancel, .turnback,
 .noti .btn-group #cancel-remove {
   margin-left: 6px;
 }

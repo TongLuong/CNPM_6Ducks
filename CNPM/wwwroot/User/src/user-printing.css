@@ -146,6 +146,22 @@ label {
 }
 }
 
+.turn-back {
+    margin-top: 0px;
+    text-align: center;
+
+    & .turnback
+    {
+        background-color: #1488db33;
+        border-radius: 2px;
+        border: 2px solid;
+        border-color: var(--secondary-500);
+        color: #2ca4f3;
+        margin: 0px 0px 0px 0px;
+        width: 25%;
+    }
+}
+
 button {
   cursor: pointer;
 }

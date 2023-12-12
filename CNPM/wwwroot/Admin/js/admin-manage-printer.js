@@ -95,40 +95,61 @@ $(document).ready(function () {
             status: "",
         },
     ];
-    $.ajax({
-        url: "AdminManagePrinter/DisplayAllPrinter",
-        dataType: "json",
-        async: false,
-        success: function (response) {
-            console.log(response);
-            for (var i = 0; i < response.building.length; i++) {
-                printer[i] = {
-                    id: response.printerID[i],
-                    name:
-                        response.building[i] +
-                        "-" +
-                        response.floor[i] +
-                        "0" +
-                        response.floor[i],
-                    building: response.building[i],
-                    floor: response.floor[i],
-                    status: response.currentState[i],
-                };
 
-                var buildingID = response.building[i][1];
-                var item =
-                    `<div class="item item-` +
-                    i +
-                    `">
+    function addPrinter() {
+        $.ajax({
+            url: "AdminManagePrinter/DisplayAllPrinter",
+            dataType: "json",
+            async: false,
+            success: function (response) {
+                console.log(response);
+                for (var i = 0; i < response.building.length; i++) {
+                    printer[i] = {
+                        id: response.printerID[i],
+                        name:
+                            response.building[i] +
+                            "-" +
+                            response.floor[i] +
+                            "0" +
+                            response.floor[i],
+                        building: response.building[i],
+                        floor: response.floor[i],
+                        status: response.currentState[i],
+                    };
+
+                    var buildingID = response.building[i][1];
+                    var item =
+                        `<div class="item item-` +
+                        i +
+                        `">
             <img src="/Admin/img/printer.svg" alt="" />
             <span>` +
-                    printer[i].name +
-                    `</span>
+                        printer[i].name +
+                        `</span>
         </div>`;
-                $(".list.building-" + buildingID).append(item);
-                itemClick();
-            }
-        },
+                    $(".list.building-" + buildingID).append(item);
+                    itemClick();
+                }
+            },
+        });
+    }
+    addPrinter();
+
+    $(".turnback").click(function () {
+        $(".building-list").show();
+        $(".printer-list").hide();
+        $(".printer-list .item").remove();
+
+        printer = [
+            {
+                name: "",
+                building: "",
+                floor: "",
+                id: "",
+                status: "",
+            },
+        ];
+        addPrinter();
     });
 
     function display_printer_info(

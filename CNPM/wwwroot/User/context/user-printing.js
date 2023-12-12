@@ -138,6 +138,19 @@ $(document).ready(function () {
                 break;
         }
 
+        var item =
+            '<div class="item">' +
+            '<img src = "/User/img/printer.png" alt = "" />' +
+            '<span>H6 - 107</span>' +
+            '</div >';
+
+        for (var i = 0; i < values.length; i++) {
+            if (i % 2 == 0)
+                $(".printer-list .left-col").append(item);
+            else
+                $(".printer-list .right-col").append(item);
+        }
+
         $(".down-box .building-wrapper").css("display", "none");
         $(".printer-list").css("display", "grid");
 
@@ -179,6 +192,29 @@ $(document).ready(function () {
             $("#pagesLeft").text(temp[0]);
             $("#inkLeft").text(temp[1] + "%");
         });
+    });
+
+    $(".turnback").click(function () {
+        var list = [];
+        list.push($(".down-box .building-wrapper"));
+        list.push($(".printer-list"));
+        list.push($(".printer-pick"));
+
+        for (var i = 1; i < list.length; i++) {
+            if (list[i].css("display") != "none") {
+                list[i - 1].css("display", "grid");
+                list[i].css("display", "none");
+
+                if (i == 1) {
+                    $(".printer-list .left-col .item").remove();
+                    $(".printer-list .right-col .item").remove();
+                }
+            }
+        }
+
+        /*$(".down-box .building-wrapper").css("display", "grid");
+        $(".printer-list").css("display", "none");
+        $(".printer-pick").css("display", "none");*/
     });
 
     $(".print").click(function () {
@@ -234,6 +270,14 @@ $(document).ready(function () {
 
         $(".modal").css("display", "block");
     });
+
+    $(".cancel").click(function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        var userID = urlParams.get('id');
+
+        location.href = "HomePage" + "?id=" + userID;
+    });
+
     $("#btn-done").click(function () {
         $(".modal").css("display", "none");
         $(".printer-pick").css("display", "none");
