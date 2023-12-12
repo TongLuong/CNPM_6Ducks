@@ -168,33 +168,31 @@ $(document).ready(function () {
 
     function display_system() {
         $.get("AdminManageSystem/LoadSystem", function (response) {
-            alert("Tongga");
-            document.getElementById("default-number-page").value = response.default_no_page;
-            //$("#default-number-page").val(response.default_no_page);
-            //$("#time-to-reset").val(response.resetdate);
-            //$("#default-price").val(response.page_price);
-            //$("#max-print-per-time").val(response.max_print_per);
-            //$("#file-type").val(response.file_type);
+            $("#default-number-page").val(response.default_no_page);
+            $("#time-to-reset").val(response.resetdate);
+            $("#default-price").val(response.page_price);
+            $("#max-print-per-time").val(response.max_print_per);
+            $("#file-type").val(response.file_type);
         });
     }
 
-  getStatPage();
-  $("#chart").click(function () {
-    $("#myChart-1").toggle("hide");
-    $("#myChart-2").toggle("hide");
-  });
+    getStatPage();
+    $("#chart").click(function () {
+        $("#myChart-1").toggle("hide");
+        $("#myChart-2").toggle("hide");
+    });
 
-  $("#myChart-2").hide();
+    $("#myChart-2").hide();
 
-  $("#edit").click(function() {
-    $(".managesystem > .btn-group").toggleClass("hide");
-    $("input").prop("readonly", false);
-  })
+    $("#edit").click(function () {
+        $(".managesystem > .btn-group").toggleClass("hide");
+        $("input").prop("readonly", false);
+    })
 
-  $("#cancel").click(function() {
-    $(".managesystem > .btn-group").toggleClass("hide");
-    $("input").prop("readonly", true);
-  })
+    $("#cancel").click(function () {
+        $(".managesystem > .btn-group").toggleClass("hide");
+        $("input").prop("readonly", true);
+    })
 
     display_system();
 });

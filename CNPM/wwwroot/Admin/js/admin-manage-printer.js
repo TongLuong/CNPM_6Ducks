@@ -20,6 +20,9 @@ $(document).ready(function () {
     var currentPrinterState = "";
     function itemClick() {
         $(".printer-list .item:not(.disabled)").click(function () {
+            $("#done").css("display", "none");
+            $("#cancel").css("display", "none");
+
             $(".item.selected").toggleClass("selected");
             $(this).toggleClass("selected");
             /*if ($(".item.selected").length === 0) {

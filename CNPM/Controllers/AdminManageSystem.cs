@@ -100,6 +100,9 @@ namespace CNPM.Controllers
 
             //--------------------------------------------------
 
+            conn.Close();
+            conn.Open();
+
             cmd = new SqlCommand("select * from file_type", conn);
 
             dr = cmd.ExecuteReader();
