@@ -7,7 +7,7 @@ CREATE PROCEDURE insert_noti
     @fn NVARCHAR(1000)
 AS
 BEGIN
-    DECLARE @detail VARCHAR(1000) = N'Tài liệu ' + @fn + N' của bạn đã được in xong';
+    DECLARE @detail NVARCHAR(1000) = N'Tài liệu ' + @fn + N' của bạn đã được in xong';
     INSERT INTO [Notification] VALUES (@usernoti_id, DEFAULT, @detail);
 END
 GO
