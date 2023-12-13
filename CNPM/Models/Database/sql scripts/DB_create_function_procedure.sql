@@ -192,7 +192,8 @@ create procedure change_user_info
 as
 begin
 	update [dbo].[User]
-    set [name] = @name
+    set
+      [name] = @name
       ,[dob] = @dob
       ,[sex] = @sex
       ,[hometown] = @hometown
@@ -205,13 +206,6 @@ begin
       ,[pwd] = @pwd
 	where [user_id] = @user_id
 
-	if @user_type is not null
-	begin
-		update [dbo].[User]
-		set [user_type] = @user_type
-		where [user_id] = @user_id
-	end
-
 	if @status is not null
 	begin
 		update [dbo].[User]
@@ -219,6 +213,13 @@ begin
 		where [user_id] = @user_id
 	end
 	 
+	 if @user_type is not null
+	begin
+		update [dbo].[User]
+		set [user_type] = @user_type
+		where [user_id] = @user_id
+	end
+
 	if @transaction_id is not null
 	begin
 		update [dbo].[User]
