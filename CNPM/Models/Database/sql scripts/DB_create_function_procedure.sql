@@ -378,10 +378,10 @@ begin
 	declare @a2 int = 0
 	declare @a1 int = 0
 
-	set @a1 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A1' and (@mm is null or MONTH(time_end) = @mm))
-	set @a2 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A2' and (@mm is null or MONTH(time_end) = @mm))
-	set @a3 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3' and (@mm is null or MONTH(time_end) = @mm))
-	set @a4 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4' and (@mm is null or MONTH(time_end) = @mm))
+	set @a1 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A1' and (@mm is null or MONTH(time_end) = @mm))
+	set @a2 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A2' and (@mm is null or MONTH(time_end) = @mm))
+	set @a3 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3' and (@mm is null or MONTH(time_end) = @mm))
+	set @a4 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4' and (@mm is null or MONTH(time_end) = @mm))
 
 	set @res = @a1 * 8 + @a2 * 4 + @a3 * 2 + @a4
 
@@ -415,10 +415,10 @@ begin
 	declare @a2 int = 0
 	declare @a1 int = 0
 
-	set @a1 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A1')
-	set @a2 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A2')
-	set @a3 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3')
-	set @a4 = (select count(*) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4')
+	set @a1 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A1')
+	set @a2 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A2')
+	set @a3 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3')
+	set @a4 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4')
 
 	insert into @res values(@year, @a1,@a2,@a3,@a4)
 	return
@@ -441,10 +441,10 @@ begin
 	begin
 		while @mm <= month(getdate()) and @mm <= 12
 		begin
-			set @a1 = (select count(*) from Print_log where YEAR(time_end) = @year and paperType = 'A1' and MONTH(time_end) = @mm)
-			set @a2 = (select count(*) from Print_log where YEAR(time_end) = @year and paperType = 'A2' and MONTH(time_end) = @mm)
-			set @a3 = (select count(*) from Print_log where YEAR(time_end) = @year and paperType = 'A3' and MONTH(time_end) = @mm)
-			set @a4 = (select count(*) from Print_log where YEAR(time_end) = @year and paperType = 'A4' and MONTH(time_end) = @mm)
+			set @a1 = (select sum(no_pages) from Print_log where YEAR(time_end) = @year and paperType = 'A1' and MONTH(time_end) = @mm)
+			set @a2 = (select sum(no_pages) from Print_log where YEAR(time_end) = @year and paperType = 'A2' and MONTH(time_end) = @mm)
+			set @a3 = (select sum(no_pages) from Print_log where YEAR(time_end) = @year and paperType = 'A3' and MONTH(time_end) = @mm)
+			set @a4 = (select sum(no_pages) from Print_log where YEAR(time_end) = @year and paperType = 'A4' and MONTH(time_end) = @mm)
 			insert into @res values(@year,@mm, @a1,@a2,@a3,@a4)
 
 			set @mm = @mm + 1
