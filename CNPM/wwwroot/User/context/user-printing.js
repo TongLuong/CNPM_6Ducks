@@ -109,11 +109,11 @@ $(document).ready(function () {
     })
 
     // Thêm sự kiện click cho mỗi id
-    var printerIndex, values_others, values_id;
+    var printerIndex, values_others, values_id, values;
     $("#1, #2, #3, #6").click(function () {
         var id = $(this).attr("id");
-        var values;
-
+        //var values;
+        
         // Sử dụng cấu trúc switch để xác định danh sách giá trị tương ứng với mỗi id
         switch (id) {
             case "1":
@@ -137,7 +137,7 @@ $(document).ready(function () {
                 values_others = values_6_others;
                 break;
         }
-
+        
         var item =
             '<div class="item">' +
             '<img src = "/User/img/printer.png" alt = "" />' +
@@ -230,7 +230,7 @@ $(document).ready(function () {
             alert("Vui lòng nhập số trang của tập tin!");
             return;
         }
-
+        
         var urlParams = new URLSearchParams(window.location.search);
         var e = document.getElementById("size");
 
