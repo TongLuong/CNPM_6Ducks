@@ -19,7 +19,7 @@ namespace CNPM.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.display_notification(@userID)", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.display_notification(@userID) ORDER BY [time] desc", conn);
 
             cmd.Parameters.AddWithValue("@userID", userID);
 
