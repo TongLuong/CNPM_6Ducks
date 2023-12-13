@@ -383,6 +383,11 @@ begin
 	set @a3 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3' and (@mm is null or MONTH(time_end) = @mm))
 	set @a4 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4' and (@mm is null or MONTH(time_end) = @mm))
 
+	if @a1 is null set @a1 = 0
+	if @a2 is null set @a2 = 0
+	if @a3 is null set @a3 = 0
+	if @a4 is null set @a4 = 0
+
 	set @res = @a1 * 8 + @a2 * 4 + @a3 * 2 + @a4
 
 	return @res
@@ -420,6 +425,11 @@ begin
 	set @a3 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A3')
 	set @a4 = (select sum(no_pages) from Print_log where YEAR(time_end)  = @year and  paperType = 'A4')
 
+	if @a1 is null set @a1 = 0
+	if @a2 is null set @a2 = 0
+	if @a3 is null set @a3 = 0
+	if @a4 is null set @a4 = 0
+
 	insert into @res values(@year, @a1,@a2,@a3,@a4)
 	return
 end
@@ -445,6 +455,12 @@ begin
 			set @a2 = (select sum(no_pages) from Print_log where YEAR(time_end) = @year and paperType = 'A2' and MONTH(time_end) = @mm)
 			set @a3 = (select sum(no_pages) from Print_log where YEAR(time_end) = @year and paperType = 'A3' and MONTH(time_end) = @mm)
 			set @a4 = (select sum(no_pages) from Print_log where YEAR(time_end) = @year and paperType = 'A4' and MONTH(time_end) = @mm)
+			
+			if @a1 is null set @a1 = 0
+			if @a2 is null set @a2 = 0
+			if @a3 is null set @a3 = 0
+			if @a4 is null set @a4 = 0
+			
 			insert into @res values(@year,@mm, @a1,@a2,@a3,@a4)
 
 			set @mm = @mm + 1
