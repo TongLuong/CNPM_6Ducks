@@ -134,6 +134,7 @@ $(document).ready(function () {
     function displayBuyPageLog(userID) {
         $.get("Purchasing/ShowBuyPageLog", { "userID": userID },
             function (response) {
+                $(".result").html("");
                 for (let i = 0; i < response.number; i++) {
                     showBuyPageLogItem(response.transactionCode[i], response.time[i], response.numberOfPage[i], response.price[i]);
                 }
