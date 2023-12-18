@@ -49,6 +49,10 @@ h1 {
   line-height: 24px;
 }
 
+#toggle-edit {
+  padding: 10px;
+}
+
 .search-user .btn-group #confirm-search {
   cursor: pointer;
   border-radius: 2px;

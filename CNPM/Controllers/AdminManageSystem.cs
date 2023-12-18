@@ -60,10 +60,11 @@ namespace CNPM.Controllers
             if (fileTypes.Contains('.'))
             {
                 string[] fileType = fileTypes.Split(',');
+                cmd.Parameters.AddWithValue("@type", "");
                 foreach (string type in fileType)
                 {
                     string ft = string.Join("", type.Split(' '));
-                    cmd.Parameters.AddWithValue("@type", ft);
+                    cmd.Parameters["@type"].Value = ft;
                     cmd.ExecuteNonQuery();
                 }
             }
