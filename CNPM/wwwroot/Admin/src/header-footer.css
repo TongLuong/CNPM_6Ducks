@@ -3,19 +3,32 @@ body {
 }
 
 .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: 0;
   width: 100%;
   height: 77px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .nav .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-left: 20px;
 }
@@ -40,8 +53,14 @@ body {
 }
 
 .nav .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-right: 20px;
 }
@@ -57,13 +76,19 @@ body {
   font-weight: 600;
   line-height: 17px;
   cursor: pointer;
+  -webkit-transform: scaleZ(1);
   transform: scaleZ(1);
-  transition: all .5 ease-in;
+  -webkit-transition: all 0.5 ease-in;
+  -o-transition: all 0.5 ease-in;
+  transition: all 0.5 ease-in;
 }
 
 .nav .right .logout:hover {
+  -webkit-transform: scaleZ(1.05);
   transform: scaleZ(1.05);
-  transition: all .5 ease-out;
+  -webkit-transition: all 0.5 ease-in-outout;
+  -o-transition: all 0.5 ease-in-out;
+  transition: all 0.5 ease-in-out;
 }
 
 .nav .right .login {
@@ -72,13 +97,19 @@ body {
   font-weight: 600;
   line-height: 17px;
   cursor: pointer;
+  -webkit-transform: scaleZ(1);
   transform: scaleZ(1);
-  transition: all .5 ease-in;
+  -webkit-transition: all 0.5 ease-in-out;
+  -o-transition: all 0.5 ease-in-out;
+  transition: all 0.5 ease-in-out;
 }
 
 .nav .right .login:hover {
+  -webkit-transform: scaleZ(1.05);
   transform: scaleZ(1.05);
-  transition: all .5 ease-out;
+  -webkit-transition: all 0.5 ease-in-out;
+  -o-transition: all 0.5 ease-in-out;
+  transition: all 0.5 ease-in-out;
 }
 
 .nav .right div {
@@ -86,8 +117,14 @@ body {
 }
 
 .nav .right .language {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   & i {
@@ -98,22 +135,40 @@ body {
 }
 
 .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   padding: 14px 0;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.3);
 }
 
 .footer .left,
 .footer .middle,
 .footer .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin: 0 20px;
 }
@@ -126,16 +181,28 @@ body {
 
 .footer .left .infoBK,
 .footer .left .infoTeam {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   margin-bottom: 20px;
 }
 
 .footer .middle > div,
 .footer .right > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   padding-left: 10px;
 }
