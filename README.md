@@ -59,7 +59,7 @@
    - Xem các báo cáo và thống kê để hiểu rõ về việc sử dụng dịch vụ.
 
 ## Hướng dẫn cài đặt
-1. **Clone project** : clone project thông qua link [này](https://github.com/TongLuong/CNPM_6Ducks.git) hoặc download file zip
-2. **Upload cơ sở dữ liệu** : tìm kiếm file bacpac theo đường dẫn sau *CNPM/Models/Database/bacpac/DB_Printing.bacpac* và import vào SQL Server Management với tên *DP_Printing*
-3. **Điều chỉnh đường dẫn kết nối cơ sở dữ liệu** : tìm kiếm file config theo đường dẫn sau *CNPM/wwwroot/app.config* và thay đổi *Data source* trong connectionString cho phù hợp *(mặc định là TONGKHANGTE)*
-4. **Debug** : sử dụng Visual Studio 2022 hoặc 2019 có tích hợp .Net6 để debug và sử dụng  
+1. **Clone project** : sử dụng `git clone` để clone project.
+3. **Upload cơ sở dữ liệu** : tìm kiếm file bacpac theo đường dẫn sau *CNPM/Models/Database/bacpac/DB_Printing.bacpac* - đây là file chứa cấu trúc và dữ liệu của hệ thống cơ sở dữ liệu, tiếp đó import vào SQL Server Management với tên *DB_Printing*.
+4. **Điều chỉnh đường dẫn kết nối cơ sở dữ liệu** : tìm kiếm file config theo đường dẫn sau *CNPM/wwwroot/app.config* và thay đổi tham số connectionString phù hợp để kết nối đến database server.
+5. **Nền tảng phát triển** : dự án được phát triển trên nền *ASP.NET Core MVC*.
